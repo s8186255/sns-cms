@@ -1,0 +1,7 @@
+<% for item in @appointed_items%>
+  <%= link_to item.value,:action=>'show',:id=> item.info_id %>
+  (<%=  item.updated_at.month %>月<%=  item.updated_at.day %>日<%=  item.updated_at.hour %>点)
+  <%= link_to "编辑",:action=>'edit',:id=> item.info_id %>
+  <%= link_to "remove",:id=> item.info_id,:controller=>'infos',:action=>'delete_info' %>
+  <br>
+<% end%>

@@ -1,0 +1,43 @@
+<div id="info_list">
+
+  <%@infos.each do |info|%>
+    <ul>
+      <%unless info.title.nil?%>
+
+        <li>
+
+          <%if info.title.content_type_id == 5%>
+            <%= info.title.value%>
+          <%elsif info.title.content_type_id == 7%>
+            <%=image_tag(info.title.attachments.find(:first).public_filename(:thumb))%>
+          <%end%>
+          <p>
+    <%#=info.summary%>
+          </p>
+        </li>
+        <li class="info_statistics">
+          发布到<%= info.topics.size %>个地盘
+          浏览<%= info.number_of_view %>次
+          共<%= info.number_of_comments %>评论
+        </li>
+        <li class="info_statistics">隶属地盘:
+          <% info.belong_to_following_topic(current_user.id).each do |topic|  %>
+            【<%=topic.title%>】
+          <%end unless @info_list_type == 0%>
+        </li>
+        <%if info.edit_by?(current_user)%>
+          <li class="info_statistics">
+            <%= link_to '查看' ,:action=> :info_detail,:id=>info.id %>
+            <%= link_to '修改' ,:action=> :edit_info,:id=>info.id %>
+            <%= link_to '删除' ,:action=> :drop_info,:id=>info.id %>
+          </li>
+        <%else %>
+          <li class="info_statistics">
+            <%= link_to '查看' ,:action=> :info_detail,:id=>info.id %>
+          </li>
+        <%end%>
+      <%end%>
+    </ul>
+  <%end%>
+
+</div>

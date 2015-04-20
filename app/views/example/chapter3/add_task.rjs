@@ -1,0 +1,4 @@
+
+page.replace_html 'task_list', :partial => 'list'
+
+page.visual_effect :highlight, 'task_list', :duration => 4 

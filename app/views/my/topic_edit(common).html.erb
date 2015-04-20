@@ -1,0 +1,70 @@
+<% form_for @topic do |f| %>
+
+  <h3>名称</h3>
+  <%= f.text_field :title %>
+  <h3>别称</h3>
+  <%= f.text_field :my_title%>
+  <h3>描述</h3>
+  <%= f.text_area :description,:size=>"30X50" %>
+  <h3>图片</h3>
+  <%unless @topic.topic_avatar.nil?%>
+    <%=image_tag @topic.topic_avatar.public_filename%>
+  <%else%>
+    <%=image_tag 'rails.png'%>
+  <%end%>
+  更换图片：<%= file_field_tag "topic_avatar" %>
+  <h3>状态</h3>
+  <%= f.radio_button :status,1%>正常
+  <%= f.radio_button :status,0%>关闭
+  <%= f.radio_button :status,2%>删除
+
+  <h3>是否验证别人加入的信息:</h3>
+  <%= f.radio_button :if_verify_info,false%>不需要验证
+  <%= f.radio_button :if_verify_info,true%>需要验证
+
+  <h3>允许谁follow:</h3>
+  <%= f.radio_button :following_mode,1%>任何人加入
+  <%= f.radio_button :following_mode,2%>允许成员
+  <%= f.radio_button :following_mode,0%>自己使用
+
+  <h3>允许谁维护:</h3>
+  <%= f.radio_button :maintaining_mode,1%>任何人
+  <%= f.radio_button :maintaining_mode,2%>成员
+  <%= f.radio_button :maintaining_mode,0%>本人
+
+  <h3>应用栏目:</h3>
+  已经使用了如下应用<br>
+  <!--
+  暂时不使用调整顺序的功能
+  <span id="choice">选择 </span><span id="cloud_tool_name">信息工具</span><span id="display_order">顺序</span><span id="display_name">在地盘中的名称</span>
+  -->
+  <span id="choice">选择 </span><span id="cloud_tool_name">信息工具</span><span id="display_name">在地盘中的名称</span>
+
+  <div class="clear"></div>
+  <%@used_info_types.each do |info_type|%>
+    <span id="choice"><%= check_box_tag 'info_type_id[]',info_type.id,true%></span>
+    <span id="cloud_tool_name"><%= info_type.cloud_tool_name %></span>
+    <%#=text_field_tag "display_order_in_topic_#{info_type.id}",'',:id=>'display_order'%>
+    <%=text_field_tag "display_name_in_topic_#{info_type.id}",info_type.name_and_order_in_topic(@topic.id)[0],:id=>'display_name'%>
+    <div class="clear"></div>
+  <%end%>
+  可以添加下面的信息类型<br>
+  <!--
+  暂时不使用调整顺序的功能
+  <span id="choice">选择 </span><span id="cloud_tool_name">信息工具</span><span id="display_order">顺序</span><span id="display_name">在地盘中的名称</span>
+  -->
+  <span id="choice">选择 </span><span id="cloud_tool_name">信息工具</span><span id="display_name">在地盘中的名称</span>
+  <div class="clear"></div>
+  <%@remained_info_types.each do |info_type|%>
+    <span id="choice"><%= check_box_tag 'info_type_id[]',info_type.id%></span>
+    <span id="cloud_tool_name"><%= info_type.cloud_tool_name %></span>
+    <%#=text_field_tag "display_order_in_topic_#{info_type.id}",'',:id=>'display_order'%>
+    <%=text_field_tag "display_name_in_topic_#{info_type.id}",'',:id=>'display_name'%>
+    <div class="clear"></div>
+  <%end%>
+  <h3>调整追随者</h3>
+  <h3>调整维护者</h3>
+  <h3>调整信息</h3>
+
+  <%= submit_tag '更新' %>
+<% end %>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>管理首页</title>
+    <link href="indexOfUser/index_my.css" rel="stylesheet" type="text/css" />
+    <%= stylesheet_link_tag 'indexOfAdmin/index_my.css' %>
+
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+    <!--container是一个页面容器div定义了可见区域的-->
+    <div id="container">
+      <!--pageHeader定义页面头部信息-->
+      <div id="pageHeader">
+        <div id="banner"></div>
+        <div id="login">
+          <% if logged_in? %>
+            <p><%= Time.now%></p>
+            <p>
+              登录者是:
+              <%= current_user.login %>
+              <%= link_to "注销", session_path,:method => :delete %>
+            </p>
+          <% else %>
+            <p><%= Time.now%></p>
+            <p><b>你还尚未登陆，请选择</b> <%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+          <% end %>
+        </div>
+      </div>
+      <!--left定义页面左侧信息-->
+      <div id="left">
+        <div id ="menu">
+          <h3>个人管理</h3>
+          <ul>
+            <li><%= link_to "用户管理",:controller=>'/admin/users',:action=>'index' %>
+              <ul>
+                <li><%= link_to "新建",:controller=>'/admin/users',:action=>'new' %></li>
+              </ul>
+            </li>
+            <li><%= link_to "内容类型管理",:controller=>'/admin/content_types',:action=>'index' %>
+              <ul>
+                <li><%= link_to "新建",:controller=>'/admin/content_types',:action=>'new' %></li>
+              </ul>
+            </li>
+            <li><%= link_to "信息工具管理",:controller=>'/admin/info_types',:action=>'index' %>
+              <ul>
+                <li><%= link_to "新建",:controller=>'/admin/info_types',:action=>'new' %></li>
+              </ul>
+            </li>
+            <li><%= link_to "推荐地盘管理",:controller=>'users',:action=>'index'%>
+              <ul>
+                <li><%= link_to "新建",:controller=>'/infos',:action=>'new' %></li>
+              </ul>
+            </li>
+            <li><%= link_to "角色管理",:controller=>'/admin/roles',:action=>'index'%>
+              <ul>
+                <li><%= link_to "新建",:controller=>'/admin/roles',:action=>'new' %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--middle定义页面中部信息-->
+      <div id="middle">
+        <%=yield%>
+      </div>
+      <!--right定义页面右侧信息-->
+      <div id="right">
+        <p>广告</p>
+      </div>
+      <!--footer定义页面底部信息-->
+      <div id ="footer"> </div>
+    </div>
+  </body>
+</html>

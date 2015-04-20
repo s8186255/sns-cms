@@ -1,0 +1,8 @@
+
+<div class="figure">
+<%= image_tag picture_path(@picture, :format => :png) %>
+<div class="legend">所有人：<%=h @picture.user.login rescue nil%>；是否为头像：<%= @picture.is_avatar %></div>
+</div>
+<%= debug @picture %>
+<%= link_to '编辑', [:edit,@picture],:class => "button" %>
+<%= link_to '返回',  pictures_path,:class => "button"   %>

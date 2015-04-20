@@ -1,0 +1,19 @@
+/* 
+    Document   : display
+    Created on : 2009-8-7, 10:40:58
+    Author     : saq
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#ajax_busy {position: absolute;
+            top: 0; right: 0;
+            width: 120px;
+            background-color: #900;
+            color: #fff;
+            padding: 4px;}

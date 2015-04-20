@@ -1,0 +1,7 @@
+<% @info_types.each do |info_type| %>
+  <%if @selected_info_type_ids.member?(info_type.id)%>
+    <%= check_box_tag 'selected_info_type_ids[]',info_type.id,true %><%=info_type.name%><br>
+  <%else%>
+    <%= check_box_tag 'selected_info_type_ids[]',info_type.id,false %><%=info_type.name%><br>
+  <%end%>
+<%end%>

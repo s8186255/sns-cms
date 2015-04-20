@@ -1,0 +1,13 @@
+<% form_tag({ :action => "add" },
+  
+  :enctype =>"multipart/form-data") do %>
+    <b>Files:</b>
+    <%= link_to_remote "Add field",
+                       :update => "files",
+                       :url => { :action => "add_field" },
+                       :position => "after" %>;
+    <div id="files">
+      <%= render :partial => 'add_field' %>
+    </div>
+    <%= submit_tag(value = "Add Files", options = {}) %>
+<% end %>

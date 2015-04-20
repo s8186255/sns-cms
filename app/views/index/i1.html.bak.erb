@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'list' %>
+<div id="list_block">
+
+  <h3>地盘数量</h3>
+  <div id="list">
+    <%= @topic_amount %>
+  </div>
+  <!-- 将信息列表展示-->
+  <h3>活跃地盘</h3>
+ <%unless @hot_topics.nil?%>
+    <% @hot_topics.each do |topic|%>
+      <div id="list">
+        [<%= topic.title %>][<%= topic.description %>]
+      </div>
+    <%end%>
+  <%end%>
+  <h3>常用地盘</h3>
+  <%unless @system_topics.nil?%>
+    <% @system_topics.each do |topic|%>
+      <div id="list">
+        [<%= topic.title %>][<%= topic.description %>]
+      </div>
+    <%end%>  
+  <%end%>
+
+
+  <!-- 将广告信息列表展示-->
+  <h3>推荐地盘</h3>
+  <%unless @ad_topics.nil?%>
+    <% @ad_topics.each do |topic|%>
+      <div id="list">
+        [<%= topic.title %>][<%= topic.description %>]
+      </div>
+    <%end%>  
+  <%end%>
+</div>
+

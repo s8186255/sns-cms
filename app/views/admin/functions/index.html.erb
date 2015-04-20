@@ -1,0 +1,24 @@
+<h1>Listing functions</h1>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% @functions.each do |function| %>
+  <tr>
+    <td><%=h function.id %></td>
+    <td><%=h function.name %></td>
+    <td><%=h function.description %></td>
+    <td><%= link_to 'Show', admin_function_path(function) %></td>
+    <td><%= link_to 'Edit', edit_admin_function_path(function) %></td>
+    <td><%= link_to 'Destroy', admin_function_path(function), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New function', new_admin_function_path %>

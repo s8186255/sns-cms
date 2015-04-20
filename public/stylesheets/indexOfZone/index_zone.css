@@ -1,0 +1,102 @@
+body {font-family:微软雅黑;text-align:center;background: #C4EEF4 ;}
+#title{text-align:left;margin-left:100px;width:1024px;font-size:12px;}
+/*container*/
+#container {
+  position:relative;
+  font-size: 24px;
+  width:1024px;
+  border-bottom:1px solid #DEDEDE;
+  text-align:left;
+  margin:auto;
+  background:#FFFFFF;
+
+
+}
+
+#banner {height:100px;border-bottom:1px solid #CCCCCC;margin-bottom:5px;}
+
+/*菜单栏*/
+
+#menu {
+  margin: 0px;
+  border-style: solid solid none solid;
+  border-color: #BCD2E6;
+  border-width: 1px;
+  font-size:80%;
+  position:absolute;
+  left: 3px;
+  top:105px;
+  width:200px;
+  
+  -moz-border-radius:7px 7px 7px 7px;
+  border:solid 1px #cccccc;
+}
+#menu #login{margin:0px;padding:0px;}
+#menu ul {list-style:none;margin:0px;padding:0px;}
+#menu li{
+  color: #8BADCF;
+  display: block;
+  text-align:center;
+}
+#menu li a{display:block;height:32px;line-height:30px;text-decoration:none;background-color:#F2F2F2;margin-bottom:5px;}
+#menu li a:hover{background-color:#009900;}
+
+/*搜索框定义*/
+#search {clear:left;min-height:38px;border-bottom:#cccccc solid 1px;}
+
+#search_text{width:100px;}
+
+
+
+/*内容*/
+#content {width: 500px;
+          min-height: 275px;
+          background-color:#FFFFFF;
+          margin-left:225px;
+          float:left;
+          -moz-border-radius:7px 7px 3px 3px;
+          border:solid 1px #cccccc;}
+
+/*放在middle中的列表内容*/
+#infoListArea{overflow:hidden}
+#infoListArea ul{list-style-type:none;margin-left:5px;padding:0px;font-size:70%}
+#infoListArea li{background-image:url("li_bg.gif");margin:5px;background-repeat:no-repeat;padding-left:8px}
+#infoListArea li a{color:#000000;text-decoration:none}
+/*info 详细信息显示*/
+#info{margin:5px}
+#infoItem{}
+#infoItemDescription{border-bottom:fuchsia;margin-bottom:10px;background-color:#E1F1F9}
+#infoItemContent{}
+#content_pic{width:100px;height:100px;}
+#other{margin-left:5px;}
+
+/*right*/
+#ad {width: 250px;height: 270px;float:left;;margin-left:20px;background:#ffffff;}
+
+/*foot*/
+#footer {width:1024px;	height: 32px;clear:left;}
+
+/*辅助*/
+#clear{clear:both}
+
+/**/
+.clear{clear:both}
+/*tab*/
+#Tab{width:400px;}
+.Menubox{height:32px;border-bottom:1px solid #64B8E4;background:inherit;font-size:60%;}
+.Menubox ul{list-style:none;padding:0;position:absolute;}
+.Menubox ul li{float:left;background:#64B8E4;line-height:20px;display:block;cursor:pointer;width:65px;text-align:center;color:#fff;font-weight:bold;border-top:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;}
+.Menubox ul li.hover{background:#fff;border-bottom:1px solid #fff;color:#147AB8;}
+.Contentbox{;font-size:60%;clear:both;margin-top:0px;border-top:none;border-bottom:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;height:181px;padding-top:8px;height:100%;}
+.Contentbox ul{list-style:none;margin:7px;padding:0;}
+.Contentbox ul li{line-height:24px;border-bottom:1px dotted #ccc;float:left;width:100px;}
+.Contentbox .textArea{text-decoration:none;border:solid;height:100px;width:380px;}
+/*html标记选择器单独定义*/
+h3{font-size:20px;
+   margin-top:0px;
+   background:#EAF1FE  repeat-x;
+   height:32px;
+   text-align:center;
+   -moz-border-radius:7px 7px 3px 3px;
+}
+p{font-size:16px;}

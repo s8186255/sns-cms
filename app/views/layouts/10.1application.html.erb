@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en">
+  <head>
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'effects' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag :defaults %>
+    <%= include_tiny_mce_if_needed %>
+    <%= javascript_include_tag :fckeditor %>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtKYXX5WYtu0QfFsN440O1BTJQa0g3IQ9GZqIMmInSLzwtGDKaBSUTgJnRDkcuDVwF2g_NCJ8KFJuQw" type="text/javascript"></script>
+    <script type="text/javascript">
+      var markers = [
+        {
+          'latitude': 37.818361,
+          'longitude': -122.478032,
+          'name': 'Golden Gate Bridge'
+        },
+        {
+          'latitude': 40.6897,
+          'longitude': -74.0446,
+          'name': 'Statue of Liberty'
+        },
+        {
+          'latitude': 38.889166,
+          'longitude': -77.035307,
+          'name': 'Washington Monument'
+        }
+      ];
+    </script>
+
+    <meta http-equiv="Content-type"
+          content="text/html; charset=utf-8" />
+    <title>一切皆可简单</title>
+    <%= stylesheet_link_tag 'style' %>
+
+  </head>
+  <body>
+    <% unless flash[:notice].blank? %>
+      <div id="notification"><%= flash[:notice] %></div>
+    <% end %>
+    <div id="content">
+      <h4>一切皆可简单</h4>
+      <%= yield %>
+    </div>
+
+    <div id="navleft">
+      <div id="login_logout">
+        <% if logged_in? %>
+          Logged in as:
+          <%= current_user.login %>
+          <em><%= link_to "(Logout)", session_path,:method => :delete %></em>
+        <% else %>
+          <em>Not logged in.</em>
+          <%= link_to 'Login', new_session_path %>
+        <% end %>
+      </div>
+      <p>here is menu</p>
+      <%#= link_to "我的云工具",:controller=>'infos',:action=>'list_info_types' %>
+      <a href="#"><h>==信息区==</h></a>
+      <%= link_to "我要录入twitter信息",:controller=>'infos',:action=>'new',:info_type_id=>24 %>
+      <%= link_to "我要录入格子信息",:controller=>'infos',:action=>'new',:info_type_id=>28 %>
+      <%= link_to "我的信息管理",:controller=>'infos',:action=>'get_my_infos' %>
+      <%= link_to "格子信息展示",:controller=>'special_displays',:action=>'grid_index' %>
+      <%= link_to "最新信息",:controller=>'infos',:action=>'get_newest_infos' %>
+      <a href="#"><h>==主题区==</h></a>
+      <%= link_to "我要创建topic",new_topic_path %>
+      <%= link_to "我要follow topic",topics_path %>
+      <%= link_to "我创建的topic",:controller=>'topics',:action=>'get_mycreated_topics' %>
+      <%= link_to "我follow的topic",:controller=>'topics',:action=>'get_myfollowing_topics' %>
+
+      <a href="#"><h>=系统工具区=</h></a>
+      <%= link_to "创建信息类型",new_admin_info_type_path %>
+      <%= link_to "信息类型列表",admin_info_types_path %>
+      <%= link_to "创建content类型",new_admin_content_type_path %>
+      <%= link_to "content类型列表",admin_content_types_path %>
+      <%= link_to "创建用户",new_admin_user_path %>
+      <%= link_to "用户列表",admin_users_path %>
+      <%= link_to "创建角色",new_admin_role_path %>
+      <%= link_to "角色列表",admin_roles_path %>
+      <%= link_to "创建用户缴费记录",new_admin_fee_record_path %>
+      <%= link_to "用户缴费记录列表",admin_fee_records_path %>
+      <%= link_to "创建系统收费功能点",new_admin_function_path %>
+      <%= link_to "系统收费功能点列表",admin_functions_path %>
+      <%= link_to "创建用户可使用功能",new_admin_user_function_path %>
+      <%= link_to "用户可使用功能列表",admin_user_functions_path %>
+
+    </div>
+    <div id="advright">
+      <p>here is advertisement
+      </p>
+    </div>
+  </body>
+</html>

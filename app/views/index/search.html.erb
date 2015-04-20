@@ -1,0 +1,14 @@
+<p>以下是符合条件的地盘：</p>
+<%@topics.each do |topic|%>
+  <%=link_to image_tag(topic.topic_avatar.public_filename,:size=>"20X20"),:controller=>'/zones',:action=>:show,:title=>topic.title unless topic.topic_avatar.nil?%>
+  <%=link_to image_tag("rails.png",:size=>"30X30"),:controller=>'/zones',:action=>:show,:title=>topic.title if topic.topic_avatar.nil?%>
+  <%= topic.description%><br>
+<%end%>
+<p>以下是符合条件的信息：</p>
+<%@infos.each do |info|%>
+  <%if info.title.content_type_id == 5%>
+    <%= link_to  info.title.value,:action=>'display_info_details',:id=>info.id%>
+  <%elsif info.title.content_type_id == 7%>
+    <%=link_to image_tag(info.title.attachments.find(:first).public_filename(:thumb)),:action=>'display_info_details',:id=>info.id%>
+  <%end%><br>
+<%end%>

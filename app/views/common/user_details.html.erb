@@ -1,0 +1,14 @@
+<div id="user_details">
+  <%if !@maintaining.nil?%>
+    <li><%= @user.login %></li>
+    <li><%= @user.email %></li>
+    <li><%= link_to '审核通过',:controller=>'/maintainings',:action=>:verify_maintaining,:id=>@maintaining.id,:verify_id=>1 %></li>
+    <li><%= link_to '审核不通过',:controller=>'/maintainings',:action=>:verify_maintaining,:id=>@maintaining.id,:verify_id=>0 %></li>
+  <%elsif !@following.nil?%>
+    <li><%= @user.login %></li>
+    <li><%= @user.email %></li>
+    <li><%= link_to '审核通过',:controller=>'/followings',:action=>:verify_following,:id=>@following.id,:verify_id=>1 %></li>
+    <li><%= link_to '审核不通过',:controller=>'/followings',:action=>:verify_following,:id=>@following.id,:verify_id=>0 %></li>
+
+  <%end%>
+</div>

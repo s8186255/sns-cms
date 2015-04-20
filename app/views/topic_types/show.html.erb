@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @topic_type.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @topic_type.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_type_path(@topic_type) %> |
+<%= link_to 'Back', topic_types_path %>

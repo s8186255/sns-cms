@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户首页</title>
+    <%= stylesheet_link_tag 'indexOfUser/index_my.css' %>
+    <%= stylesheet_link_tag "list_and_details.css" %>
+
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'flowplayer-3.1.4.min' %>
+    <%= javascript_include_tag 'ufo' %>
+  </head>
+  <body>
+    <div id="title">
+      <span class="txt"><%= link_to '我秀网首页',{:controller=>:main,:action=>'index'},{:target=>'_blank'} %></span>
+      <span class="line">|</span>
+      <span class="txt"><%= link_to '我的首页',:controller=>:my,:action=>'index' %></span>
+
+    </div>
+    <!--container是一个页面容器div定义了可见区域的-->
+    <div id="container">
+      <!--pageHeader定义页面头部信息-->
+
+      <div id="pageHeader">
+        <div id="banner"></div>
+        <div id="login">
+          <% if logged_in? %>
+            <p>
+              登录者是:
+              <%= current_user.login %>
+              <%= link_to "注销", session_path,:method => :delete %>
+            </p>
+          <% else %>
+            <p><%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+          <% end %>
+        </div>
+        <%for m in [:notice, :warning, :message]%>
+          <% unless flash[m].blank? %>
+            <div id="notification"><%= flash[:notice] %></div>
+          <% end %>
+        <%end%>      </div>
+      <!--left定义页面左侧信息-->
+      <div id="left">
+        <div id ="menu">
+
+          <h3>地盘管理</h3>
+          <ul>
+            <li><%= link_to "我创建的地盘",:controller=>'/my',:action=>:list_topics,:id=>1 %></li>
+            <li><%= link_to "我维护的地盘",:controller=>'/my',:action=>:list_topics,:id=>2 %></li>
+            <li><%= link_to "我加入的地盘",:controller=>'/my',:action=>:list_topics,:id=>3 %></li>
+            <li><%= link_to "我要新建地盘",:controller=>'/my',:action=>:new_topic %></li>
+          </ul>
+        </div>
+        <div id ="menu">
+
+          <h3>信息组件</h3>
+          <ul>
+            <%if current_user.nil?%>
+              <%InfoType.display_tools_for_no_logon.each do |tool|%>
+                <li><%= link_to "#{tool.cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>tool.id %></li>
+              <%end%>
+            <%else%>
+              <%if UserInfoType.info_types_of_logon_user(current_user).blank?%>
+                请在自助管理中订制自己的应用
+              <%else%>
+                <%UserInfoType.info_types_of_logon_user(current_user).each do |tool|%>
+                  <li><%= link_to "#{InfoType.find(tool.info_type_id).cloud_tool_name}",:controller=>'/my',:action=>'my_info',:id=>InfoType.find(tool.info_type_id).id %>
+                    <ul>
+                      <li><%= link_to "新建",:action=>:new_info,:id=>InfoType.find(tool.info_type_id).id %></li>
+                    </ul>
+                  </li>
+                <%end%>
+              <%end%>
+            <%end%>
+          </ul>
+        </div>
+        <div id ="menu">
+          <h3>个人管理</h3>
+          <ul>
+            <li><%= link_to "我的个人信息",:controller=>'users',:action=>:edit_current_user%></li>
+            <li><%= link_to "订制信息工具",:controller=>'user_info_types',:action=>'edit_user_info_types'%></li>
+          </ul>
+        </div>
+      </div>
+      <!--middle定义页面中部信息-->
+      <div id="middle">
+        <%=yield%>
+      </div>
+      <!--right定义页面右侧信息-->
+      <div id="right">
+        <p>广告</p>
+      </div>
+      <!--footer定义页面底部信息-->
+      <div id ="footer"> </div>
+    </div>
+  </body>
+</html>

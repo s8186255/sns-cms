@@ -1,0 +1,19 @@
+<div id="infoListArea">
+  <%if @info_type_id .nil?%>
+    <h3>此地盘尚无任何信息</h3>
+
+  <%else%>
+    <h3><%= @topic.display_name_of_info_type(@info_type_id) %></h3>
+    <ul>
+      <%@infos.each do |info|%>
+        <li>
+          <%if info.title.content_type_id == 5%>
+            <%= link_to  info.title.value,:action=>'display_info_details',:topic_id=>@topic.id,:id=>info.id%>
+          <%elsif info.title.content_type_id == 7%>
+            <%=link_to image_tag(info.title.attachments.find(:first).public_filename(:thumb)),:action=>'display_info_details',:topic_id=>@topic.id,:id=>info.id%>
+          <%end%>
+        </li>
+      <%end%>
+    </ul>
+  <%end%>
+</div>

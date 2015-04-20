@@ -1,0 +1,42 @@
+<% form_tag({ :action => "create" },:enctype =>"multipart/form-data") do%>
+
+  名称(唯一)<br>
+  <%= text_field  :topic,:title %><br>
+自己喜欢的名字<br>
+  <%= text_field  :topic,:my_title %><br>
+  描述<br>
+  <%= text_area :topic,:description,:size=>"30X50" %><br>
+  图片：<br>
+  <%= file_field_tag "topic_avatar" %><br><br>
+地盘类型：<%=text_field :topic,:topic_type_id%><br>
+  状态：
+  <%= radio_button :topic, :status,1,:checked=>true%>正常
+  <%= radio_button :topic, :status,0%>关闭
+  <%= radio_button  :topic,:status,2%>删除<br>
+
+  是否验证别人加入的信息:
+  <%= radio_button  :topic,:if_verify_info,false,:checked=>true%>不需要验证
+  <%= radio_button  :topic,:if_verify_info,true%>需要验证<br>
+
+  允许谁follow:
+  <%= radio_button  :topic,:following_mode,1,:checked=>true%>任何人加入
+  <%= radio_button  :topic,:following_mode,2%>允许成员
+  <%= radio_button  :topic,:following_mode,0%>自己使用<br>
+
+  允许谁维护:
+  <%= radio_button  :topic,:maintaining_mode,1,:checked=>true%>任何人
+  <%= radio_button  :topic,:maintaining_mode,2%>成员
+  <%= radio_button  :topic,:maintaining_mode,0%>本人<br>
+  允许使用的应用:<br>
+  <%if @info_types.blank? %>
+    你还没有定制信息工具，请<%= link_to "先定制你自己的信息工具",:controller=>'user_info_types',:action=>'edit_user_info_types'%><br>
+  <%else%>
+    <%@info_types.each do |info_type|%>
+      <%= check_box_tag 'info_type_id[]',info_type.id%><%= info_type.cloud_tool_name %><br>
+    <%end%>
+  <%end%>
+  
+  <%= submit_tag 'commit' %>
+
+
+<% end %>

@@ -1,0 +1,47 @@
+
+<% form_tag({ :action => "create" },
+  :enctype =>"multipart/form-data") do %><br/>
+
+  <%= label_tag '','title' %>
+  <%= text_field_tag 'title','' %><br/>
+
+  <%= label_tag '','description' %>
+  <%= text_area_tag 'description','' %><br/>
+
+  <%= label_tag 'if_followable','类型1' %>
+  <%=  radio_button_tag  'topic_type',@no_1_topic,checked=true %>
+  <%= label_tag 'if_followable','类型2' %>
+  <%=  radio_button_tag  'topic_type',@no_2_topic,checked=false %>
+  <%= label_tag 'if_followable','类型3' %>
+  <%=  radio_button_tag  'topic_type',@no_3_topic,checked=false %>
+  <%= label_tag 'if_followable','类型4' %>
+  <%=  radio_button_tag  'topic_type',@no_4_topic,checked=false %>
+  <%= label_tag 'if_followable','类型5' %>
+  <%=  radio_button_tag  'topic_type',@no_5_topic,checked=false %>
+  <%= label_tag 'if_followable','类型6' %>
+  <%=  radio_button_tag  'topic_type',@no_6_topic,checked=false %><br>
+
+  <% form_for :radio_join, :html => { :id => 'radio_join' } do %>
+    <%= radio_button_tag :join_page, :member %> Member
+    <%= radio_button_tag :join_page, :model %> Model
+    <%= radio_button_tag :join_page, :photographer %> Photographer
+  <% end -%>
+  <%#= observe_form :radio_join, :url => { :action => 'show_info_type_options' }, :update => "info_type_options", :frequency => "0.25" %>
+
+  <form id="myForm">
+    <%= label_tag '','允许如何信息种类' %>
+    <%=  radio_button_tag  'if_permit_any_info_type',1,checked=false %>
+    <%= label_tag '','允许如何信息种类' %>
+    <%=  radio_button_tag  'if_permit_any_info_type',0,checked=false %>
+    
+  </form>
+<div id="info_type_options"></div>
+  <%= observe_form 'myForm',
+    :update => "info_type_options",
+    :url    => { :action => 'show_info_type_options' } %>
+
+  <%= submit_tag(value = "create", options = {}) %>
+
+
+
+<% end %>

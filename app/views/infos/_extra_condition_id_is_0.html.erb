@@ -1,0 +1,7 @@
+<%if item.if_attachment%>
+  附件信息，请点击下载
+  <%=button_to_remote '下载',:url => { :action => "send_file_to_user"} %>
+<%else%>
+  <%=item.value%>
+  <%=button_to '下载',:action => "send_file_to_user" %>
+<%end%>

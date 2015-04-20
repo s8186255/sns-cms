@@ -1,0 +1,24 @@
+
+<!--结束使用kindeditor--><!--模仿sina在线编辑器开始-->
+<!--
+<input type="hidden" id="content1" name="item_values[]" value=""></input>
+<iframe id="myEditor" src="/editor/editor.htm?id=content1" frameborder="0" scrolling="no" width="550" height="220"></iframe>
+-->
+<!--模仿sina在线编辑器结束-->
+<!--kindeditor在线编辑器textarea开始-->
+<!--使用kindeditor-->
+<script type="text/javascript" charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+  KE.show({
+    id : 'content_1' //TEXTAREA输入框的ID
+  });
+</script>
+<textarea id="content_1" name="<%="value_of_#{item_type.id}"%>" cols="80" rows="15"></textarea>
+
+<!--kindeditor在线编辑器textarea结束-->
+
+<!--kindeditor在线编辑器iframe开始-->
+<!--
+<input type="hidden" id="content1" name="item_values[]" value=""></input>
+<iframe src="/kindeditor/kindeditor.html?id=content1"  width="700" height="200" frameborder="0" scrolling="no" ></iframe>
+<!--kindeditor在线编辑器iframe结束-->

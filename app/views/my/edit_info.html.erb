@@ -1,0 +1,22 @@
+<% form_tag({:action => 'update_info',:id=>@info.id},:enctype =>"multipart/form-data")do -%>
+  <!--信息录入主体部分-->
+  <%=render :partial=>'edit_info_details'%>
+  <div id="info_details">
+  </div>
+  <!--配置本条信息是不是可以被评论-->
+  <%=  radio_button :info,:if_commented,false %>不允许评论
+  <%=  radio_button :info,:if_commented,true %>允许评论<br>
+  <!--选择主题-->
+  <p>此信息挂接topic的情况</p>
+  <%if @maintainable_topics.blank? != true%>
+    <% for topic in @maintainable_topics%>
+      <%if @info_related_topics.member? topic%>
+        <%= check_box_tag 'selected_topics[]',topic.id,true %><%=topic.title%><br>
+      <%else%>
+        <%= check_box_tag 'selected_topics[]',topic.id,false %><%=topic.title%><br>
+      <% end%>
+    <%end%>
+  <%end%>
+  <%#=hidden_field_tag 'info_id',@info.id%>
+  <%= submit_tag '确定' %>
+<% end %>

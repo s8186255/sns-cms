@@ -1,0 +1,26 @@
+<div id="cd">
+  <div>图书信息</div>
+  <div class="empty" id="cd_area"><!-- --></div>
+  <div class="label_thumb_holder">
+    <%until @n > 10 do%>
+      <div class="label_thumb_frame" >
+        <div><%= image_tag "bigimage.gif",:class=>"images/label_thumb_img" %></div>
+        <div class="label_thumb_artist">发布在<%=link_to 'Deadwalk'%>个地盘</div>
+        <div class="label_thumb_artist">浏览<%=link_to 'Deadwalk'%>次</div>
+        <div class="label_thumb_artist"><%=link_to 'Deadwalk'%>条评论</div>
+<!--
+        <div class="label_thumb_artist">Deadwalk</div>
+        <div class="label_thumb_title">Scandalous</div>
+        <div class="label_thumb_details">
+          <div class="label_thumb_left">
+            <div class="status_preorder mr_5"><div class="status_left"></div><div class="status_text">Pre-Order</div><div class="status_right"></div></div>
+          </div>
+          <div class="label_thumb_right">$10</div>
+        </div>
+-->
+      </div>
+      <%@n+=1%>
+    <%end%>
+    <div id="clearall"></div>
+  </div>
+</div>

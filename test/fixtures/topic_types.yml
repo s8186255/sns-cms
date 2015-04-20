@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  parent_topic_type_id: 1
+  status: 1
+  status: 1
+  creator_id: 1
+  verifier_id: 1
+
+two:
+  name: MyString
+  parent_topic_type_id: 1
+  status: 1
+  status: 1
+  creator_id: 1
+  verifier_id: 1

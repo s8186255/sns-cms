@@ -1,0 +1,24 @@
+<% form_tag({ :action => "create" },:enctype =>"multipart/form-data") do %>
+  以下是可以选择加入的主题<br>
+  <%unless @optional_topics.nil?%>
+    <%@optional_topics.each do |topic|%>
+      <%= check_box_tag  "optional_topic_ids[]",topic.id%>
+      <%= link_to  topic.title%>
+      <br>
+    <%end%>
+  <%else%>
+    没有可以选择的topic,请点击下面链接，follow追随某个topic<br>
+  <%end%>
+  
+  请选择录入的信息类型<br>
+  <%for info_type in @info_types%>
+    <input type="radio" name="info_type_id" value="<%= info_type.id%>"  onclick ="<%= remote_function :url => { :action => :show_info_details,:info_type_id=>info_type.id } %>"><%= info_type.name %><%= info_type.id %>
+  <%end%>
+  <div id="info_details">
+  </div>
+
+  <%=  radio_button_tag  'if_commented',0,checked=false %>不允许评论
+  <%=  radio_button_tag  'if_commented',1,checked=true %>允许评论<br>
+
+  <%= submit_tag 'commit' %>
+<% end %>

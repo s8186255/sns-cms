@@ -1,0 +1,24 @@
+
+
+#list_block{}
+#list{
+    font-size: 12px;
+    padding-left:20px;
+}
+#list_title,#list_title_text,#list_title_img{
+        font-size: 16px;clear: left;
+    }
+#list_info_text{}
+#list_info_img{}
+a img{width:100px;height:100px;float:left;margin:10px}
+#list_ads{
+    font-size: 12px;
+    padding-left:0px;
+    float:left;
+}
+#list_others{float:left;margin:5px;}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }

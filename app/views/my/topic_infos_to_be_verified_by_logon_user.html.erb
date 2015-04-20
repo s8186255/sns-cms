@@ -1,0 +1,10 @@
+<%unless @topic_infos_to_be_verified.blank?%>
+  <%  @topic_infos_to_be_verified.keys.each do |topic_id|%>
+    <div id="list">
+      <%=topic_id%>
+      <%@topic_infos_to_be_verified.topic_id.each do |info_id|%>
+    <%=info_id%>
+    <%end%>
+    </div>
+  <%end%>
+<%end%>

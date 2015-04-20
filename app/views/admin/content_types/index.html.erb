@@ -1,0 +1,7 @@
+<% for content_type in @content_types%>
+  <%= content_type.id %>
+  <%= link_to content_type.display_name,:action=>'show',:id=> content_type %>
+  <%= link_to "编辑", :action => 'edit', :id => content_type %> |
+  <%= link_to "删除", admin_content_type_path(content_type), :confirm => '确认?', :method => :delete %>
+  <br/>
+<% end %>

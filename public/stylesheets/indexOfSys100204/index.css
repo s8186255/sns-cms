@@ -1,0 +1,200 @@
+body {
+  font-family:微软雅黑;
+  text-align:center;
+  background:#3c7faf url("bg_blue_2.gif") repeat-x bottom;
+
+}
+/*container*/
+#container {
+  position:relative;
+  font-size: 24px;
+  width:1024px;
+  border-bottom:1px solid #DEDEDE;
+  text-align:left;
+  margin:auto;
+  background:#FFFFFF;
+}
+/*pageHeader*/
+#pageHeader {
+  border-bottom:1px solid #DEDEDE;
+  padding:0px;
+}
+
+#banner {
+  width: 970px;
+  height: 64px;
+  margin: 0 auto;
+  padding: 10px 0px 0px 30px;
+  background-image: url(logo.jpg);
+  background-repeat:no-repeat;
+}
+
+/*分类列表*/
+#classification {border-bottom:1px solid #DEDEDE;width:100%;height:100%;overflow:hidden;}
+#classification ul{
+  list-style-type:none;
+  padding:1px;
+  width:100%
+}
+#classification li{
+  float:left;
+  overflow:hidden;
+  width:20%;
+}
+a{color:blue;text-decoration:none}
+a:hover{text-decoration:underline}
+/*搜索框定义*/
+#search {background:#3C7FAF url(bg_search.gif) no-repeat scroll 0 0;}
+
+.search-list{margin:0px;}
+.search-list ul{list-style-type:none;font-size:60%;}
+.search-list li{
+  float:left;
+  margin:0 0.7em 2px 0;
+  padding:0 0.7em 0 0;}
+#search .kvlc{
+  background:transparent url(kvlc.png) no-repeat scroll 0 0;
+  clear:left;
+  float:left;
+  height:36px;
+  width:6px;
+}
+#search .kvrc {
+  background:transparent url(kvrc.png) no-repeat scroll 0 0;
+  float:left;
+  height:36px;width:6px;
+}
+#search .kvwrap {
+  background:transparent url(kvwrap.png) repeat-x scroll 0 0;
+  float:left;
+  height:33px;
+  padding-bottom:0;
+  padding-top:4px;
+  
+}
+#search #srchfrm {
+  border-style:none;
+  text-align:left;
+  width:auto;
+}
+#srchfrm #f1 {
+  /*width:400px;*/
+
+  height:25px;
+  padding-bottom:0;
+  padding-top:0.2em;
+  vertical-align:top;
+}
+input.button {
+  background-image:url(icon_bing_s[1].png);
+  width:130px;
+  height:30px;
+  margin:2px 0 4px 1px;
+  vertical-align:top;
+}
+#search #srchfrm, #foot1 #srchfrmfooter {
+  border-style:none;
+  text-align:left;
+  width:auto;
+}
+
+
+
+
+#login {border-bottom:1px solid #DEDEDE;float:right;}
+
+#menu {
+  /*
+  margin: 66px 0px 0px 0px;
+  */
+  height:30px;
+  /*
+  width: 768px;
+  */
+  border-bottom:1px solid #DEDEDE;
+
+}
+
+#menu ul {
+  list-style:none;
+  margin: 0px;
+  padding:0px;
+  margin:2px;
+
+}
+#menu li{
+  float:left;
+  width:100px;
+  border-left:10px solid #711515;
+}
+#menu li a{
+  display:block;
+}
+#menu li a:link,#menu li a:visited{
+  background-color:#CC3300	}
+#menu li a:hover{
+  background-color:#009900
+}
+/*left*/
+#left {
+  width: 0%;
+  float: left;
+  border-bottom:1px solid #DEDEDE;
+}
+
+
+
+#middle {
+  float: left;
+  width: 77%;
+  border-bottom:1px solid #DEDEDE;
+
+}
+#topicArea {
+  border-bottom:1px solid #DEDEDE;
+  float:left;
+  width:384px;
+  margin-right:10px;
+  background:white;
+}
+.topic{
+  margin:10px;
+  height:50px;
+}
+.topic a{color:#ffffff}
+.topic a:hover{color:blue}
+.topicAvatar{float:left;}
+.topic ul{list-style-type:none;margin-left:20px}
+/*right*/
+#right {
+  float: right;
+  width: 100px;
+  border-bottom:1px solid #DEDEDE;
+}
+/*foot*/
+
+#footer {
+  width:1024px;
+  height: 300px;
+  clear: both;
+  border-bottom:1px solid #DEDEDE;
+}
+
+/**/
+.clear{clear:both}
+/*html标记选择器单独定义*/
+h3{font-size:20px;border-top:5px solid #2AA3B1;margin:0px;background:#EAF1FE;}
+h3 a{font-size:16px;}
+p{font-size:16px;}
+
+/*tab*/
+#Tab{width:400px;}
+.Menubox{height:32px;border-bottom:1px solid #64B8E4;background:inherit;font-size:60%;}
+.Menubox ul{list-style:none;padding:0;position:absolute;}
+.Menubox ul li{float:left;background:#64B8E4;line-height:20px;display:block;cursor:pointer;width:65px;text-align:center;color:#fff;font-weight:bold;border-top:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;}
+.Menubox ul li.hover{background:#fff;border-bottom:1px solid #fff;color:#147AB8;}
+.Contentbox{;font-size:60%;clear:both;margin-top:0px;border-top:none;border-bottom:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;height:181px;padding-top:8px;height:100%;}
+.Contentbox ul{list-style:none;margin:7px;padding:0;}
+.Contentbox ul li{line-height:24px;border-bottom:1px dotted #ccc;float:left;width:100px;}
+.Contentbox .textArea{text-decoration:none;border:solid;height:100px;width:380px;}
+

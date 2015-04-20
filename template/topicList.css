@@ -1,0 +1,16 @@
+#topicArea{}
+#topicList{clear:left;}
+#topicImgOperation{width:100px;}
+#topicImgOperation #img{border:solid;width:100px;float:left}
+#topicImgOperation ul#topicOperation{width:100px;}
+#topicImgOperation ul#topicOperation li{float:left;width:40px}
+
+#topicList ul{list-style-type:none;margin:0px;padding:0px;font-size:70%;}
+#topicList ul#topicAbout{float:left;width:90px;padding:0px 0px}
+#topicList ul#topicAbout li{padding:0px 0px;width:30px}
+#topicList ul#infoList{float:left;width:90px;padding:0px 0px}
+#topicList ul#infoList li{padding:0px 0px}
+#topicList li{background-color:olive;margin:3px;color:#eeeeee;}
+#topicList ul.operation li a{}
+/**/
+.clear{clear:both}

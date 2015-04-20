@@ -1,0 +1,15 @@
+<p>
+  <b>Name:</b>
+  <%=h @function.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @function.description %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_admin_function_path(@function) %> |
+<%= link_to 'Back', admin_functions_path %>

@@ -1,0 +1,205 @@
+1<span id="indicator" style="display: none;">Loading...</span><br>
+<div id="current_time"></div><br>
+2<li><%= check_box_tag 'checkbox' %> Thing #1</li><br>
+3,7<div id="fakeForm1">
+  <input type="text" name="foo" value="bar" />
+</div><br>
+6<input id="myElement" type="text" value="bar" /><br>
+
+1<%= link_to_remote "Check Time",
+  :update   => 'current_time',
+  :url      => { :action => 'get_time' },
+  :before   => "$('indicator').show(  )",
+  :success  => "$('current_time').visualEffect('highlight')",
+  :failure  => "alert('There was an error. ')",
+  :complete => "$('indicator').hide(  )" %>
+
+2<%= link_to_remote "Delete checked items",
+  :condition => "$('checkbox').checked",
+  :url       => { :action => 'get_time' },
+  :failure  => "alert('There was an error. ')"%>
+<br>
+3
+<%= link_to_remote "Submit fake form",
+  :submit   => "fakeForm",
+  :url      => { :action => 'repeat' },
+  :complete => "alert(request.responseText)" %>
+<br>
+4
+<form id="fakeForm">
+  <input type="text" name="text_to_reverse" id="text_to_reverse" />
+  <%= link_to_remote "Reverse field",
+    :url      => { :action => 'reverse' },
+    :submit   => "myForm",
+    :complete => "$('text_to_reverse').value=request.responseText" %>
+  <input type="submit" />
+</form>
+<br>
+5
+<%= link_to_remote "Link with params",
+  :url      => { :action => 'repeat' },
+  :complete => "alert(request.responseText)",
+  :with     => "'foo=bar'" %>
+<br>
+6
+
+<%= link_to_remote "Link with dynamic params",
+  :url      => { :action => 'repeat' },
+  :complete => "alert(request.responseText)",
+  :with     => "'foo='+escape($F('myElement'))" %>
+<br>
+7
+<%= link_to_function "Toggle DIV", "$('fakeForm1').toggle()" %><br>
+
+8
+<%= text_field :person, :login %><br>
+<%= text_field_tag :person1,@person.login %>
+<br>
+
+9
+<% form_remote_tag :update => "reversed",:url    => { :action => 'reverse' } do%>
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed"></p>
+  <p><%= submit_tag 'Reverse!' %></p>
+<% end %>
+<br>
+10
+<% form_tag :action => 'reverse' do%>
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed2"></p>
+  <p><%= submit_to_remote 'submit', 'Reverse!',
+      :update => 'reversed2',
+      :url => { :action => 'reverse' } %></p>
+  <% end %><br>
+11
+<% form_tag :action => 'reverse' do %>
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed"></p>
+  <p><%= submit_to_remote 'submit', 'Submit via Ajax',
+      :update => 'reversed',
+      :url => { :action => 'reverse' } %></p>
+  <p><%= submit_tag "Submit non-Ajax" %></p>
+<% end %>
+12 
+<p>Text to reverse: <%= text_field_tag 'textToReverse' %></p>
+<span id="reversed12"></span>
+<%= observe_field 'text_to_reverse',
+  :frequency=>1,
+  :update => 'reversed12',
+  :url    => { :action => 'reverse' },
+  :with   => 'text_to_reverse' %>
+
+13.observe_form<br>
+<form id="myForm">
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed"></p>
+</form>
+<%= observe_form 'myForm',
+  :update => "reversed",
+  :url    => { :action => 'reverse' } %>
+
+14
+<h1>Editing article</h1>
+
+<% form_tag :action => 'update', :id => @article do %>
+  <p>
+    <div id="length_alert"></div>
+    <label for="article_body">Short Intro (255 character maximum)</label>
+
+    <%= text_area 'article', 'body', "rows" => 10  %>
+  </p>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= observe_field("article_body", :frequency => 1,
+  :update => "length_alert",
+  :url => { :action => "reverse"}) %>
+
+15 visual effects<br>
+<div id="target" class="green box">
+  <div>Here's a DIV with some text.</div>
+</div>
+<%= link_to_function "Fade", "new Effect.Fade('target')" %><br>
+<%= link_to_function "toggle","new Effect.toggle('target')" %><br>
+<%= link_to_function "toggle","$('target').toggle()"%><br>
+
+16 all fundemental effects<br>
+<div id="target1" class="green box">
+  <div>Here's a DIV with some text.</div>
+</div>
+<%= link_to_function "Opacity",
+  "new Effect.Opacity('target1', {to:0.5})" %>
+<%= link_to_function "Scale",
+  "new Effect.Scale('target1', 200)" %>
+<%= link_to_function "Move",
+  "new Effect.Move('target1', {x:50,y:10})" %>
+<%= link_to_function "Highlight",
+  "new Effect.Highlight('target1')" %>
+<%= link_to_function "Parallel",
+  "new Effect.Parallel([
+new Effect.Move('target', {x:50,y:10}),
+new Effect.Opacity('target', {to:0.5})
+])" %><br>
+
+17.Effect.Parallel.script.aculo.us有16个<br>
+<% %w( Fade Appear Highlight Fold Pulsate SlideUp SlideDown 
+Shrink Grow Squish Shake DropOut SwitchOff Puff BlindUp 
+BlindDown ).each do |name| %>
+  <%= link_to_function name, "new Effect.#{name}('target')" %>
+<% end %>
+<br>
+
+18.使用toggle<br>
+<%=link_to_function  'toggle' ,"new Effect.toggle('target')"%>
+<%=link_to_function 'toggle blind', "new Effect.toggle('target', 'blind')"%>
+<%=link_to_function 'toggle slide',"new Effect.toggle('target', 'slide')"%>
+
+<br>
+
+19.使用effect 的 option<br>
+<%= link_to_function "Fade",
+  "new Effect.Fade('target', { duration:10, fps:20})" %>
+
+<%= link_to_function "Choppy Fade",
+  "new Effect.Fade('target', { duration:10, fps:2 })" %>
+
+<%= link_to_function "Fade delay",
+  "new Effect.Fade('target', { delay:20 })" %>
+<%= link_to_function "Fade with from",
+  "new Effect.Fade('target', { from:0.5, to:0.25 })" %><br>
+
+20.使用多重效果的effect依次显示。<br>
+<%= link_to_function "Blind Up/Down(no queue)",
+  "new Effect.BlindUp('target');
+new Effect.BlindDown('target')" %>
+
+<%= link_to_function "Blind Up/Down(queue)",
+  "new Effect.BlindUp('target');
+new Effect.BlindDown('target', { queue: 'end' })" %><br>
+
+21.将效果用在实际的页面操作中。effect  <br>
+<%= link_to_remote "Get Time",
+  :update   => "current_time",
+  :url      => { :controller => "chapter3", :action => "get_time" },
+  :complete => visual_effect(:highlight, :current_time) %><br>
+22.drag drop<br>
+<div id="dragDIV" class="green box">drag</div>
+<%= javascript_tag "new Draggable('dragDIV')" %><br>
+
+23.rjs
+<div id="task_list">
+  <%= render :partial => 'list' %>
+</div>
+
+<br />
+<form id="myform">
+  <%= text_field 'task', 'name'  %>
+</form>
+
+
+<% observe_form 'myform',
+  :update=>'task_list',  :frequency  =>  1,:function  =>  "alert('Element  changed')",
+  :url => {:action => 'add_task'}
+%>
+
+

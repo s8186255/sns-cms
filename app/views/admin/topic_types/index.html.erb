@@ -1,0 +1,6 @@
+<% for topic_type in @topic_types%>
+  <%= link_to topic_type.name,:action=>'show',:id=> topic_type %>
+  <%= link_to "edit", :action => 'edit', :id => topic_type %> |
+  <%= link_to "remove", admin_topic_type_path(topic_type), :confirm => 'Are you sure?', :method => :delete %>
+  <br/>
+<% end %>

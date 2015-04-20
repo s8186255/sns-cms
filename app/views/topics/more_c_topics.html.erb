@@ -1,0 +1,16 @@
+<%= link_to "我要创建地盘",new_topic_path %><br>
+<%unless @my_c_topics.blank?%>
+  <%  @my_c_topics.each do |topic|%>
+    <div id="list">
+      [<%=link_to topic.title,:controller=>:zones,:action=>:show,:title=>topic.title%>]
+      [<%=link_to '编辑',:controller=>'topics',:action=>:edit,:id=>topic.id%>]
+      [<%=link_to topic.topic_counter.following_count,:controller=>:users,:action=>:list_followers,:topic_id=>topic.id unless topic.topic_counter.nil?%>人追随]
+      [浏览<%=topic.topic_counter.view_count unless topic.topic_counter.nil?%>次数]
+      [<%= topic.topic_counter.info_count unless topic.topic_counter.nil?%>条信息]
+      [<%=link_to topic.maintainers(0).size,:controller=>:users,:action=>:list_maintainers,:topic_id=>topic.id%>个加入维护申请需要审核]
+      [<%=link_to topic.infos(0,-1).size,:controller=>:infos,:action=>:index,:id=>topic.id%>条信息加入需要审核]
+      [<%=link_to '新建信息',:controller=>'infos',:action=>'new',:topic_id=>topic.id%>]
+    </div>
+  <%end%>
+    <%#= will_paginate @my_c_topics %>
+<%end%>

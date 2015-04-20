@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en">
+  <head>
+
+
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'ym4r' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'flowplayer-3.1.4.min' %>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>一切皆可简单</title>
+    <%= stylesheet_link_tag 'round' %>
+    
+  </head>
+  <body>
+    <div id="header">
+      <div class="rounded">
+        <h2>一切皆可简单</h2>
+        <div class="main">
+        </div>
+        <div class="footer">
+          <p>
+            查看详细信息&gt;&gt;
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div id="navi">
+        <div class="rounded">
+          <h2>导航区</h2>
+
+          <div class="main">
+            <p>
+              <% if logged_in? %>
+                Logged in as:
+                <%= current_user.login %>
+                <%= link_to "(Logout)", session_path,:method => :delete %>
+              <% else %>
+                Not logged in.
+                <%= link_to 'Login', new_session_path %>
+              <% end %>
+            </p>
+            <a href="#"><h>==应用区==</h></a>
+            <%InfoType.find(:all,:conditions=>'status = true').each do |tool|%>
+              <%= link_to "#{tool.cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>tool.id %>
+            <%end%>
+            <a href="#"><h>==地盘区==</h></a>
+            <%= link_to "创建我的地盘",new_topic_path %>
+            <%= link_to "我创建的地盘",my_c_topics_topics_path %>
+            <%= link_to "我维护的地盘",my_m_topics_topics_path %>
+            <%= link_to "我加入的地盘",my_f_topics_topics_path %>
+
+            <a href="#"><h>=系统工具区=</h></a>
+            <%= link_to "创建信息类型",new_admin_info_type_path %>
+            <%= link_to "信息类型列表",admin_info_types_path %>
+            <%= link_to "创建content类型",new_admin_content_type_path %>
+            <%= link_to "content类型列表",admin_content_types_path %>
+            <%= link_to "创建用户",new_admin_user_path %>
+            <%= link_to "用户列表",admin_users_path %>
+            <%= link_to "创建角色",new_admin_role_path %>
+            <%= link_to "角色列表",admin_roles_path %>
+            <%= link_to "创建用户缴费记录",new_admin_fee_record_path %>
+            <%= link_to "用户缴费记录列表",admin_fee_records_path %>
+            <%= link_to "创建系统收费功能点",new_admin_function_path %>
+            <%= link_to "系统收费功能点列表",admin_functions_path %>
+            <%= link_to "创建用户可使用功能",new_admin_user_function_path %>
+            <%= link_to "用户可使用功能列表",admin_user_functions_path %>
+          </div>
+          <div class="footer">
+            <p>
+              查看详细信息&gt;&gt;
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="rounded">
+          <h2>1</h2>
+          <div class="main">
+            <p>
+              <% unless flash[:notice].blank? %>
+                <%= flash[:notice] %>
+              <% end %>
+            </p>
+            <%= yield %>
+          </div>
+          <div class="footer">
+            <p>
+              查看详细信息&gt;&gt;
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="side">
+        <div class="rounded">
+          <h2>广告区1</h2>
+          <div class="main">
+            <p>
+            对于一个网页设计者来说，HTML语言一定不会感到陌生，因为它是所有网页制作的基础。</p>
+            <% Info.find(:all).each do |info|%>
+              <%= info.id %>
+            <%end%>
+            <%=request.remote_ip%>
+          </div>
+          <div class="footer">
+            <p>
+              查看详细信息&gt;&gt;
+            </p>
+          </div>
+        </div>
+        <div class="rounded">
+          <h2>广告区2</h2>
+          <div class="main">
+            <p>
+              但是如果希望网页能够美观、大方，并且升级方便，维护轻松，那么仅仅HTML是不够的，CSS在这中间扮演着重要的角色。
+            </p>
+
+          </div>
+          <div class="footer">
+            <p>
+              查看详细信息&gt;&gt;
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="pagefooter">
+      <div class="rounded">
+        <h2>Page Footer</h2>
+        <div class="main">
+          <p>
+            这是一行文本，这里作为样例，显示在布局框中。
+          </p>
+        </div>
+        <div class="footer">
+          <p>
+            查看详细信息&gt;&gt;
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

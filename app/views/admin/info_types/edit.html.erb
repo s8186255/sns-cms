@@ -1,0 +1,29 @@
+<% form_tag({:action => 'update_infotype'},:enctype =>"multipart/form-data")do %>
+  <p>
+    <%= label :name, "name" %><br>
+    <%= text_field :info_type,:name%>
+  </p>
+
+  <p>
+    <%= label :description, "description" %><br>
+    <%= text_area :info_type,:description,:size=>'30x6'%><br>
+    工具名称<%= text_field :info_type,:cloud_tool_name %><br>
+    状态
+    <%= radio_button :info_type,:status,false%>暂停使用
+    <%= radio_button :info_type,:status,true%>正常使用
+  </p>
+  属性名称   |           属性类型|是否做可以做列表显示<br>
+  <%for item_type in @item_types%>
+    <%= text_field_tag "item_type_names[]",item_type.name %>
+    <select name="content_type_ids[]">
+      <%= options_from_collection_for_select @content_types, "id", "name",item_type.content_type_id %>
+    </select>
+    <%#= link_to"删除此字段",:confirm => 'Are you sure?',:action=>:delete_field,:id=>item_type.id %>
+    <%= radio_button_tag 'item_type_id_if_title',item_type.id,item_type.if_title ? true:false %><br>
+  <%end%>
+  <%=hidden_field_tag "id",@info_type.id%>
+  <p><%= submit_tag "Update" %> </p>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>
+
+

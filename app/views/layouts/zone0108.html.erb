@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= @topic.title %></title>
+    <!--<link href="indexOfUser/index_my.css" rel="stylesheet" type="text/css" />-->
+    <%= stylesheet_link_tag "indexOfZone/#{@css}" %>
+    <script type="text/javascript">
+      <!--
+      function setTab(name,cursel,n){
+        for(i=1;i<=n;i++){
+          var menu=document.getElementById(name+i);
+          var con=document.getElementById("con_"+name+"_"+i);
+          menu.className=i==cursel?"hover":"";
+          con.style.display=i==cursel?"block":"none";
+        }
+      }
+      //-->
+    </script>
+  </head>
+  <body>
+    <!--container是一个页面容器div定义了可见区域的-->
+    <div id="container">
+      <!--pageHeader定义页面头部信息-->
+      <div id="pageHeader">
+
+<!--
+        <div id="search">
+          <div class=" search-list">
+            <ul class="linklist9 cf">
+              <li class="first selected"><a href="http://www.bing.com/search?FORM=MSNH11&amp;q=">Web</a></li>
+              <li><a href="http://www.bing.com/search?q=&amp;FORM=MSNH11&amp;scope=msn">MSN</a></li>
+              <li><a href="http://www.bing.com/images/search?q=&amp;FORM=MSNH11">Images</a></li>
+              <li><a href="http://www.bing.com/videos?FORM=MSNH11&amp;q=">Videos</a></li>
+              <li><a href="http://www.bing.com/shopping/search?FORM=MSNH11&amp;q=">Shopping</a></li>
+              <li><a href="http://www.bing.com/news/?FORM=MSNH11&amp;q=">News</a></li>
+              <li class="last"><a href="http://www.bing.com/maps/?FORM=MSNH11&amp;q=">Maps</a></li>
+            </ul>
+          </div>
+
+          <div class="kvlc"></div>
+          <div class="kvwrap">
+            <form id="srchfrm" class="simple6" method="get" action="http://www.bing.com/search">
+              <div class="frmwrp">
+                <input type="text" accesskey="S" maxlength="250" size="75" name="q" id="f1" autocomplete="off"/>
+                <input type="image" name="imageField" src="/images/index_15.gif"/>
+              </div>
+            </form>
+          </div>
+          <div class="kvrc"></div>
+        </div>
+
+
+        <div id="login">登录</div>-->
+      </div>
+      <!--left定义页面左侧信息-->
+      <div id="left">
+        <div id="banner">
+          <%= image_tag 'rails.png'%>
+        </div>
+        <div id ="menu">
+          <h3>信息列表</h3>
+          <ul>
+            <%@topic_info_types.each do |topic_info_type|%>
+              <li><%= link_to topic_info_type.display_name_in_topic,:action=>:list_info,:topic_id=>topic_info_type.topic_id,:info_type_id=>topic_info_type.info_type_id %></li>
+            <%end%>
+          </ul>
+        </div>
+
+        <div id ="menu">
+          <h3>选项</h3>
+          <ul>
+            <li><a href="#">菜单1</a></li>
+            <li><a href="#">菜单1</a></li>
+            <li><a href="#">菜单1</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--middle定义页面中部信息-->
+      <div id="middle">
+        <%=yield%>
+      </div>
+      <!--right定义页面右侧信息-->
+      <div id="right">
+        <p>广告</p>
+      </div>
+      <!--footer定义页面底部信息-->
+      <div id ="footer"> </div>
+    </div>
+  </body>
+</html>

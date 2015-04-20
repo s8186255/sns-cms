@@ -1,0 +1,157 @@
+<div id="header">
+  <div class="rounded">
+    <h2>一切皆可简单</h2>
+    <div class="main">
+    </div>
+    <div class="footer">
+      <p>
+        <% if logged_in? %>
+          登录者是:
+          <%= current_user.login %>
+          <%= link_to "(Logout)", session_path,:method => :delete %>
+        <% else %>
+          尚未登录.
+          <%= link_to 'Login', new_session_path %>
+        <% end %>
+        <%=link_to '注册',:controller=>'registers',:action=>'new'%>
+      </p>
+    </div>
+  </div>
+</div>
+<div id="container">
+  <div id="navi">
+    <div class="rounded">
+      <p>
+        <% unless flash[:notice].blank? %>
+          <%= flash[:notice] %>
+        <% end %>
+      </p>
+
+      <div class="main">
+        <p>
+        </p>
+        <h3>我的应用</h3>
+        <%if current_user.nil?%>
+          <%InfoType.display_tools_for_no_logon.each do |tool|%>
+            <%= link_to "#{tool.cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>tool.id %>
+          <%end%>
+        <%else%>
+          <%if UserInfoType.info_types_of_logon_user(current_user).blank?%>
+            请在自助管理中订制自己的应用
+          <%else%>
+            <%UserInfoType.info_types_of_logon_user(current_user).each do |tool|%>
+              <%= link_to "#{InfoType.find(tool.info_type_id).cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>InfoType.find(tool.info_type_id).id %>
+            <%end%>
+          <%end%>
+        <%end%>
+        <h3>我的地盘</h3>
+        <%= link_to "我创建的地盘",:controller=>'/topics',:action=>'more_c_topics' %>
+        <%= link_to "我维护的地盘",:controller=>'/topics',:action=>'more_m_topics' %>
+        <%= link_to "我加入的地盘",:controller=>'/topics',:action=>'more_f_topics' %>
+        <h3>自助管理</h3>
+        <%= link_to "我的个人信息",:controller=>'users',:action=>'edit',:id=>current_user%>
+
+        <%= link_to "我要订制信息工具",:controller=>'user_info_types',:action=>'edit_user_info_types'%>
+      </div>
+      <div class="footer">
+        <p>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div class="rounded">
+      <div class="main">
+        <p></p>
+        <%#= yield %>
+        <div id="list_block">
+
+          <h3>地盘数量</h3>
+          <div id="list">
+            <%= @topic_amount %>
+          </div>
+          <!-- 将信息列表展示-->
+          <h3>活跃地盘</h3>
+          <%unless @hot_topics.nil?%>
+            <% @hot_topics.each do |topic|%>
+              <div id="list">
+                [<%= topic.title %>][<%= topic.description %>]
+              </div>
+            <%end%>
+          <%end%>
+          <h3>常用地盘</h3>
+          <%unless @system_topics.nil?%>
+            <% @system_topics.each do |topic|%>
+              <div id="list">
+                [<%= topic.title %>][<%= topic.description %>]
+              </div>
+            <%end%>
+          <%end%>
+
+
+          <!-- 将广告信息列表展示-->
+          <h3>推荐地盘</h3>
+          <%unless @ad_topics.nil?%>
+            <% @ad_topics.each do |topic|%>
+              <div id="list">
+                [<%= topic.title %>][<%= topic.description %>]
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+      </div>
+      <div class="footer">
+        <p>
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="side">
+    <div class="rounded">
+      <h2>广告区1</h2>
+      <div class="main">
+        <p>
+        对于一个网页设计者来说，HTML语言一定不会感到陌生，因为它是所有网页制作的基础。</p>
+        <% Info.find(:all).each do |info|%>
+          <%= info.id %>
+        <%end%>
+        <%=request.remote_ip%>
+      </div>
+      <div class="footer">
+        <p>
+
+        </p>
+      </div>
+    </div>
+    <div class="rounded">
+      <h2>广告区2</h2>
+      <div class="main">
+        <p>
+          但是如果希望网页能够美观、大方，并且升级方便，维护轻松，那么仅仅HTML是不够的，CSS在这中间扮演着重要的角色。
+        </p>
+      </div>
+      <div class="footer">
+        <p>
+
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="pagefooter">
+  <div class="rounded">
+    <h2>Page Footer</h2>
+    <div class="main">
+      <p>
+        这是一行文本，这里作为样例，显示在布局框中。
+      </p>
+    </div>
+    <div class="footer">
+      <p>
+
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<html><head><title>Test</title>
+    <%= GMap.header %>
+    <%= @map.to_html %>
+  </head><body>
+    <%= @map.div(:width => 600, :height => 400) %>
+</body></html>
+<% content_for head do%>
+  <%= GMap.header %>
+<%end%>
+
+<%=text_field_tag  "item_values[]"%>
+<div>
+  <%=@map.to_html%>
+  <%= @map.div(:width =>600,:height=> 200) %>
+</div>

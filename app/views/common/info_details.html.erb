@@ -1,0 +1,67 @@
+    <script type="text/javascript">
+      <!--
+      function setTab(name,cursel,n){
+        for(i=1;i<=n;i++){
+          var menu=document.getElementById(name+i);
+          var con=document.getElementById("con_"+name+"_"+i);
+          menu.className=i==cursel?"hover":"";
+          con.style.display=i==cursel?"block":"none";
+        }
+      }
+      //-->
+    </script>
+<div id="info">
+  <%@items.each do |item|%>
+    <div id="infoItem">
+      <div id="infoItemContent">
+        <%if item.item_type.content_type_id == 5 or item.item_type.content_type_id == 8 or item.item_type.content_type_id == 10 or item.item_type.content_type_id == 6 %>
+          <p><%= item.value%></p>
+        <%elsif item.item_type.content_type_id ==11%>
+          <%= GMap.header %>
+          <%if @map%>
+            <div id="gmap">
+              <%= link_to_function 'hide map' ,
+                "Element.hide('gmap');Element.show('showmaplink')"%>
+              <%= @map.to_html %>
+              <%= @map.div(:width => 600, :height => 400) %>
+              位置信息<br>
+              经度：<%=text_field_tag  'latitude',item.lat_lng[0]%><br>
+              纬度：<%=text_field_tag  'longitude',item.lat_lng[1]%><br>
+            </div>
+            <%= link_to_function 'show map' ,
+              "Element.show('gmap');Element.hide('showmaplink')",
+              :id=>'showmaplink',
+              :style=>'display:none'%>
+          <%end%>
+        <%elsif item.item_type.content_type_id ==3%>
+          <%= media_player({:file => item.attachments.find(:first).public_filename,:showdigits=>false} ,{:id=>'player2',:width=>600,:height=>400})%>
+        <%elsif item.item_type.content_type_id ==4%>
+          <%= mp3_player({:file => item.attachments.find(:first).public_filename,:showdigits=>false},{:id=>'player1'}) %>
+        <%elsif item.item_type.content_type_id ==7%>
+          <img id="conent_pic" src="<%=item.attachments.find(:first).public_filename%>" height="100px">
+        <%elsif item.item_type.content_type_id ==9%>
+          <%=link_to '下载',:action => "send_file_to_user",:attachment_id=>item.value %>
+        <%elsif item.item_type.content_type_id ==12%>
+          <%= media_player({:file => item.attachments.find(:first).public_filename} ,{:id=>'player2',:width=>600,:height=>400})%>
+        <%end%>
+      </div>
+      <%if item.item_type.if_permit_extra_condition%>
+        <select name="extra_condition_id[]">
+          <option value="0" selected>不需验证</option>
+          <option value="1">需用户登录</option>
+          <option value="2">需用户订购</option>
+        </select>
+      <%else%>
+        <%=hidden_field_tag 'extra_condition_id[]',0 %>
+      <%end%>
+    </div>
+  <%end%>
+  <div id="other">
+    <%= render :partial=>'/common/info_detail_others' %>
+  </div>
+</div>
+
+
+
+
+

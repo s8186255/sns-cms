@@ -1,0 +1,25 @@
+<div id="cd">
+  <h3><%= topic_info_type.display_name_in_topic %></h3>
+  <div class="empty" id="cd_area"><!-- --></div>
+  <div class="label_thumb_holder">
+    <% @infos_of_info_types["#{topic_info_type.info_type_id}"].each do |info|%>
+      <div class="label_thumb_frame" >
+        <div><p><%= link_to info.title.value,:controller=>'zones',:action=>'display_info_details',:id=>info.id,:topic_id=>@topic.id%></p></div>
+        <div class="label_thumb_artist">发布在<%=link_to 'Deadwalk'%>个地盘</div>
+        <div class="label_thumb_artist">浏览<%=link_to 'Deadwalk'%>次</div>
+        <div class="label_thumb_artist"><%=link_to 'Deadwalk'%>条评论</div>
+        <!--
+          <div class="label_thumb_artist">Deadwalk</div>
+          <div class="label_thumb_title">Scandalous</div>
+          <div class="label_thumb_details">
+            <div class="label_thumb_left">
+              <div class="status_preorder mr_5"><div class="status_left"></div><div class="status_text">Pre-Order</div><div class="status_right"></div></div>
+            </div>
+            <div class="label_thumb_right">$10</div>
+          </div>
+  -->
+      </div>
+    <%end%>
+    <div id="clearall"></div>
+  </div>
+</div>

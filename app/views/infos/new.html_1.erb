@@ -1,0 +1,31 @@
+<% form_for :info, :url => {:action => :create} do |f| -%>
+  <%# for topic in @topics%>
+  <%#= radio_button :topic,topic.name,:id %>
+  <%#=radio_button "topic", "topic_id",topic.id%>
+  <%#= label_tag 'name',topic.id %>
+  <%#= label_tag 'name',topic.name %>
+  <%#*<br />%>
+  <%# end%>
+  <p>
+    <%=f.select :topic_id,@topic%>
+  </p>
+  <p>
+    <%= f.label :info_type_id, "info_type_id" %><br />
+    <%= f.text_field :info_type_id %>
+  </p>
+
+  <p>
+    <%= f.label :name, "name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description, "description" %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :if_commented, "if_commented" %><br />
+    <%= f.text_field :if_commented %>
+  </p>
+  <p><%= f.submit "Submit" %> </p>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>

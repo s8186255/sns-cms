@@ -1,0 +1,39 @@
+<div id="topicArea">
+  <h3>
+    <a href="http://www.msnbc.msn.com/">热门地盘</a>
+  </h3>
+  <%@hot_topics.each do |topic|%>
+    <div class="topic">
+      <div class="topicAvatar">
+        <%=link_to image_tag(topic.topic_avatar.public_filename,:size=>"70X70"),:controller=>:zones,:action=>:show,:title=>topic.title unless topic.topic_avatar.nil?%>
+        <%=link_to image_tag("rails.png",:size=>"70X70"),:controller=>:zones,:action=>:show,:title=>topic.title if topic.topic_avatar.nil?%>
+      </div>
+      <ul>
+        <li><p><%= topic.title %></p></li>
+        <li><p><%= topic.description %></p></li>
+      </ul>
+      <div style="clear: both;"></div>
+    </div>
+  <%end%>
+
+</div>
+
+<div id="topicArea">
+  <h3>
+    <a href="http://www.msnbc.msn.com/">热门地盘</a>
+  </h3>
+  <%@hot_topics.each do |topic|%>
+    <div class="topic">
+      <div class="topicAvatar">
+        <%=link_to image_tag(topic.topic_avatar.public_filename,:size=>"20X20"),:controller=>'/zones',:action=>:show,:title=>topic.title unless topic.topic_avatar.nil?%>
+        <%=link_to image_tag("rails.png",:size=>"30X30"),:controller=>'/zones',:action=>:show,:title=>topic.title if topic.topic_avatar.nil?%>
+      </div>
+      <ul>
+        <li><p><%= topic.title %></p></li>
+        <li><p><%= topic.description %></p></li>
+      </ul>
+      <div style="clear: both;"></div>
+    </div>
+  <%end%>
+
+</div>

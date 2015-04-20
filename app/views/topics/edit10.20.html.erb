@@ -1,0 +1,78 @@
+<h1>Edit <%= @topic.title %></h1>
+
+<% form_tag({:action=>'update_topic'},:enctype=>'multipart/form-data') do  -%>
+
+  <%= label_tag '','title' %>
+  <%= text_field_tag 'title',@topic.title%><br/>
+
+  <%= label_tag '','description' %>
+  <%= text_area_tag 'description',@topic.description %><br/>
+
+  <%for topic_type in @topic_types%>
+    <% if  topic_type.id ==5 or topic_type.id ==6 %>
+      <%if @topic.topic_type_id ==topic_type.id%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> " checked onclick ="<%= remote_function :url => { :action => :show_editor_only_teams } %>"><%= topic_type.name %>
+      <%else%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> "  onclick ="<%= remote_function :url => { :action => :show_editor_only_teams } %>"><%= topic_type.name %>
+      <%end%>
+
+    <% elsif  topic_type.id ==7 or topic_type.id ==8 %>
+      <%if @topic.topic_type_id ==topic_type.id%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> " checked  onclick ="<%= remote_function  :url => { :action => :show_editor_and_follower_teams} %>"><%= topic_type.name %>
+      <%else%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> "  onclick ="<%= remote_function  :url => { :action => :show_editor_and_follower_teams} %>"><%= topic_type.name %>
+      <%end%>
+
+    <% elsif  topic_type.id ==9 %>
+      <%if @topic.topic_type_id ==topic_type.id%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> " checked  onclick ="<%= remote_function :url => { :action => :show_follower_only_teams } %>"><%= topic_type.name %>
+      <%else%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> "  onclick ="<%= remote_function :url => { :action => :show_follower_only_teams } %>"><%= topic_type.name %>
+      <%end%>
+
+    <%else%>
+      <%if @topic.topic_type_id ==topic_type.id%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> " checked  onclick ="<%= remote_function :url => { :action => :show_none_teams } %>" ><%= topic_type.name %>
+      <%else%>
+        <input type="radio" name="topic_type" value="<%= topic_type.id%> "  onclick ="<%= remote_function :url => { :action => :show_none_teams } %>" ><%= topic_type.name %>
+      <%end%>
+    <%end%>
+  <%end%><br>
+
+  <div id="team_topic">
+    <% if  @topic.topic_type_id ==5 or @topic.topic_type_id ==6 %>
+      <%=render :partial=>'editor_only_team_options'%>
+    <% elsif  @topic.topic_type_id ==7 or @topic.topic_type_id ==8 %>
+      <%=render :partial=>'editor_and_follower_team_options'%>
+    <% elsif  @topic.topic_type_id ==9 %>
+      <%=render :partial=>'follower_only_team_options'%>
+    <%else%>
+      <%=render :partial=>'none_team_options'%>
+    <%end%>
+  </div>
+
+  <%if @topic.status == 1%>
+    <%=check_box_tag :status,1,true%>激活状态
+  <%else%>
+    <%=check_box_tag :status,1%>激活状态
+  <%end%>
+  <br>
+
+  <%if @topic.if_permit_any_info_type ==true%>
+    <input type="radio" name="if_permit_any_info_type" value="1"  checked onclick ="<%= remote_function :url => { :action => :show_none_info_types } %>">允许添加任何类型的信息
+    <input type="radio" name="if_permit_any_info_type" value="0"   onclick ="<%= remote_function :url => { :action => :show_info_types } %>">只允许添加如下类型的信息
+    <div id="permit_any_or_some">
+    </div>
+  <%else%>
+    <input type="radio" name="if_permit_any_info_type" value="1"   onclick ="<%= remote_function :url => { :action => :show_none_info_types } %>">允许添加任何类型的信息
+    <input type="radio" name="if_permit_any_info_type" value="0"  checked onclick ="<%= remote_function :url => { :action => :show_info_types } %>">只允许添加如下类型的信息
+    <div id="permit_any_or_some">
+      <%=render :partial=>'info_types'%>
+    </div>
+  <%end%>
+
+  <%=hidden_field_tag "id",@topic.id%>
+
+  <%= submit_tag '确定' %>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>

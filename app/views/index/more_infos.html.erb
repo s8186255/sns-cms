@@ -1,0 +1,14 @@
+<!-- 将信息列表展示-->
+<%unless @infos.nil?%>
+  <%  @infos.each do |info|%>
+    <%unless info.items.find(:first).nil?%>
+      [<%= info.items.find(:first).value[0,20] unless info.items.find(:first).value.nil?%>]
+      [发布到x个地盘]
+      [点击x次]
+      [评论x次]<br>
+    <%end%>
+  <%end%>
+  <%= will_paginate @infos %>
+<%end%>
+
+

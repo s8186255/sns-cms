@@ -1,0 +1,85 @@
+<%for item in @items%>
+  <div id="item_title"><%= item.item_type.name%></div>
+  <% if item.item_type.content_type_id == 11 then%>
+    <%= GMap.header %>
+    <%if @map%>
+      <div id="gmap">
+        <%= link_to_function 'hide map' ,
+          "Element.hide('gmap');Element.show('showmaplink')"%>
+        <%= @map.to_html %>
+        <%= @map.div(:width => 600, :height => 400) %>
+        位置信息<br>
+        经度：<%=text_field_tag  'latitude',item.lat_lng[0]%><br>
+        纬度：<%=text_field_tag  'longitude',item.lat_lng[1]%><br>
+      </div>
+      <%= link_to_function 'show map' ,
+        "Element.show('gmap');Element.hide('showmaplink')",
+        :id=>'showmaplink',
+        :style=>'display:none'%>
+    <%end%>
+  <% elsif item.item_type.content_type_id ==5 then%>
+    <div id="item_5"><%=text_area_tag "value_of_#{item.item_type.id}",item.value%></div>
+  <%  elsif item.item_type.content_type_id ==8 then%>
+    <script type="text/javascript" charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript">
+      KE.show({
+        id : 'content_1' //TEXTAREA输入框的ID
+      });
+    </script>
+    <div id="item_8">
+    <textarea id="content_1" name="<%="value_of_#{item.item_type.id}"%>" cols="60" rows="15">
+      <%= item.value %>
+    </textarea>
+    </div>
+  <%  elsif item.item_type.content_type_id == 3 then%>
+    <div id="item_3"><%= file_field_tag "value_of_#{item.item_type.id}"%></div>
+  <%  elsif item.item_type.content_type_id == 4 then%>
+    <div id="item_4"><%= file_field_tag "value_of_#{item.item_type.id}"%></div>
+  <% elsif item.item_type.content_type_id == 7 then%>
+    <%#= image_tag item.attachments.find(:first).public_filename(:thumb) %>
+    <div id="item_7"><%= file_field_tag "value_of_#{item.item_type.id}"%></div>
+  <%  elsif item.item_type.content_type_id == 12 then%>
+    <div id="item_12"><%= file_field_tag "value_of_#{item.item_type.id}"%></div>
+  <% elsif item.item_type.content_type_id == 10 then%>
+    <div id="item_10"><%=text_area_tag "value_of_#{item.item_type.id}",item.value%></div>
+  <% elsif  item.item_type.content_type_id == 6 then%>
+    <div id="item_6"><%=text_area_tag "value_of_#{item.item_type.id}",item.value%></div>
+  <% end %>
+<%  end %>
+
+<br>新增</br>
+
+<%@available_item_types.each do |item_type|%>
+  <br><%=label_tag item_type.name%></br>
+  <%if @item_is_attachment.member? item_type.content_type_id  %>
+    <%= file_field_tag "value_of_#{item_type.id}"%>
+  <%elsif @item_is_common.member? item_type.content_type_id%>
+    <%=text_field_tag  "value_of_#{item_type.id}"%>
+  <%elsif @item_is_rich_text.member? item_type.content_type_id%>
+    <script type="text/javascript" charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript">
+      KE.show({
+        id : 'content_1' //TEXTAREA输入框的ID
+      });
+    </script>
+    <textarea id="content_1" name="<%="value_of_#{item_type.id}"%>" cols="60" rows="15"></textarea>
+  <%elsif @item_is_geo.member? item_type.content_type_id%>
+    <%= GMap.header %>
+    <%if @map%>
+      <div id="gmap">
+        <%= link_to_function 'hide map' ,
+          "Element.hide('gmap');Element.show('showmaplink')"%>
+        <%= @map.to_html %>
+        <%= @map.div(:width => 600, :height => 400) %>
+        位置信息<br>
+        经度：<%=text_field_tag  'latitude'%><br>
+        纬度：<%=text_field_tag  'longitude'%><br>
+      </div>
+      <%= link_to_function 'show map' ,
+        "Element.show('gmap');Element.hide('showmaplink')",
+        :id=>'showmaplink',
+        :style=>'display:none'%>
+    <%end%>
+  <%end%>
+<%end%>
+

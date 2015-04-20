@@ -1,0 +1,28 @@
+<h1>Editing user_function</h1>
+
+<% form_for(@user_function) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :function_id %><br />
+    <%= f.text_field :function_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :up_to %><br />
+    <%= f.datetime_select :up_to %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user_function %> |
+<%= link_to 'Back', user_functions_path %>

@@ -1,0 +1,14 @@
+<% form_tag({ :action => "update_followings" }) do%>
+  <%if @remain_topics.blank?%>
+    没有可加入的地盘
+  <%else%>
+    <% @remain_topics.each do |remain_topic| %>
+      <p>
+        <%= remain_topic.title %>
+        <%= check_box_tag "selected_topic[]","#{remain_topic.id}"%>
+      </p>
+    <%end%>
+  <%end%>
+  <p><%= submit_tag "确定" %> </p>
+<% end -%>
+

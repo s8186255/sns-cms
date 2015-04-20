@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="author" content="Luka Cvrk (www.solucija.com)" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+  <meta name="title" content="Shop for Year of the Sun Merch at evelMerch.com">
+  <meta name="description" content="Check Out the Year of the Sun Merch Store! At evelMerch.com we have everything from CD's, T-Shirts, Hoodies plus much more...">
+  <link rel="image_src" href="http://www.evelmerch.com/base/pics/1243553398-Logo - Year of the Sun 2009 (City Scape With Words).jpg">
+  <title><%= @topic.title %></title>
+  <!--
+  <link href="evelMerch_com - Year of the Sun_files/main.css" rel="stylesheet" type="text/css">
+  -->
+  <%= stylesheet_link_tag 'zone/style.css' %>
+
+  <script>
+    <!--
+    function setTab(name,cursel,n){
+      for(i=1;i<=n;i++){
+        var menu=document.getElementById(name+i);
+        var con=document.getElementById("con_"+name+"_"+i);
+        menu.className=i==cursel?"hover":"";
+        con.style.display=i==cursel?"block":"none";
+      }
+    }
+    //-->
+  </script>
+</head>
+<body>
+  <!-- Contatiner -->
+  <div class="container">
+    <!-- Header -->
+    <div class="bar_header">
+      <div class="holder_left">
+        <!--下面可以放置广告-->
+      <a href="http://www.evelmerch.com"><img src="evelMerch_com - Year of the Sun_files/logo[2].gif" title="evelMerch.com" border="0"></a></div>
+
+      <div class="holder_quickfinder">
+        <div class="holder_listbox_quickfinder"></div>
+      </div>
+
+
+    </div>
+
+    <!-- Nav (Blue Bar) -->
+    <div class="bar_blue_nav">
+      <div class="menu_holder"></div>
+
+      <div class="holder_right">我想参与维护<span class="nav_divider">|</span>我想成为会员</div>
+    </div>
+
+
+
+    <!-- Content -->
+    <div class="content">
+      <div class="holder_storeleft">
+        <div class="store_name"><%= @topic.title%></div>
+        <!--<div class="store_subtitle"><span class="bold">Label :</span> evelmerch.com/yearofthesun</div>-->
+        <div class="store_pic"><img id="conent_pic" src="<%= @topic.topic_avatar.public_filename%>"/></div>
+        <div class="store_profile"> 概述</div>
+        <!--<div class="store_bio_btn biolink" > BIO </div>
+        <div id="bioTab" style="display: none;">
+          <div class="store_bio">Established in 2003, Year of the Sun Records has been responsible for discovering and developing some of the best underground bands in Canada and beyond. We are the most independent record label operating inside Canada today which allows our artists to release truly honest music. Uncompromised by the limitations of government grants and review boards, this is the true pulse of Canadian music and we’re humbled to be able to bring it to your doorstep. <br>
+            <br>
+          We Hear What You Hear!</div>
+        </div>
+        <div class="store_btn_share"><div class="store_share_txt">SHARE</div><div class="store_share_icons"><a href="http://twitter.com/home?status=Check+Out+the+Year of the Sun+Merch+Store!+http//www.evelmerch.com/yearofthesun" target="_blank"><img src="http://www.evelmerch.com/imgs/icon_t.gif" title="Share On Twitter" border="0" height="22" width="28"></a><a href="http://www.facebook.com/share.php?u=http://www.evelmerch.com/yearofthesun" target="_blank"><img src="http://www.evelmerch.com/imgs/icon_f.gif" title="Share On Facebook" border="0" height="22" width="28"></a><a href=""><img src="http://www.evelmerch.com/imgs/icon_m.gif" title="Share On Myspace" border="0" height="22" width="28"></a></div></div>-->
+        <div class="store_btn">网站 : <a href="http://www.yearofthesun.com/" target="_blank">www.yearofthesun.com</a></div>
+        <div class="store_btn">浏览次数 : <span class="blue"><%= @topic.view_count%></span></div>
+         <div class="store_btn">会员数量 : <span class="blue"><%= @topic.following_count%></span></div>
+         <div class="store_btn">信息数量 : <span class="blue"><%= @topic.info_count%></span></div>
+       <div class="spacer30h"></div>
+      </div>
+      <div class="holder_storeright">
+<!--        <div class="store_dsply_menu">
+          <div id="all_on" style="display: none;">
+            <div class="store_dsply_btn" ><img src="http://www.evelmerch.com/imgs/show_all.gif" title="All" border="0"></div>
+          </div>
+          <div id="all_off" class="store_dsply_btn_x"><img src="http://www.evelmerch.com/imgs/show_all.gif"></div>
+          <div id="cd_on" class="store_dsply_btn" ><img src="http://www.evelmerch.com/imgs/show_cd.gif" title="CD's"></div>
+          <div id="cd_off" style="display: none;">
+            <div class="store_dsply_btn_x"><img src="http://www.evelmerch.com/imgs/show_cd.gif"></div>
+          </div>
+          <div class="store_dsply_hd">Display Only:</div>
+        </div>-->
+        <%= yield %>
+      </div>
+
+      <div id="clearall"></div>
+    </div>
+
+    <div class="bar_morestores">相关地盘</div>
+    <div class="store_thumb_holder">
+      <div class="store_thumb_frame" ><img src="http://www.evelmerch.com/base/thumbs/1242231785-Group.jpg" height="80" width="140"><div class="store_thumb_name">TERRIFY</div></div><div class="store_thumb_frame" ><img src="http://www.evelmerch.com/base/thumbs/1236647846-Contrabandit.jpg" height="80" width="140"><div class="store_thumb_name">Contrabandit</div></div><div class="store_thumb_frame" ><img src="http://www.evelmerch.com/base/thumbs/1183842749-main.jpg" height="80" width="140"><div class="store_thumb_name">The Knockouts</div></div><div class="store_thumb_frame" ><img src="http://www.evelmerch.com/base/thumbs/1200155464-lsm.jpg" height="80" width="140"><div class="store_thumb_name">lifestory:monologue</div></div><div class="store_thumb_frame" ><img src="http://www.evelmerch.com/base/thumbs/1183746654-main.jpg" height="80" width="140"><div class="store_thumb_name">Arise And Ruin</div></div>
+      <div id="clearall"></div>
+    </div>
+    <!-- Footer -->
+    <!--<div class="spacer20h"></div>
+    <div class="bar_grey_footer">
+      <div class="holder_footer">
+        <div class="footer_signup_box"> <a href="http://www.evelmerch.com/signup.php"><img src="evelMerch_com - Year of the Sun_files/btn_signup[1].gif" title="Signup For A Store!" border="0"></a></div>
+        <div class="footer_nav_box">
+          <div class="footer_nav_title"> evel Company </div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_au.php" class="footer_link">About Us</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_awu.php" class="footer_link">Advertise With Us</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_faq.php" class="footer_link">FAQ</a></div>
+        </div>
+        <div class="footer_nav_box">
+          <div class="footer_nav_title"> evel Services </div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_wsm.php" class="footer_link">We Sell Merch</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_wmm.php" class="footer_link">We Make Merch</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_wdm.php" class="footer_link">We Design Merch</a></div>
+        </div>
+        <div class="footer_nav_box">
+          <div class="footer_nav_title"> evel Info</div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_cu.php" class="footer_link">Contact Us</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_sup.php" class="footer_link">Support</a></div>
+          <div class="footer_nav"> <a href="http://www.evelmerch.com/evel_os.php" class="footer_link">Orders &amp; Shipping</a></div>
+        </div>
+      </div>
+    </div>-->
+    <!-- Copyright (Grey Bar) -->
+    <div class="bar_grey_copyright">
+      <div class="holder_left">
+        © Copyright evelMerch 2009.
+
+      </div>
+    </div>
+  </div>
+
+</body>

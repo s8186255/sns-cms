@@ -1,0 +1,24 @@
+<h1>Listing fee_records</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Fee</th>
+    <th>Month</th>
+  </tr>
+
+<% @fee_records.each do |fee_record| %>
+  <tr>
+    <td><%=h fee_record.user_id %></td>
+    <td><%=h fee_record.fee %></td>
+    <td><%=h fee_record.month %></td>
+    <td><%= link_to 'Show', admin_fee_record_path(fee_record) %></td>
+    <td><%= link_to 'Edit', edit_admin_fee_record_path(fee_record) %></td>
+    <td><%= link_to 'Destroy', admin_fee_record_path(fee_record), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fee_record', new_admin_fee_record_path %>

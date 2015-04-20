@@ -1,0 +1,10 @@
+<% for item in @appointed_items%>
+<div class="grid">
+  <%=link_to image_tag(Info.find_files_from_item(item,"../files/"),
+    :size=>'160x100'),
+    :controller=>'infos',
+    :action=>'show',
+    :id=> item.info_id%>
+</div>
+<% end%>
+

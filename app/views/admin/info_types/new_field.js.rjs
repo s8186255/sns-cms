@@ -1,0 +1,2 @@
+# TODO Operate on the page object
+page[:item_type].replace_html :partial=>"item_type"

@@ -1,0 +1,2 @@
+module Admin::DisplayTopicsHelper
+end

@@ -1,0 +1,7 @@
+<% for topic in @topics%>
+  <%= link_to topic.title,:action=>'show',:id=> topic %>
+  (<%=  topic.followings_count %>)
+  <%= link_to "edit", :action => 'edit', :id => topic %>
+  <%= link_to "remove",topic, :confirm => 'Are you sure?', :method => :delete %>
+  <br>
+<% end%>

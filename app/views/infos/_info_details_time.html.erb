@@ -1,0 +1,25 @@
+<%@item_types.each_index do |i|%>
+  <%=label_tag @item_types[i].name%><br>
+  <%if @item_is_attachment.member? @item_types[i].content_type_id  %>
+    <%=file_field_tag "item_values[]"%>
+  <%elsif @item_is_common.member? @item_types[i].content_type_id%>
+    <%=text_field_tag  "item_values[]"%>
+  <%elsif @item_is_rich_text.member? @item_types[i].content_type_id%>
+    <!--模仿sina在线编辑器开始-->
+    <input type="hidden" id="content1" name="item_values[]" value=""></input>
+    <iframe id="myEditor" src="/editor/editor.htm?id=content1" frameborder="0" scrolling="no" width="550" height="220"></iframe>
+    <!--模仿sina在线编辑器结束-->
+
+  <%end%>
+
+  <%if @item_types[i].if_permit_extra_condition%>
+    <select name="extra_condition_id[]">
+      <option value="0" selected>不需验证</option>
+      <option value="1">需用户登录</option>
+      <option value="2">需用户订购</option>
+    </select>
+  <%else%>
+    <%=hidden_field_tag 'extra_condition_id[]',0 %>
+  <%end%><br>
+<%end%>
+

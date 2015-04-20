@@ -1,0 +1,6 @@
+
+<%= render :partial => "person",:collection=>@persons%>
+
+<p><%= link_to_remote "Alert with Javascript Helper", :url =>
+    {:action => "myresponse"}, :update => "response5" %></p>
+    <p id="response5"></p>

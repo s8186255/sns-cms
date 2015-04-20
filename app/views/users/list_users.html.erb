@@ -1,0 +1,11 @@
+<%if @choic ==1%>
+  <% for user in @users%>
+    <%=  link_to user.login,:controller=>:users,:action=>:show_real_user,:user_id=>user.id %>
+    <%=  link_to "拒绝",:controller=>:maintainings,:action=>:verify_maintaining,:verify_id=>0,:user_id=>user.id,:topic_id=>@topic.id%>
+    <%=  link_to "接受",:controller=>:maintainings,:action=>:verify_maintaining,:verify_id=>1,:user_id=>user.id,:topic_id=>@topic.id%>
+  <% end%>
+<%elsif @choic == 2%>
+  <% for user in @users%>
+    <%=  link_to user.login,:controller=>:users,:action=>:show_real_user,:user_id=>user.id %>
+  <% end%>
+<%end%>

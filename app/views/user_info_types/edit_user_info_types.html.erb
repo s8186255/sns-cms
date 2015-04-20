@@ -1,0 +1,12 @@
+<%= error_messages_for :user_infotype%>
+<% form_tag({ :action => "update_user_info_types" }) do%>
+  <% @info_types.each do |info_type| %>
+    <p>
+      <%= info_type.cloud_tool_name %>
+      <%= check_box_tag "info_type[]","#{info_type.id}",true if @user_info_type_ids.member?(info_type.id)%>
+      <%= check_box_tag "info_type[]","#{info_type.id}",false unless @user_info_type_ids.member?(info_type.id)%>
+    </p>
+  <%end%>
+  <p><%= submit_tag "确定" %> </p>
+<% end -%>
+

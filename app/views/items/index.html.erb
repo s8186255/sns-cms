@@ -1,0 +1,6 @@
+<% for item in @items%>
+<%= link_to item.name, :action => 'show', :id => item %>
+<%= link_to "edit", :action => 'edit', :id => item %> |
+<%= link_to "remove", :action => 'destroy', :id => item %>
+<% end%>
+

@@ -1,0 +1,9 @@
+<%unless @followings_to_be_verified.blank?%>
+  <%  @followings_to_be_verified.each do |following|%>
+    <div id="list">
+      [<%=link_to Topic.find_by_id(following.topic_id).title%>]
+      [<%=link_to User.find_by_id(following.follower_id).login%>]
+    </div>
+  <%end%>
+    <%= will_paginate @followings_to_be_verified %>
+<%end%>

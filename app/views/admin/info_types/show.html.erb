@@ -1,0 +1,6 @@
+<h1>name:  <%= @info_type.name %></h1>
+<h1>description:  <%= @info_type.description %></h1>
+<%for item_type in @item_types%>
+  <%= item_type.name %>||<%= ContentType.find(item_type.content_type_id).name %><br>
+  <%end%>
+<%=link_to 'back',:action=>'index'%>

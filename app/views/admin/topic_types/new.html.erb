@@ -1,0 +1,31 @@
+<% form_for :topic_type, :url => {:action => :create} do |f| -%>
+  <p>
+    <%= f.label :name, "name" %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description, "description" %><br />
+    <%= f.text_area :description,:size=>'20x6' %>
+  </p>
+
+  <%= f.radio_button :if_followable,'1',:checked=>true %>允许任何人follow
+  <%= f.radio_button :if_followable,'2' %>允许成员follow
+  <%= f.radio_button :if_followable,'0' %>不允许follow<br>
+
+  <%= f.radio_button :if_verify_follower,'1',:checked=>true %>验证follower
+  <%= f.radio_button :if_verify_follower,'0' %>不验证follower<br>
+
+  <%= f.radio_button :if_permit_other_infos,'1',:checked=>true%>允许任何人的信息加入
+  <%= f.radio_button :if_permit_other_infos,'2' %>允许我的成员添加信息
+  <%= f.radio_button :if_permit_other_infos,'0' %>不允许别人的信息加入<br>
+
+  <%= f.radio_button :if_verify_info,'1',:checked=>true %>对信息加入进行验证
+  <%= f.radio_button :if_verify_info,'0' %>不需要对信息加入进行验证<br>
+
+
+
+
+  <p><%= f.submit "Submit" %> </p>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>

@@ -1,0 +1,235 @@
+﻿
+/* CSS for SinaCDC */
+
+/* ***************文字色(位置见围脖皮肤说)*************** */
+
+/* A类-左-文字 */
+.MIB_txtal{color:#444;}
+
+/* B类-左-文字 */
+.MIB_txtbl{color:#707070;}
+
+/* A类-左-链接 */
+.MIB_linkal a:link,
+.MIB_linkal a:visited,
+.MIB_linkal a:hover,
+a.MIB_linkal:link,
+a.MIB_linkal:visited,
+a.MIB_linkal:hover{color: #0082CB}
+
+/* B类-左-链接 */
+.MIB_linkbl a:link,
+.MIB_linkbl a:visited,
+.MIB_linkbl a:hover,
+a.MIB_linkbl:link,
+a.MIB_linkbl:visited,
+a.MIB_linkbl:hover{color:#6eafd5}
+
+/* A类-右-文字 */
+.MIB_txtar{color:#666;}
+
+/* B类-右-文字 */
+.MIB_txtbr{color:#999;}
+
+/* A类-右-链接 */
+.MIB_linkar a:link,
+.MIB_linkar a:visited,
+.MIB_linkar a:hover,
+a.MIB_linkar:link,
+a.MIB_linkar:visited,
+a.MIB_linkar:hover{color: #0082CB}
+
+/* B类-右-链接 */
+.MIB_linkbr a:link,
+.MIB_linkbr a:visited,
+.MIB_linkbr a:hover,
+a.MIB_linkbr:link,
+a.MIB_linkbr:visited,
+a.MIB_linkbr:hover{color:#6eafd5}
+
+/* C类-右-链接 */
+.MIB_linkcr a:link,
+.MIB_linkcr a:visited,
+.MIB_linkcr a:hover,
+a.MIB_linkcr:link,
+a.MIB_linkcr:visited,
+a.MIB_linkcr:hover{color:#666}
+
+/* 标准尾文字+高度 */
+.MIB_foot{height:80px;}
+.MIB_foot,.MIB_foot a:link,.MIB_foot a:visited{color:#0082CB;}
+
+/* ****************************字间分隔线、虚线、点**************************** */
+
+/* 左-分隔竖线（字）- 如：转发、评论之间的竖线 */
+.MIB_line_l{color:#D6D6D6;}
+
+/* 右-分隔竖线（边）- 如：右侧顶部信息数间隔线 */
+/* 右侧我的标签操作区竖线 */.MIB_liner{ color:#ADCACE;}
+.MIB_line_r{border-style:solid;border-color:#ADCACE;}
+
+/* 左-虚线（背景居底）- 如：评论列表间隔线 */
+.MIB_linedot_l{background:url("linedotl[1]__1_.gif") repeat-x left bottom;}
+
+/* 左-虚线（高为1的div）- 如：评论列表间隔线 */
+.MIB_linedot_l1{background:url("linedotl[1]__1_.gif");}
+
+/* 右-虚线（背景居底）- 如：右侧顶部横向虚线 */
+.MIB_linedot{background:url("linedot[1]__1_.gif") repeat-x left bottom;}
+
+/* 实线（背景居底） */
+.MIB_line{ background:url("line[1]__3_.gif") repeat-x left bottom;}
+
+/* 小圆点 */
+.MIB_dot{ background:url("dot[1]__4_.gif") no-repeat;}
+
+/* ********************************** 顶部 ********************************** */
+
+/*logo区(高度、定位)*/
+.MIB_blogb .TopName{height:80px;}
+.MIB_blogb .TopName .logo{left:5px;bottom:2px;}
+/*logo区文字色*/
+.MIB_blogb .TopName .copytxt a{color:#0082CB;}
+
+/* ****************背景图**************** */
+
+/* 背景 */
+body{
+background-color: #C4EEF4;
+/*
+循环背景图
+ background-image:url();
+ */
+}
+
+/* 头图 (背景、高度) */
+.MIB_blogb{background-image: url("miblogb[1].jpg"); }
+
+/* 尾图 (背景、高度) */
+.MIB_bloga{ background-image:none;}
+/* 主体背景左 */
+.MIB_blogbody .MIB_mblogbgl{background:url("bg[1]__7_.png") repeat-y;_background:url("bg[3].gif") repeat-y;}
+/* 主体背景右 */
+.MIB_blogbody .MIB_mblogbgr{background:url("bg[1]__7_.png") repeat-y -800px 0;_background:url("bg[3].gif") repeat-y -800px 0;}
+
+
+/* *********** 帖子列表&引用框 背景 ********** */
+
+/* 箭头背景 */
+/* 大 */.MIB_asarrow_l{background:url("arrow[3]__2_.gif") no-repeat;}
+/* 小 */.MIB_asarrow_r{background:url("arrow[3]__2_.gif") no-repeat -24px 0;}
+
+/*帖子背景*/
+.MIB_assign_t,.MIB_assign_b,.MIB_assign_c{background:url("assignbg[1]__2_.gif") no-repeat;}
+
+/* 引用框背景（t头，b脚丫，c身体） */
+.MIB_list_t,.MIB_list_b,.MIB_list_c{background:url("listbg[1]__1_.png") ;_background-image:url("listbg[1]__1_.gif");}
+.MIB_list_t,.MIB_list_b{overflow:hidden;height:5px;width:560px;}
+.MIB_list_b{background-position:-560px 0;}
+.MIB_list_c{background-position:-1120px 0;background-repeat:repeat-y;}
+
+/* ************* 主体右侧分组导航 背景 ************* */
+.right_nav ul li{background:url("rightnavbg[1]__1_.gif") no-repeat 0 -30px;}
+.right_nav ul li.cur,
+.right_nav ul li.cur a:link,
+.right_nav ul li.cur a:visited,
+.right_nav ul li.cur a:hover{color:#fff;}
+.smallNav li.smailNavIcon{ background:url("smallnavicon[1]__1_.gif") 28px 12px no-repeat}
+.smallNav li.smailNavIcon2{ background:url("smallnavicon[1]__1_.gif") 28px -17px no-repeat;}
+
+
+/* ************* 二级页面 左顶通titl/左标题栏/800顶通tit/ ************* */
+.MIB_lf_titl,.MIB_lf_tit{background:#E4FADD;border-bottom:1px solid #D6F8BF;color:#599933}
+.MIB_lf_titl a:link,.MIB_lf_titl a:visited,.MIB_lf_titl a:hover,
+.MIB_lf_tit a:link,.MIB_lf_tit a:visited,.MIB_lf_tit a:hover{color:#599933}
+.MIB_comheader{background-color:#DDF5F9; }
+
+/* ********************************* 发布器 *********************************** */
+/*发布区*/
+.MIB_mblogbox{}
+
+/* ******* 发布框 * 背景层 ******* */
+
+/* 发布框背景(Png32)[尺寸600×200] */
+.MIB_mblogbox .pngBg{ background-repeat:no-repeat; background:url("postbg[1].jpg");_filter:none;}
+
+/* “有什么新鲜事”[从发布框顶边和左边开始切] */
+.MIB_mblogbox .pngBg .pngGuidBg{ background-image:none;filter:none;}
+
+/* 内容区textarea背景(Png32) */
+.MIB_mblogbox .pngBg .pngAreaBg{ background-image:url("postareabg[1]__1_.png"); background-repeat:no-repeat;_background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='postareabg[1]__2_.png');}
+
+/* 设置区背景(Png32)[尺寸380×27] */
+.MIB_mblogbox .pngBg .postOptionBg{ background:url("postoptionbg[1]__1_.png"); background-repeat:no-repeat;_background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='postoptionbg[1]__2_.png'); }
+
+/* 按钮背景[尺寸100×30] */
+.MIB_mblogbox .connBg .postBtnBg a:link .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg a:visited .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg a:link .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg a:visited .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg a:link .bgColorA .BackG2,
+.MIB_mblogbox .connBg .postBtnBg a:visited .bgColorA .BackG2,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG2{ background:transparent none;}
+
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorA .BackG2{ background:transparent none;}
+
+.MIB_mblogbox .connBg .postBtnBg a:link .bgColorB,
+.MIB_mblogbox .connBg .postBtnBg a:visited .bgColorB,
+.MIB_mblogbox .connBg .postBtnBg a:hover .bgColorB{background:transparent none; filter:none;}
+
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:link .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:link .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:link .bgColorA .BackG2,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:visited .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:visited .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:visited .bgColorA .BackG2,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:hover .bgColorA .BackG,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:hover .bgColorA .BackG1,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:hover .bgColorA .BackG2{background:transparent none;}
+
+.MIB_mblogbox .connBg .postBtnBg a{background-image:url("postbtnbg[1].gif"); background-repeat:no-repeat;}
+.MIB_mblogbox .connBg .postBtnBg a:link,
+.MIB_mblogbox .connBg .postBtnBg a:visited{background-position:left top;}
+.MIB_mblogbox .connBg .postBtnBg a:hover{background-position:left -30px;}
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:link,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:visited,
+.MIB_mblogbox .connBg .postBtnBg.bgColorA_No a:hover{background-position:left -60px;}
+
+/* ******* 发布框 * 内容层 ******* */
+.MIB_mblogbox .connBg .postOptionBg{color:#fff; }
+.MIB_mblogbox .connBg .postOptionBg a,
+.MIB_mblogbox .connBg .postOptionBg a:link,
+.MIB_mblogbox .connBg .postOptionBg a:visited{color:#fff;}
+.MIB_mblogbox .connBg .postOptionBg a:hover{ color:#fff;}
+.MIB_mblogbox .connBg .wordNumBg{ color:#fff;}
+
+
+/* ************************* 其他 ************************* */
+/* 右-关注的话题 */
+ul li.list_hover{background:#effafc;}
+
+/* 关闭按钮 */
+.icon_closel {color:#0082cb;}/* 左- 如：删除评论 */
+ul.conlist li.list_hover span{color:#80c1e5;}/* 右- 如：关闭关注话题 */
+
+/* 已关注 加关注 小按钮*/
+a.concernBtn_Add,
+a.concernBtn_Add:link,
+a.concernBtn_Add:visited{background:#E4FADD; border:1px solid #DDF9CF;color:#599933;}
+a.concernBtn_Add:hover{background:#599933; border:1px solid #DDF9CF; color:#D6F8BF;}
+
+/* 顶托盘 */
+.MIB_trayMainbg{background:url("topbarbg[1]__1_.png");_background:none;
+_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src='http://simg.sinajs.cn/miniblog2style/skin/skin_001/images/topbarbg.png'); 
+ }
+.MIB_trayMain_txt a:link,
+.MIB_trayMain_txt a:visited,
+.MIB_trayMain_txt a:hover{color:#2a99d4}
+.MIB_trayMain_txt .line{background:#b9e4f1;}
+.MIB_trayMain_search .inpu input { color:#999999;}
+
+

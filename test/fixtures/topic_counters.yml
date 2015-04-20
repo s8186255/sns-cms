@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  topic_id: 1
+  following_count: 1
+  view_count: 1
+  info_count: 1
+
+two:
+  topic_id: 1
+  following_count: 1
+  view_count: 1
+  info_count: 1

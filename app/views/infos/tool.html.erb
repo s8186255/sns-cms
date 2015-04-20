@@ -1,0 +1,44 @@
+<% form_tag({:action => 'update_info'},:enctype =>"multipart/form-data")do %>
+  <% for item in @items%>
+    <%if ItemType.find(item.item_type_id).content_type_id == 5 %>
+      <%= ItemType.find(item.item_type_id).name %><br>
+      <%= text_field_tag "item_values[]",item.value %><br>
+    <%elsif ItemType.find(item.item_type_id).content_type_id == 6%>
+      <%= ItemType.find(item.item_type_id).name %><br>
+      <%= text_field_tag "item_values[]",item.value %> <br>
+    <%elsif ItemType.find(item.item_type_id).content_type_id == 3%>
+      <%=file_field_tag  "item_values[]"%><br>
+    <%elsif ItemType.find(item.item_type_id).content_type_id == 4%>
+      <%=text_area_tag  "item_values[]"%><br>
+    <%elsif ItemType.find(item.item_type_id).content_type_id == 7%>
+      <%=image_tag  Info.find_files_from_item(item,"../files/"),  :size  =>  "360x300"%><br>
+      <%=file_field_tag  "item_values[]"%><br>
+    <% end%>
+  <% end%>
+
+  </br>
+  <%= label_tag 'if_commented','不允许评论' %>
+  <%=  radio_button_tag  'if_commented',@info.if_commented,true %>
+  <%= label_tag 'if_commented','允许评论' %>
+  <%=  radio_button_tag  'if_commented',@info.if_commented,true %>
+  <br>
+
+  <%if @original_topics.blank? != true%>
+    <p>此信息已挂接在如下topic下</p>
+    <% for topic in @original_topics%>
+      <%=label '',topic.title%>
+      <%= check_box_tag 'selected_topics[]',topic.id,true %><br>
+    <% end%>
+  <%else%>
+    <h>此信息尚未挂接到任何topic下。</h>
+  <%end%>
+
+  <p>你可以选择挂接在如下topic下</p>
+  <% for topic in @optional_topics%>
+    <%=label '',topic.title%>
+    <%= check_box_tag 'selected_topics[]',topic.id %><br>
+  <% end%>
+  </br>
+  <%=hidden_field_tag "id",@info.id%>
+  <%= submit_tag "更新" %>
+<% end -%>

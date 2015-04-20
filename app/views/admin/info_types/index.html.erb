@@ -1,0 +1,9 @@
+<% for info_type in @info_types%>
+  <%=  info_type.name%><%=info_type.id%>
+
+  <%= link_to "详细信息", :action => 'show', :id => info_type %> |
+  <%= link_to "编辑", :action => 'edit', :id => info_type %> |
+  <%= link_to "删除",admin_info_type_path(info_type),  :confirm => 'Are you sure?', :method => :delete %>
+  <br>
+
+<% end%>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  team_id: 1
+  topic_id: 1
+  if_maintain_topic: 1
+  if_follow_topic: 1
+
+two:
+  team_id: 1
+  topic_id: 1
+  if_maintain_topic: 1
+  if_follow_topic: 1

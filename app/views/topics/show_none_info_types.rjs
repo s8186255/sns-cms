@@ -1,0 +1,2 @@
+# TODO Operate on the page object
+page[:permit_any_or_some].replace_html :partial=>'none_info_types'

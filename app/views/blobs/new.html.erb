@@ -1,0 +1,5 @@
+<%form_tag({:action => 'create'}, :multipart => true) do -%>
+  <p><label for="classified_picture">Picture</label><br />
+  <%= file_field_tag 'assets[]' %></p>
+  <%=submit_tag 'upload'%>
+<% end%>

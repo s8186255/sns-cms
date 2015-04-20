@@ -1,0 +1,6 @@
+<% for info in @infos%>
+<%= link_to info.name, :action => 'show', :id => item %>
+<%= link_to "edit", :action => 'edit', :id => item %> |
+<%= link_to "remove", :action => 'destroy', :id => item %>
+<% end%>
+

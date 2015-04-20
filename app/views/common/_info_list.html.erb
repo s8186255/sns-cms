@@ -1,0 +1,22 @@
+<div id="info_list">
+
+  <%@infos.each do |info|%>
+    <ul>
+      <%unless info.title.nil?%>
+        <li>
+
+          <%if info.title.content_type_id == 5%>
+            <%= link_to  info.title.value,:action=>'display_info_details',:id=>info.id,:topic_id=>@topic.id unless @topic.nil?%>
+            <%= link_to  info.title.value,:action=>'display_info_details',:id=>info.id if @topic.nil?%>
+          <%elsif info.title.content_type_id == 7%>
+            <%=link_to image_tag(info.title.attachments.find(:first).public_filename(:thumb)),:action=>'display_info_details',:id=>info.id,:topic_id=>@topic.id unless @topic.nil?%>
+            <%=link_to image_tag(info.title.attachments.find(:first).public_filename(:thumb)),:action=>'display_info_details',:id=>info.id,:topic_id=>@topic.id if @topic.nil?%>
+          <%end%>
+        <%end%>
+        <span id="updated_at"><%= info.updated_at.month.to_s+'月'+info.updated_at.day.to_s+'日'+info.updated_at.hour.to_s+':'+info.updated_at.min.to_s %></span>
+      </li>
+
+    </ul>
+  <%end%>
+
+</div>

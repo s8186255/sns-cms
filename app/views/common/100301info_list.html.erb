@@ -1,0 +1,4 @@
+<%unless @topic_info_type.nil?%>
+<h3><%= @topic_info_type.display_name_in_topic %></h3>
+<%end%>
+<%=render :partial=>'/common/info_list'%>

@@ -1,0 +1,32 @@
+#video{width:100px;
+    height:50px;
+    border:1px solid #567;}
+#audio{width:100px;
+    height:50px;
+    border:1px solid #567;}
+#pure_text p{}
+#item {    }
+
+#item_is_digital{width:100px;
+    height:50px;
+    border:1px solid #567;}
+img{width:580px;max-height:1024px;
+}
+#item_is_rich_text{width:100px;
+    height:50px;
+    border:1px solid #567;}
+#item_is_attachment{width:100px;
+    height:50px;
+    border:1px solid #567;}
+#item_is_flash{width:100px;
+    height:50px;
+    border:1px solid #567;}
+h3 {
+    font-size: 18px;
+    margin: 10px 0px 10px 0px;
+    background: #C0CEDC url(corner.gif) no-repeat;
+    line-height:27px;
+    padding-left:10px;
+}
+#content_pic{margin-right: 5px; padding: 1px; background: #fff; border: #ccc 1px solid; float: left;}
+

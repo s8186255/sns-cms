@@ -1,0 +1,26 @@
+
+
+<%= stylesheet_link_tag 'list' %>
+
+<div id="list_block">
+  <h3>信息列表</h3>
+  <% @topic_info_types.each do |topic_info_type| %>
+
+    <div id ="list_title">
+      <%= InfoType.find(topic_info_type.info_type_id).name %>
+    </div>
+    <%if @infos_of_info_types["#{topic_info_type.info_type_id}"]%>
+      <% @infos_of_info_types["#{topic_info_type.info_type_id}"].each do |item|%>
+        <%if item.content_type_id == 5%>
+          <div id ="list_info_text">
+            <%= link_to item.value,:controller=>'infos',:action=>'show',:id=>Info.find(item.info_id).id%>[<%=item.updated_at%>]<br>
+          </div>
+        <%elsif item.content_type_id == 7%>
+          <div id ="list_info_img">
+            <%= link_to image_tag(item.attachments.find(:first).public_filename),:controller=>'infos',:action=>'show',:id=>Info.find(item.info_id).id%>
+          </div>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>

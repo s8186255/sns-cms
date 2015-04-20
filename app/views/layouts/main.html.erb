@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <title>simple life,simple work,simple info</title>
+
+    <%= stylesheet_link_tag 'style.css' %>
+    <%= stylesheet_link_tag "list_and_details.css" %>
+  </head>
+
+  <body>
+
+    <div id="site-wrapper">
+
+      <div id="header">
+
+        <div id="top">
+          <div id="top_left" class="left">
+            <div  class="logo">
+              <p><a href="#"><%=image_tag "logo.png" %></a></p>
+            </div>
+            <div class="login">
+              <% if logged_in? %>
+                欢迎[<%= current_user.login %>]来到我秀网
+                [<%= link_to "注销", session_path,:method => :delete %>]
+              <% else %>
+                [<%= link_to '登录', new_session_path %>]或者[<%=link_to '注册',:controller=>'registers',:action=>'new'%>]
+              <% end %>
+            </div>
+          </div>
+          <div class="left navigation" id="main-nav">
+
+            <ul class="tabbed">
+              <li class="current-tab"><a href="/main">首页</a></li>
+              <li><a href="/my">我的首页</a></li>
+
+              <li><a href="/help.html">关于</a></li>
+            </ul>
+
+            <div class="clearer">&nbsp;</div>
+
+          </div>
+
+          <div class="clearer">&nbsp;</div>
+
+        </div>
+        <%unless flash[:notice].nil?%>
+          <div id="flash"><%=flash[:notice]%></div>
+        <%end%>
+        <div class="navigation" id="sub-nav">
+
+          <ul class="tabbed">
+            <li class="current-tab"><a href="#">此处信息分类正在完善...</a></li>
+
+
+          </ul>
+
+          <div class="clearer">&nbsp;</div>
+
+        </div>
+
+      </div>
+
+      <div id="splash">
+
+        <div class="col3 left">
+
+          <h2 class="label label-green">最新地盘</h2>
+
+          <p class="quiet large">此信息正在完善</p>
+
+          <p>。。。</p>
+
+        </div>
+
+        <div class="col3-mid left">
+
+          <h2 class="label label-orange">热门地盘</h2>
+
+          <p class="quiet large">此信息正在完善</p>
+
+          <p>...</p>
+        </div>
+
+        <div class="col3 right">
+
+          <h2 class="label label-blue">推荐地盘</h2>
+
+          <p class="quiet large">此信息正在完善</p>
+
+          <p>。。。</p>
+
+        </div>
+
+        <div class="clearer">&nbsp;</div>
+
+      </div>
+
+      <div class="main" id="main-two-columns">
+
+        <div class="left" id="main-content">
+
+          <div class="section">
+
+            <div class="section-title">随便看看</div>
+
+            <div class="section-content">
+
+              <div class="post">
+
+
+                <%=yield%>
+              </div>
+
+              <div class="content-separator"></div>
+
+              <div class="col3 left">
+                <div class="column-content">
+
+                  <div class="post">
+                    <h3><a href="#">本地</a></h3>
+                    <p>本地地盘信息正在完善。。。</p>
+                    <a href="#" class="more">更多 &#187;</a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col3 col3-mid left">
+                <div class="column-content">
+
+                  <div class="post">
+                    <h3><a href="#">本省</a></h3>
+                    <p>本省地盘信息正在完善</p>
+                    <a href="#" class="more">更多 &#187;</a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col3 right">
+                <div class="column-content">
+
+                  <div class="post">
+                    <h3><a href="#">全国</a></h3>
+                    <p>全国信息正在完善中...</p>
+                    <a href="#" class="more">更多 &#187;</a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="clearer">&nbsp;</div>
+
+            </div>
+
+          </div>
+
+          <div class="clearer">&nbsp;</div>
+
+        </div>
+
+        <div class="right sidebar" id="sidebar">
+
+          <div class="section">
+
+            <div class="section-title">搜索一下</div>
+
+            <div class="section-content">
+              <%form_tag '/main/search'do -%>
+                <%=text_field_tag 'search_text',nil,:class=>'input',:id=>'keyword'%><br>
+                  <span><%=submit_tag '搜地盘'%></span><span>   <%=submit_tag '搜信息'%></span>
+                <%end%>
+            </div>
+
+          </div>
+
+          <div class="section">
+
+            <div class="section-title">及时信息</div>
+
+            <div class="section-content">
+
+              <ul class="nice-list">
+                <li>
+                  <div class="left"><a href="#">即时信息正在完善...</a></div>
+                  <div class="right"></div>
+                  <div class="clearer">&nbsp;</div>
+                </li>
+                <li><a href="#" class="more">更多 &#187;</a></li>
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="section">
+
+            <div class="section-title">活跃用户</div>
+
+            <div class="section-content">
+
+              <ul class="nice-list">
+                <li><a href="#">活跃用户正在完善...</a> <span class="quiet">- Director</span></li>
+                <li><a href="#" class="more">更多 &#187;</a></li>
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="section">
+
+            <div class="section-title">热门标签</div>
+
+            <div class="section-content">
+              <div class="quiet">
+                <a href="#" style="font-size: 120%">标签功能正在完善中</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="clearer">&nbsp;</div>
+
+      </div>
+
+      <div id="footer">
+
+        <div class="left" id="footer-left">
+
+          <%=image_tag "logo-small.gif",:class=>"left" %>
+
+          <p>&copy; 2002-2009 wooxo. All rights Reserved</p>
+
+          <p class="quiet"><a href="http://www.wooxo.cc/沃西">wooxo technology</a> </p>
+
+          <div class="clearer">&nbsp;</div>
+
+        </div>
+
+        <div class="right" id="footer-right">
+
+          <p class="large"><a href="#">博客</a> <span class="text-separator">|</span> <a href="#">大事记</a> <span class="text-separator">|</span> <a href="#">关于</a> <span class="text-separator">|</span> <a href="#top" class="quiet">返回顶部 &uarr;</a></p>
+
+        </div>
+
+        <div class="clearer">&nbsp;</div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

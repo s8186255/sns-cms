@@ -1,0 +1,22 @@
+<h1>Listing topic_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+
+<% @topic_types.each do |topic_type| %>
+  <tr>
+    <td><%=h topic_type.name %></td>
+    <td><%=h topic_type.status %></td>
+    <td><%= link_to 'Show', topic_type %></td>
+    <td><%= link_to 'Edit', edit_topic_type_path(topic_type) %></td>
+    <td><%= link_to 'Destroy', topic_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New topic_type', new_topic_type_path %>

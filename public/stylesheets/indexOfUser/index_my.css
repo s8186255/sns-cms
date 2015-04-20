@@ -1,0 +1,247 @@
+body {
+  font-family:微软雅黑;
+  text-align:center;
+  background:url("miblogb[1].jpg") ;
+
+}
+#title{text-align:left;margin-left:100px;font-size:12px;}
+/*container*/
+#container {
+  position:relative;
+  font-size: 24px;
+  width:1024px;
+  border-bottom:1px solid #DEDEDE;
+  text-align:left;
+  margin:auto;
+  background:#FFFFFF;
+}
+/*pageHeader*/
+#pageHeader {
+  border-bottom:1px solid #DEDEDE;
+  padding:0px;
+}
+
+#banner {
+  width: 100%;
+  height: 64px;
+  margin: 0 auto;
+  padding: 10px 0px 0px 30px;
+  background-image: url(logo.jpg);
+  background-repeat:no-repeat;
+
+}
+#classification {border-bottom:1px solid #DEDEDE;width:100%;height:120px;}
+#classification ul{
+  list-style-type:none;
+  float:left;
+  padding:1px;
+  width:19%;
+}
+#classification li{
+  clear:left;
+  overflow:hidden;
+}
+a{color:blue;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/*搜索框定义*/
+#search {min-height:78px;background:#3C7FAF url(bg_search.gif) no-repeat scroll 0 0}
+.search-list{margin:0px;}
+.search-list ul{list-style-type:none;font-size:60%;}
+.search-list li{float:left;margin:0 0.7em 2px 0;padding:0 0.7em 0 0;}
+#search .kvlc{background:transparent url(kvlc.png) no-repeat scroll 0 0;clear:left;float:left;height:36px;width:6px;}
+#search .kvrc {background:transparent url(kvrc.png) no-repeat scroll 0 0;float:left;height:36px;width:6px;}
+#search .kvwrap {background:transparent url(kvwrap.png) repeat-x scroll 0 0;float:left;height:33px;padding-bottom:0;padding-top:4px;width:490px;}
+#search #srchfrm {
+  border-style:none;
+  text-align:left;
+  width:auto;
+}
+#srchfrm #f1 {
+  width:400px;
+  height:25px;
+  padding-bottom:0;
+  padding-top:0.2em;
+  vertical-align:top;
+}
+input.button {
+  background-image:url(icon_bing_s[1].png);
+  width:130px;
+  height:30px;
+  margin:2px 0 4px 1px;
+  vertical-align:top;
+}
+#search #srchfrm, #foot1 #srchfrmfooter {
+  border-style:none;
+  text-align:left;
+  width:auto;
+}
+
+
+#login {border-bottom:1px solid #DEDEDE}
+/*菜单，包括子菜单*/
+
+/*
+#menu {
+margin: 10px;border-style: solid solid none solid;border-color: #BCD2E6;border-width: 1px;font-size:80%;
+}
+
+#menu ul {
+list-style:none;margin: 0px;padding:0px;
+}
+#menu li a {
+height: 32px;height: 24px;text-decoration: none;
+}
+
+#menu li a:link, #menu li a:visited {
+color: #8BADCF;display: block;background:  url(menu.gif);padding: 8px 0 0 10px;
+}
+
+#menu li a:hover {
+color: #627EB7;background:  url(menu.gif) 0 -32px;padding: 8px 0 0 10px;
+}
+#menu ul li {
+margin-right:1px;position:relative;
+}
+*/
+/*菜单栏，实现多级菜单*/
+#menu {font-family: arial, sans-serif;  position:relative; font-size:60%;margin:0px 8px;}
+#menu ul li a, #menu ul li a:visited {display:block;color: #8BADCF; text-decoration:none; height:32px; text-align:center;  line-height:30px;  overflow:hidden;}
+#menu ul {padding:0; margin:0 0 3px 0;list-style-type: none; border-color:#C4D2DE;border-style:none solid solid;border-width:medium 1px 1px;background-color:#F6F8FB;}
+#menu ul li { margin-right:1px; position:relative;}
+#menu ul li ul {display: none;}
+
+/* specific to non IE browsers */
+#menu ul li:hover a {color:#fff; background:#36f;}
+#menu ul li:hover ul {display:block; position:absolute; top:0; left:184px; width:140px;}
+#menu ul li:hover ul li a.hide {background:#6a3; color:#fff;}
+#menu ul li:hover ul li:hover a.hide {background:#6fc; color:#000;}
+#menu ul li:hover ul li ul {display: none;}
+#menu ul li:hover ul li a {display:block; background:#eee; color:#000;}
+#menu ul li:hover ul li a:hover {background:#6fc; color:#000;}
+#menu ul li:hover ul li:hover ul {display:block; position:absolute; left:105px; top:0;}
+
+
+
+/*left*/
+#left {
+  float: left;
+  border-bottom:1px solid #DEDEDE;
+  width: 19.9%;
+}
+.imgText{padding:0 6px 6px;}
+.imgText .linkedimg{
+  float:left;
+  margin-right:6px;
+  margin-top:0.15em;
+}
+.imgText .first {
+  font-weight:700;
+  padding-top:0;
+}
+.imgText ul{margin-left:78px;}
+
+
+#hotTopic {
+  border:dashed;
+  height:400px;
+  float:left;
+  width:394px;
+}
+
+#notification{
+  border:solid red;
+}
+/*topic中选择信息工具*/
+#choice{width:40px;float:left;}
+#cloud_tool_name{
+  width: 100px;
+  float:left;
+}
+#display_order{
+  width: 40px;
+  float:left;
+}
+#display_name{
+  width:200px;
+  float:left;
+  margin-left: 5px;
+}
+
+
+/*
+.hotTopicItem img{width:80px;margin:0 5px 0 5px;float:left;}
+.hotTopicItem a{}
+.hotTopicItem a:link,#hotTopic li a:visited{}
+.hotTopicItem a:hover{
+border-bottom: dashed;
+}
+.hotTopicItemText{float:left;border:dashed;}
+.hotTopicItemText h3{width:290px;margin:0px;}
+.hotTopicItemText p{width:290px;margin:0px;}
+*/
+
+
+/*    #hotRecommendation {
+
+background-color:#996699
+}*/
+/*middle*/
+#middle {  float: left;  width: 60%;  border-bottom:1px solid #DEDEDE;  font-size:16px;}
+/*放在middle中的info列表内容*/
+#list-area{overflow:hidden}
+#list{margin:3px;clear:left;}
+#list #info{border:solid #F0F0F0 1px;margin:0px;padding:0px}
+#list li{background-color:#D6DDE3;margin:3px;}
+#list ul{list-style-type:none;margin:0px;padding:0px;font-size:80%;}
+#list ul.about{}
+#list ul.about li{float:left;}
+#list ul.operation{margin:0px;float:right;}
+#list ul.operation li{float:left;}
+
+/*info 详细信息显示*/
+#infoItem{border:solid;width:600px}
+#infoItemDescription{border-bottom:fuchsia;margin-bottom:10px;background-color:#E1F1F9}
+#infoItemContent{overflow:hidden;}
+
+/*放在middle中的topic列表*/
+#topicArea{overflow:hidden;}
+#topicList{clear:left;overflow:hidden;}
+#topicList ul{list-style-type:none;margin:0px;padding:0px;font-size:70%;}
+#topicImgOperation{width:110px;float:left;}
+#topicImgOperation #topicImg{border:solid;width:100px;}
+#topicImgOperation ul#topicOperation{width:110px;}
+#topicImgOperation ul#topicOperation li{float:left;width:30px}
+
+
+#topicList ul#topicAbout{float:left;width:90px;padding:0px 0px}
+#topicList ul#topicAbout li{padding:0px 0px;width:30px}
+#topicList ul#infoList{float:left;width:90px;padding:0px 0px;overflow:hidden;}
+#topicList ul#infoList li{padding:0px 0px}
+#topicList li{margin:3px;color:#000000;}
+#topicList ul#operation li a{}
+
+
+/*right*/
+#right {
+  float: right;
+  width: 19%;
+  height: 100%;
+  border-bottom:1px solid #DEDEDE
+}
+/*foot*/
+
+#footer {
+  width:1024px;
+  height: 300px;
+  clear: both;
+  border-bottom:1px solid #DEDEDE
+}
+
+/**/
+.clear{clear:both}
+
+/*html标记选择器单独定义*/
+h3{font-size:20px;margin:0px;padding:0px;background:transparent url(title_sina.png) repeat-x scroll 0 -450px;height:28px}
+p{font-size:16px;}
+

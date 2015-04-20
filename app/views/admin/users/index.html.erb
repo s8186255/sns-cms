@@ -1,0 +1,6 @@
+<% for user in @users%>
+  <%= link_to user.login,admin_user_path(user) %>
+  <%= link_to "edit", edit_admin_user_path(user)%> |
+  <%= link_to "remove", admin_user_path(user), :confirm => 'Are you sure?', :method => :delete %>
+<% end%>
+

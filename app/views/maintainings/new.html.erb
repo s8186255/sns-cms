@@ -1,0 +1,5 @@
+<% form_tag({ :action => "create" },
+  :enctype =>"multipart/form-data") do %>
+  <%= text_field_tag "topic_id" %>
+  <%= submit_tag(value = "create", options = {}) %>
+<% end %>

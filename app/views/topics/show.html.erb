@@ -1,0 +1,7 @@
+地盘说明:<br>
+<%= @topic.description %><br>
+------------------------------------<br>
+下面是信息列表:<br>
+<%@infos_in_topic.each do |info|%>
+  <%=Item.find_by_info_id(info.id).value%>||<%=InfoType.find(info.info_type_id).name%>|<%=info.id%><br>
+<%end%>

@@ -1,0 +1,24 @@
+
+<% form_tag({ :action => "create_info" },:enctype =>"multipart/form-data") do %>
+  <!--信息录入主体部分-->
+  <%=render :partial=>'infos/new_info_details'%>
+  <div id="info_details">
+  </div>
+  <!--配置本条信息是不是可以被评论-->
+  <%=  radio_button_tag  'if_commented',0,checked=false %>不允许评论
+  <%=  radio_button_tag  'if_commented',1,checked=true %>允许评论<br>
+  <!--选择主题-->
+  <%if @topic_id.nil?%>
+    <p>此信息可挂接在如下topic下</p>
+
+    <% for topic in @maintainable_topics%>
+      <%= check_box_tag 'selected_topics[]',topic.id,true %><%=topic.title%><br>
+    <% end unless @maintainable_topics.blank? == true%>
+
+
+  <%else%>
+    <%=hidden_field_tag 'topic_id',@topic_id%>
+  <%end%>
+  <%=hidden_field_tag 'info_type_id',@info_type.id%>
+  <%= submit_tag '确认' %>
+<% end %>

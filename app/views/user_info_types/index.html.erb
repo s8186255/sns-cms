@@ -1,0 +1,6 @@
+<% for user_infotype in @user_infotypes%>
+<%= link_to user_infotype.name, :action => 'show', :id => user_infotype %>
+<%= link_to "edit", :action => 'edit', :id => user_infotype %> |
+<%= link_to "remove", :action => 'destroy', :id => user_infotype %>
+<% end%>
+

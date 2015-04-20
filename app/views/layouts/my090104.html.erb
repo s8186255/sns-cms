@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="author" content="Luka Cvrk (www.solucija.com)" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <%= stylesheet_link_tag 'index/style.css' %>
+
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'flowplayer-3.1.4.min' %>
+    <%= javascript_include_tag 'ufo' %>
+    <title>一切皆可简单</title>
+    <style type="text/css">
+      /*----------Text Styles----------*/
+      .ws6 {font-size: 8px;}
+      .ws7 {font-size: 9.3px;}
+      .ws8 {font-size: 11px;}
+      .ws9 {font-size: 12px;}
+      .ws10 {font-size: 13px;}
+      .ws11 {font-size: 15px;}
+      .ws12 {font-size: 16px;}
+      .ws14 {font-size: 19px;}
+      .ws16 {font-size: 21px;}
+      .ws18 {font-size: 24px;}
+      .ws20 {font-size: 27px;}
+      .ws22 {font-size: 29px;}
+      .ws24 {font-size: 32px;}
+      .ws26 {font-size: 35px;}
+      .ws28 {font-size: 37px;}
+      .ws36 {font-size: 48px;}
+      .ws48 {font-size: 64px;}
+      .ws72 {font-size: 96px;}
+      .wpmd {font-size: 13px;font-family: 'Arial';font-style: normal;font-weight: normal;}
+      /*----------Para Styles----------*/
+      DIV,UL,OL /* Left */
+      {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    </style>
+
+
+    <script language="JavaScript1.4" type="text/javascript">
+      <!--
+      function jsPlay(soundobj) {
+        var thissound= eval("document."+soundobj);
+        try {
+          thissound.Play();
+        }
+        catch (e) {
+          thissound.DoPlay();
+        }
+      }
+      //-->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+      <!--
+      function MM_swapImgRestore() {
+        var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+      }
+
+      function MM_preloadImages() {
+        var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+          var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+            if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+        }
+
+        function MM_findObj(n, d) {
+          var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+            d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+          if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+          for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+          if(!x && d.getElementById) x=d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() {
+          var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+            if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+        }
+
+        //-->
+    </script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="top_info">
+          <div class="top_info_right">
+            <% if logged_in? %>
+              <p><%= Time.now%></p>
+              <p>
+                登录者是:
+                <%= current_user.login %>
+                <%= link_to "注销", session_path,:method => :delete %>
+              </p>
+            <% else %>
+              <p><%= Time.now%></p>
+              <p><b>你还尚未登陆，请选择</b> <%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+            <% end %>
+          </div>
+          <div class="top_info_left">
+
+          </div>
+        </div>
+        <div class="logo">
+          <h1><a href="#" title="Centralized Internet Services"><span class="orange">我秀</span></a><sup>一切皆可简单</sup></h1>
+        </div>
+      </div>
+
+      <div class="bar">
+        <ul>
+          <li class="browse_category"></li>
+          <li><a href="#" accesskey="i">互联网</a></li>
+          <li><a href="#" accesskey="e">生活</a></li>
+          <li><a href="#" accesskey="m">音乐</a></li>
+          <li><a href="#" accesskey="p">图片</a></li>
+          <li><a href="#" accesskey="s">服务</a></li>
+          <li><a href="#" accesskey="r">产品</a></li>
+        </ul>
+      </div>
+      <div class="search_field">
+        <form method="post" action="?">
+          <div class="search_form">
+            <span>搜索<input type="text" name="search" class="search" /> <input type="submit" value="搜索" class="submit" /> <a class="grey" href="#">高级选项</a></span>
+          </div>
+          <p></p>
+        </form>
+
+      </div>
+
+      <h3></h3>
+      <div class="right_articles">
+        <p></p>
+      </div>
+      <div class="right_tool">
+        <h3>我的应用</h3>
+        <%if current_user.nil?%>
+          <%InfoType.display_tools_for_no_logon.each do |tool|%>
+            <div class="right_articles">
+              <%= link_to "#{tool.cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>tool.id %>
+            </div>
+          <%end%>
+        <%else%>
+          <%if UserInfoType.info_types_of_logon_user(current_user).blank?%>
+            请在自助管理中订制自己的应用
+          <%else%>
+            <%UserInfoType.info_types_of_logon_user(current_user).each do |tool|%>
+              <div class="right_articles">
+                <%= link_to "#{InfoType.find(tool.info_type_id).cloud_tool_name}",:controller=>'/my',:action=>'app',:id=>InfoType.find(tool.info_type_id).id %>
+              </div>
+            <%end%>
+          <%end%>
+        <%end%>
+
+        <h3>我的地盘</h3>
+        <div class="right_articles"><%= link_to "我创建的地盘",:controller=>'/topics',:action=>'more_c_topics' %></div>
+        <div class="right_articles"><%= link_to "我维护的地盘",:controller=>'/topics',:action=>'more_m_topics' %></div>
+        <div class="right_articles"><%= link_to "我加入的地盘",:controller=>'/topics',:action=>'more_f_topics' %></div>
+        <!--
+        <div id="nav10d" style="position:absolute; left:163px; top:25px; z-index:0"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav10','','public/images/test/nav255816090a.gif',1)" href="#"><img name="nav10" onLoad="MM_preloadImages('public/images/test/nav255816090a.gif')" alt="" border=0 src="images/nav255816090i.gif"></a></div>
+        -->
+        <div class="right_articles"><%= link_to "我加入的地盘",{:controller=>'/topics',:action=>'more_f_topics'},{"onmouseover" => "MM_swapImage('nav10','','public/images/test/nav255816090a.gif',1)"} %></div>
+        <h3>自助管理</h3>
+        <div class="right_articles"><p align="left"><%= link_to "我的个人信息",:controller=>'users',:action=>'edit',:id=>current_user%></p></div>
+        <div class="right_articles"><p align="left"><%= link_to "订制信息工具",:controller=>'user_info_types',:action=>'edit_user_info_types'%></p></div>
+
+      </div>
+
+      <div class="my_right">
+        <h2>我的地盘 <span class="orange">我做主</span></h2>
+        <div class="left_box">
+          <!--<img src="images/bigimage.gif" class="image" alt="Big Image" />-->
+          <%= yield%>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p><a href="#">RSS Feed</a> | <a href="#">Contact</a> | <a href="#">Accessibility</a> | <a href="#">Products</a> | <a href="#">Disclaimer</a> | <a href="http://www.4templates.com/?aff=solucija">Professional CSS Templates</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> and <a href="http://validator.w3.org/check?uri=referer">XHTML</a><br />
+          &copy; Copyright 2007 Internet Services - 2nd Edition, Design: <a href="http://www.solucija.com/" title="Information Architecture and Web Design">Luka Cvrk</a></p>
+      </div>
+    </div>
+  </body>
+</html>

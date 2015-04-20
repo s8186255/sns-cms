@@ -1,0 +1,24 @@
+<% for item in @items%>
+  <%if ItemType.find(item.item_type_id).content_type_id == 5 %>
+    <%= ItemType.find(item.item_type_id).name %><br>
+    <%= item.value %><br>
+  <%elsif ItemType.find(item.item_type_id).content_type_id == 6%>
+    <%= ItemType.find(item.item_type_id).name %><br>
+    <%= item.value %> <br>
+  <%elsif ItemType.find(item.item_type_id).content_type_id == 3%>
+    <%=file_field_tag  "item_values[]"%><br>
+  <%elsif ItemType.find(item.item_type_id).content_type_id == 4%>
+    <%=text_area_tag  "item_values[]"%><br>
+  <%elsif ItemType.find(item.item_type_id).content_type_id == 7%>
+    <%=image_tag  Info.find_files_from_item(item,"../files/"),  :size  =>  "360x300"%><br>
+  <%end%>
+
+<% end%>
+  <%= link_to "评论",:controller=>"comments",:action=>"new",:id=> item.info_id%>
+
+</br>
+<p>以下是评论内容</p>
+<%  for  comment in @comments   %>
+  内容:  <%=  comment.content  %><br  />
+  得分:  <%=  comment.score  %><br  />
+<%  end  %>

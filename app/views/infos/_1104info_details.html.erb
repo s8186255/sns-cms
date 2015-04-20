@@ -1,0 +1,24 @@
+<%@item_types.each do |item_type|%>
+  <%=label_tag item_type.name%><br>
+  <%if @item_is_attachment.member? item_type.content_type_id  %>
+    <%= file_field_tag "value_of_#{item_type.id}"%>
+  <%elsif @item_is_common.member? item_type.content_type_id%>
+    <%=text_field_tag  "value_of_#{item_type.id}"%>
+  <%elsif @item_is_rich_text.member? item_type.content_type_id%>
+    <%=render :partial=>'info_details_rich_text'%>
+  <%elsif @item_is_geo.member? item_type.content_type_id%>
+    <%=render :partial=>'info_details_geo'%>
+
+  <%end%>
+
+  <%if item_type.if_permit_extra_condition%>
+    <select name="extra_condition_id[]">
+      <option value="0" selected>不需验证</option>
+      <option value="1">需用户登录</option>
+      <option value="2">需用户订购</option>
+    </select>
+  <%else%>
+    <%=hidden_field_tag 'extra_condition_id[]',0 %>
+  <%end%><br>
+<%end%>
+

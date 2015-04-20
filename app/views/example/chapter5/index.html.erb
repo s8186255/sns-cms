@@ -1,0 +1,38 @@
+<p><%= link_to_remote "Alert without RJS",
+  :url => { :action => "alert_without_rjs" } %></p>
+<p><%= link_to_remote "Alert with RJS",
+  :url => { :action => "alert_with_rjs" } %></p>
+<p><%= link_to_remote "Alert with external RJS",
+  :url => { :action => "external" } %></p>
+
+<%= radio_button_tag :radio,:id=>'button1' %>Current Year
+<%= radio_button_tag :radio, :id=>'button2'  %>All Years
+
+
+
+<br>
+
+<%= form_tag({:action => "save"},
+  :id => "entry-form")
+%>
+<%= radio_button_tag 's',1 %>1
+
+<%= radio_button_tag 's',2 %>2
+
+<%= submit_tag "Save" %>
+<%= form_tag %>
+<div id="live-preview" style="display: none; border: 1px solid"></div>
+<%= observe_form "button1",
+  :frequency => 1,
+  :update => "live-preview",
+  :complete => "Element.show('live-preview')",
+  :url => { :action => "show" } , :on => 'checked' %>
+
+<form id="myForm">
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed"></p>
+</form>
+<%= observe_form 'myForm',
+      :update => "reversed",
+      :url    => { :action => 'show' } %>
+

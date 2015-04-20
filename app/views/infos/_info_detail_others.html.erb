@@ -1,0 +1,48 @@
+<div id="Tab">
+  <div class="Menubox">
+    <ul>
+      <li id="menu1" onmouseover="setTab('menu',1,4)" class="hover">所属地盘</li>
+      <li id="menu2" onmouseover="setTab('menu',2,4)">评论</li>
+      <li id="menu3" onmouseover="setTab('menu',3,4)">评分</li>
+      <li id="menu4" onmouseover="setTab('menu',4,4)">我要评论</li>
+    </ul>
+  </div>
+  <div class="Contentbox">
+    <div id="con_menu_1" class="hover">
+      <ul>
+        <%@topics.each do |topic|%>
+          <li>·<%= link_to topic.title,:controller=>:zones,:action=>:show,:title=>topic.title %></li>
+        <%end%>
+      </ul>
+    </div>
+    <div id="con_menu_2" style="display:none">
+      <%if @comments.blank?%>
+        暂时没有评论
+      <%else%>
+        <%  for  comment in @comments   %>
+          <p>内容:  <%=  comment.content  %></p>
+        <%  end  %>
+      <%end%>
+    </div>
+    <div id="con_menu_3" style="display:none">
+<ul>
+        <li>1分:<%= @info.score_counter(1) %></li>
+        <li>2分:<%= @info.score_counter(2) %></li>
+        <li>3分:<%= @info.score_counter(3) %></li>
+        <li>4分:<%= @info.score_counter(4) %></li>
+        <li>5分:<%= @info.score_counter(5) %></li>
+
+      </ul>
+      </div>
+    <div id="con_menu_4" style="display:none">
+      <%if @info.if_commented%>
+        <% form_for @comment,:url=>{:controller=>:comments,:action=>:create} do |f| %>
+          <%=  f.text_area :content,:size=>'30x5',:style=>'overflow:hidden' %><br>
+          <%=  f.select :score,[1,2,3,4,5] %>
+          <%= hidden_field_tag 'info_id',@info.id %>
+          <%= f.submit '发表评论' %>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>

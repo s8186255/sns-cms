@@ -1,0 +1,10 @@
+#list-area{overflow:hidden}
+#list{float:left;width:200px;}
+#list #info{border:solid;width:100px;float:left}
+#list ul{list-style-type:none;margin:0px;padding:0px;font-size:70%;}
+#list ul.about{float:left;width:90px;padding:30px 0px}
+#list li{background-color:olive;margin:3px;}
+#list ul.operation li{float:left;}
+#list ul.operation li a{}
+/**/
+.clear{clear:both}

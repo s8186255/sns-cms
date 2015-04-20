@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>一切皆可简单</title>
+
+    <%= stylesheet_link_tag 'indexOfSys/index.css' %>
+  </head>
+  <body>
+    <!--container是一个页面容器div定义了可见区域的-->
+    <div id="container">
+      <!--pageHeader定义页面头部信息-->
+      <div id="pageHeader">
+        <div id="banner"></div>
+
+        <div id="search">
+          <div class=" search-list">
+            <ul class="linklist9 cf">
+              <li><a href="#">地盘</a></li>
+              <li><a href="#">信息</a></li>
+              <li><a href="#">区域</a></li>
+            </ul>
+          </div>
+
+          <div class="kvlc"></div>
+          <div class="kvwrap">
+            <form id="srchfrm" class="simple6" method="get" action="http://www.bing.com/search">
+              <div class="frmwrp">
+                <input type="text" accesskey="S" maxlength="250" size="75" name="q" id="f1" autocomplete="off"/>
+                <input type="image" name="imageField" src="../images/index_15.gif"/>
+              </div>
+            </form>
+          </div>
+          <div class="kvrc"></div>
+        </div>
+        <!--
+
+<div>
+<FORM METHOD=POST ACTION="http://www.ip138.com/ips8.asp" name="ipform" target="_blank">
+<tr>
+  <td align="center">IP地址：<input type="text" name="ip" size="16">
+      <input type="submit" value="查询"><INPUT TYPE="hidden" name="action" value="2"></input>
+        </td>
+        </tr>
+        </FORM>
+        </div>
+
+                    <div id="classification">topic分类
+                      <ul>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                        <li>
+                          <a href="#">分类1</a>
+                        </li>
+                      </ul>
+
+                    </div>
+        -->
+        <div id="login">
+          <% if logged_in? %>
+            <p><%= Time.now%></p>
+            <p>
+              登录者是:
+              <%= current_user.login %>
+              <%= link_to "注销", session_path,:method => :delete %>
+            </p>
+          <% else %>
+            <p><%= Time.now%></p>
+            <p><b>你还尚未登陆，请选择</b> <%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+          <% end %>
+        </div>
+      </div>
+      <!--left定义页面左侧信息-->
+      <div id="left">
+
+      </div>
+      <!--middle定义页面中部信息-->
+      <div id="middle">
+        <div id="hotTopic">
+          <h3>
+            <a href="http://www.msnbc.msn.com/">本地热门</a>
+          </h3>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="hotTopic">
+          <h3>
+            <a href="http://www.msnbc.msn.com/">本地推荐</a>
+          </h3>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="hotTopic">
+          <h3>
+            <a href="http://www.msnbc.msn.com/">全国热门</a>
+          </h3>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="hotTopic">
+          <h3>
+            <a href="http://www.msnbc.msn.com/">全国推荐</a>
+          </h3>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+          <div class="imgText">
+            <div class="linkedimg">
+              <a href="http://www.msnbc.msn.com/id/34641146"><img width="70" height="70" alt="Jobless claims lowest since July ’08 (Mark Ralston/AFP - Getty Images)" src="../images/E1F750E0ED7D8EA48D6CC9AA34E1F9[1].jpg"/></a>
+            </div>
+            <ul>
+              <li class="first" style="display: block;"><a href="http://www.msnbc.msn.com/id/34641146/ns/business-stocks_and_economy">地盘1名称</a></li>
+              <li style="display: block;"><a href="http://www.msnbc.msn.com/id/34640612/ns/world_news">地盘1描述</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--right定义页面右侧信息-->
+      <div id="right">
+        <p>广告</p>
+      </div>
+      <!--footer定义页面底部信息-->
+      <div id ="footer"> </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+  <head>
+    <meta name="author" content="Luka Cvrk (www.solucija.com)" />
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-2" />
+    <%= stylesheet_link_tag "index/style" %>
+    <title>一切皆可简单</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="top_info">
+          <div class="top_info_right">
+            <% if logged_in? %>
+
+            <% else %>
+              <p><b>你尚未登陆，请!</b> <%= link_to '登录', new_session_path %>或<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+            <% end %>
+          </div>
+          <div class="top_info_left">
+            <p>Today is: <b>27th January, 2006</b><br />
+            Check todays <a href="#">hot topics</a> or <a href="#">new products</a></p>
+          </div>
+        </div>
+        <div class="logo">
+          <h1><a href="#" title="Centralized Internet Content">我秀</a></h1>
+        </div>
+      </div>
+
+      <div class="bar">
+        <ul>
+          <li class="slogan">一切皆可简单</li>
+          <li><a href="#" accesskey="i">Internet</a></li>
+          <li class="active">People</li>
+          <li><a href="#" accesskey="m">Music</a></li>
+          <li><a href="#" accesskey="p">Pictures</a></li>
+          <li><a href="#" accesskey="s">Services</a></li>
+          <li><a href="#" accesskey="r">Products</a></li>
+        </ul>
+      </div>
+      <div class="search_field">
+        <form method="post" action="?">
+          <p><input type="text" name="search" class="search" /> <input type="submit" value="Search" class="searchSubmit" /></p>
+        </form>
+      </div>
+      <div class="subheader">
+        <p><a href="#">Lorem ipsum dolor</a> sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
+      </div>
+      <div class="left">
+        <div class="left_articles">
+          <h2><a href="#">What's new?</a></h2>
+          <p><a href="#">Lorem ipsum dolor sit amet</a>, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. <a href="#">Ut wisi enim ad minim veniam</a>, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
+          <p><a href="#">Lorem ipsum dolor sit amet</a>, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. <a href="#">Ut wisi enim ad minim veniam</a>, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
+        </div>
+        <div class="left_links">
+          <div class="left_side">
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Arts</a></b><br />
+            <a href="#">Music</a>, <a href="#">Television</a>, <a href="#">Movies</a>...</p>
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Computers</a></b><br />
+            <a href="#">Internet</a>, <a href="#">Software</a>, <a href="#">Hardware</a>...</p>
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Shopping</a></b><br />
+            <a href="#">Autos</a>, <a href="#">Clothing</a>, <a href="#">Gifts</a>...</p>
+          </div>
+          <div class="right_side">
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Business</a></b><br />
+            <a href="#">Jobs</a>, <a href="#">Real Estate</a>, <a href="#">Investing</a>...</p>
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Health</a></b><br />
+            <a href="#">Fitness</a>, <a href="#">Medicine</a>, <a href="#">Alternative</a>...</p>
+            <p><b><img src="images/arrow.gif" alt=">" /><a class="title" href="#">Sports</a></b><br />
+            <a href="#">Baseball</a>, <a href="#">Basketball</a>, <a href="#">Soccer</a>...</p>
+          </div>
+          <p><b>Want to <a href="#">suggest a category</a>?</b></p>
+        </div>
+        <div class="left_message">
+          <p><b>Lorem ipsum dolor</b> sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam <b>erat volutpat</b>. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
+        </div>
+        <div class="left_box">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
+
+        </div>
+      </div>
+      <div class="right">
+        <div class="right_login">
+          <% unless logged_in? %>
+            <% form_tag session_path do -%>
+              <p><label for="login">Login</label><br/>
+              <%= text_field_tag 'login' %></p>
+
+              <p><label for="password">Password</label><br/>
+              <%= password_field_tag 'password' %></p>
+          
+              <%= check_box_tag 'remember_me' %>
+
+              <p><%= submit_tag 'Log in' %></p>
+            <% end -%>
+
+          <%else%>
+            <p>已经登录</p>
+          <%end%>
+        </div>
+        <div class="right_articles">
+          <p><img src="images/image.gif" alt="Image" title="Image" class="image" /><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam <a href="#">erat volutpat</a>. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis <a href="#">nisl ut aliquip ex</a>.</p>
+        </div>
+        <div class="right_articles">
+          <p><img src="images/image.gif" alt="Image" title="Image" class="image" /><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam <a href="#">erat volutpat</a>. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis <a href="#">nisl ut aliquip ex</a>.</p>
+        </div>
+        <div class="right_articles">
+          <p><img src="images/image.gif" alt="Image" title="Image" class="image" /><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam <a href="#">erat volutpat</a>. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis <a href="#">nisl ut aliquip ex</a>.</p>
+        </div>
+      </div>
+      <div class="footer">
+        <p><a href="#">RSS Feed</a> | <a href="#">Contact</a> | <a href="#">Accessibility</a> | <a href="#">Products</a> | <a href="#">Disclaimer</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> and <a href="http://validator.w3.org/check?uri=referer">XHTML</a><br />
+        &copy; Copyright 2006 Internet Center, Design: Luka Cvrk - <a href="http://www.solucija.com/" title="What's your solution?">Solucija</a></p>
+      </div>
+    </div>
+  </body>
+</html>

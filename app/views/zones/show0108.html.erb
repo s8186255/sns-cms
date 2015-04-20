@@ -1,0 +1,9 @@
+<div id="infoListArea"
+<%@topic_info_types.each do |topic_info_type| %>
+  <%if topic_info_type.info_type.title_item.content_type_id ==7%>
+    <%=  render :partial=>'show_title_is_image',:locals=> {:topic_info_type=>topic_info_type}%>
+  <% elsif topic_info_type.info_type.title_item.content_type_id ==5%>
+    <%=  render :partial=>'show_title_is_text',:locals=> {:topic_info_type=>topic_info_type}%>
+  <% end %>
+<%end%>
+</div>

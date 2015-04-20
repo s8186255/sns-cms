@@ -1,0 +1,66 @@
+<ul id="topic_list">
+  <h3><%= @nav_description %></h3>
+  <%@topics.each do |topic|%>
+    <li id="topic_entry" style="margin-bottom:10px">
+      <div id="topic_avatar" style="float:left">
+        <%=link_to image_tag(topic.topic_avatar.public_filename,:size=>"70X70"),:controller=>:zones,:action=>:show,:title=>topic.title unless topic.topic_avatar.nil?%>
+        <%=link_to image_tag("rails.png",:size=>"70X70"),:controller=>:zones,:action=>:show,:title=>topic.title if topic.topic_avatar.nil?%>
+      </div>
+
+      <div id="topic_about" style="margin-left:60px">
+        <span><%=link_to topic.my_title,:controller=>:zones,:action=>:show,:title=>topic.title%></span>
+        <div id="topic_description">
+          <%= topic.description %>
+        </div>
+
+        <p>
+          浏览<span><%=topic.view_count %></span>次
+          共<span><%= topic.info_count%></span>条信息
+          <span><%= topic.maintainers(1).size%></span>人参与维护
+          <span><%= topic.following_count%></span>人追随
+        </p>
+
+        <div id="topic_operation">
+          <ul>
+            <li><span><%= link_to "查看",:action=>:infos_of_topic,:id=>topic.id %></span></li>
+            <%if @current_user_and_topic_relation == 0%>
+
+              <li><span>新建信息</span>
+                <ul>
+                  <!--下面采用循环方式，列出地盘下的各类信息-->
+                  <%topic.info_types.each do |info_type|%>
+                    <li><%= link_to info_type.name+'信息',:controller=>'/infos',:action=>'new',:id=>info_type.id,:topic_id=>topic.id %></li>
+                  <%end%>
+                </ul>
+              </li>
+              <li><span><%= link_to "修改",:controller=>'/topics',:action=>:edit,:id=>topic.id %></span></li>
+              <li><span><%= link_to "维护申请审核",:controller=>'/maintainings',:action=>'index',:id=>topic.id %></span></li>
+              <li><span><%= link_to "加入申请审核",:controller=>'/followings',:action=>'index',:id=>topic.id %></span></li>
+              <li><span><%= link_to "信息审核",:controller=>'/topic_infos',:action=>'index',:id=>topic.id %></span></li>
+
+            <%elsif  @current_user_and_topic_relation == 1%>
+              <li><span><%= link_to "新建信息" %></span>
+                <ul>
+                  <!--下面采用循环方式，列出地盘下的各类信息-->
+                  <%topic.info_types.each do |info_type|%>
+                    <li><%= link_to info_type.name+'信息',:controller=>'/infos',:action=>'new',:id=>info_type.id,:topic_id=>topic.id %></li>
+                  <%end%>
+                </ul>
+              </li>
+              <li><span><%= link_to "维护申请审核",:controller=>'/maintainings',:action=>'index',:id=>topic.id%></span></li>
+              <li><span><%= link_to "加入申请审核",:controller=>'/followings',:action=>'index',:id=>topic.id %></span></li>
+              <li><span><%= link_to "信息审核",:controller=>'/topic_infos',:action=>'index',:id=>topic.id %></span></li>
+              <li><span><%= link_to "退出维护" %></span></li>
+
+            <%elsif @current_user_and_topic_relation == 2%>
+              <li><span><%= link_to "退出追随" %></span></li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+
+
+      <div style="clear: both;"></div>
+    </li>
+  <%end%>
+</ul>

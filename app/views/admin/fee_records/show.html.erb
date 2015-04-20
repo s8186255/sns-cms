@@ -1,0 +1,18 @@
+<p>
+  <b>User:</b>
+  <%=h @fee_record.user_id %>
+</p>
+
+<p>
+  <b>Fee:</b>
+  <%=h @fee_record.fee %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%=h @fee_record.month %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_fee_record_path(@fee_record) %> |
+<%= link_to 'Back', admin_fee_records_path %>

@@ -1,0 +1,21 @@
+<%  form_for @topic_info do |f|%>
+  加入自己创建的topic:<br>
+  <%if @my_topics.blank?%>
+    你还没有创建topic！
+  <%else%>
+    <% @my_topics.each do |topic| %>
+      <%= f.radio_button :topic_id,topic.id%><%= topic.title %><br>
+    <%end%>
+  <%end%>
+  加入别人创建的topic：<br>
+  <%if @other_topics.blank?%>
+    你还没有加入任何编辑topic的团队呢！
+  <%else%>
+    <% @other_topics.each do |topic| %>
+      <%= f.radio_button :topic_id,topic.id%><%= topic.title %><br>
+    <%end%>
+  <%end%><br>
+
+  <%= hidden_field_tag 'topic_info[info_id]',@info_id %>
+  <%= f.submit 'create'%>
+<%end%>

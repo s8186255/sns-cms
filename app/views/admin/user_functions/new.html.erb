@@ -1,0 +1,27 @@
+<h1>New user_function</h1>
+
+<% form_for([:admin,@user_function]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :function_id %><br />
+    <%= f.text_field :function_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :up_to %><br />
+    <%= f.datetime_select :up_to %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', admin_user_functions_path %>

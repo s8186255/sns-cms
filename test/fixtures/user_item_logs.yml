@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  item_id: 1
+  payment_status: 1
+  password: MyString
+  counter: 1
+
+two:
+  user_id: 1
+  item_id: 1
+  payment_status: 1
+  password: MyString
+  counter: 1

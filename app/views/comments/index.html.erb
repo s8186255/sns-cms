@@ -1,0 +1,6 @@
+<% for user in @users%>
+<%= link_to user.name, :action => 'show', :id => user %>
+<%= link_to "edit", :action => 'edit', :id => user %> |
+<%= link_to "remove", :action => 'destroy', :id => user %>
+<% end%>
+

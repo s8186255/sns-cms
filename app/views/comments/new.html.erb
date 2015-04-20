@@ -1,0 +1,8 @@
+<% form_tag({ :action => "create" },
+  :enctype =>"multipart/form-data") do %>
+  <%=label_tag '','content'%>:
+  <%= text_area_tag  'content' %>
+
+  <%=label_tag '','score'%>:
+  <%= submit_tag(value = "create", options = {}) %>
+<% end %>

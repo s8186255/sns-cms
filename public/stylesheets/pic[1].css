@@ -1,0 +1,152 @@
+﻿/* TIANSHANNET CSS Document */
+
+body { text-align: center; font-family: Lucida Grande, Verdana, Lucida, Arial, Helvetica, sans-serif; margin: 0px; padding: 0px; background: #FFF; font-size:12px; color:#666;}
+div,form,img,ul,ol,li,dl,dt,dd {margin: 0px; padding: 0px; border: 0;}
+h1,h2,h3,h4,h5,h6 { margin: 0px; padding: 0px;}
+table,td,tr,th{font-size:12px;}
+
+a:link,a:visited,a:active { text-decoration: none; color: #666; font-size: 12px; }
+a:hover { text-decoration: underline; color: #666; font-size: 12px; }
+
+.link01,a.link01:link,a.link01:visited { font-size: 12px; color: #999; text-decoration: none; }
+a.link01:hover { text-decoration: underline; color: #f00; }
+
+.link02,a.link02:link,a.link02:visited { font-size: 12px; color: #666; text-decoration: none; }
+a.link02:hover { text-decoration: underline; color: #f00; }
+
+.link03,a.link03:link,a.link03:visited { font-size: 12px; color: #999; text-decoration: none; }
+a.link03:hover { text-decoration: underline; }
+
+.link04,a.link04:link,a.link04:visited { font-size: 14px; color: #666; text-decoration: none; padding: 0px 0px 0px 20px; background: url(pic03.gif) no-repeat; }
+a.link04:hover { background: url(pic03_1.gif) no-repeat; color: #f00; }
+
+.link05,a.link05:link,a.link05:visited { font-size: 12px; color: #666; text-decoration: none; padding: 0px 0px 0px 20px; background: url(pic03.gif) no-repeat; }
+a.link05:hover { background: url(pic03_1.gif) no-repeat; color: #f00; }
+
+.link06,a.link06:link,a.link06:visited { font-size: 12px; color: #666; text-decoration: none; padding: 0px 0px 0px 20px; background: url(pic04.gif) no-repeat; }
+a.link06:hover { background: url(pic04_1.gif) no-repeat; color: #f00; }
+
+
+/* 头 */
+#head { margin:0 auto; width: 760px; height: 80px; }
+/* 通栏广告1 */
+#ad1 { margin:0 auto; width: 760px; height: 100px; border-bottom:#fff 2px solid; }
+/* 频道导航栏 */
+#daohang { margin:0 auto; padding: 0px; width: 760px; height: 46px; }
+#daohangleft { margin: 0px; padding: 0px; width: 121px; height: 46px; background: url(pic15.gif) repeat-x; float: left; }
+#daohangright { margin: 0px; padding: 17px 0px 8px 0px; width: 639px; background: url(pic16.gif) repeat-x; float: right; font-size: 14px; color: #fff; }
+#daohangright a:link { font-size: 14px; color: #fff; text-decoration: none;}
+#daohangright a:visited { font-size: 14px; color: #fff; text-decoration: none;}
+#daohangright a:active { font-size: 14px; color: #fff; text-decoration: none;}
+#daohangright a:hover { text-decoration: underline; }
+
+
+/* 要问区1 */
+#main1 { margin:0 auto; padding: 0px; width: 760px; height: 388px; background:#f5f5f5; border-top:#FFFFFF 2px solid; border-bottom: #fff 2px solid; }
+/* 编辑推荐 */
+#tuijian { width: 176px; background:#f5f5f5; border-right:#fff 2px solid; float: left; clear:left; }
+#tuijiantitle { margin: 15px 0px 15px 8px; padding: 2px 0px 0px 30px; background: url(pic01.gif) no-repeat; font-size: 12px; color: #666; float: left; clear:left; text-align: left; }	
+#tuijianpic { width: 176px; float: left; clear:left; }
+#tuijianpicleft { padding-left: 8px; float: left; }
+#tuijianpicleft img{ border:5px solid #FFF; }
+#tuijianpicright { padding: 5px 5px 0px 0px; width: 85px; font-size: 12px; color: #666; line-height: 20px; float: right; text-align:left; }
+#tuijianlist { width: 170px; white-space:nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; overflow: hidden; float: left; clear:left; text-align: left; }
+#tuijianlist ul{ margin: 10px 0px 10px 8px; padding: 0px; list-style:none;  }
+#tuijianlist li a:link { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+#tuijianlist li a:visited { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+#tuijianlist li a:hover { background: url(pic03_1.gif) no-repeat; color: #f00; }
+#tuijianlist li a:active { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+
+/* 搜索和首席图片 */
+#s2f { margin: 0px; padding: 0px; width:404px; float: left; }
+/* 搜索 */
+#search { margin: 0px; padding: 10px 0px 0px 0px; background:#e4e4e6; width:404px; height: 40px; border-bottom: #fff 2px solid; float: left; text-align:center; }
+/* 首席图片 */
+#focuspic { margin: 0px; padding: 10px 0px 0px 8px; width:404px; height: 316px; background:#f5f5f5;  clear:left; float: left; }
+#focuspic1 { margin: 0px; padding: 0px; width: 394px; }
+#focuspic2 { margin: 0px; padding: 0px; width: 394px; }
+#focuspic3 { margin: 0px; padding: 0px; width: 394px; }
+#focuspic4 { margin: 0px; padding: 0px; width: 394px; }
+#focuspic5 { margin: 0px; padding: 0px; width: 394px; }
+#focuspicphoto { margin: 0px; padding: 0px 0px 10px 0px; width: 340px; float:left; }
+#focuspicphoto img { border:5px solid #FFF; }
+#focuspictxt { margin: 0px; width: 340px; font-size: 12px; color: #999; line-height: 24px; float:left; clear:left; text-align:left; }
+#focuspictxt a:link { color: #666; text-decoration: none; line-height: 24px; }
+#focuspictxt a:visited { color: #666; text-decoration: none; line-height: 24px; }
+#focuspictxt a:hover { text-decoration: none; color: #f00; line-height: 24px; }
+#focuspictxt a:active { color: #666; text-decoration: none; line-height: 24px; }
+#focuspicnum { padding-right: 5px; width: 40px; float:right; clear:right; }
+#focuspicnum ul { margin: 0px; padding: 0px; list-style:none; }
+#focuspicnum li { margin: 0px; padding: 0px; height: 50px; line-height: 50px; list-style:none; }
+
+/* 热点回顾 */
+#redian { width: 176px; background:#f5f5f5; border-left:#fff 2px solid; float: left; }
+#rediantitle { margin: 15px 8px 17px 0px; padding: 2px 40px 0px 0px; background: url(pic12.gif) no-repeat right; font-size: 12px; color: #666; float: right; clear:right; text-align: right; }
+#redianpic { width: 174px; float: right; clear:right; }
+#redianlist { width: 176px; margin: 0px; padding: 0px; float: right; clear:right; }
+#redianlist ul{ width: 176px; margin: 0px; padding: 0px; list-style:none; float: right; clear:right; }
+#redianlist li{ width: 176px; margin: 0px; padding: 0px 0px 15px 0px; list-style:none; float: right; clear:right; }
+#redianlistpicleft { padding-left:8px; float: left; }
+#redianlistpicleft img{ border:5px solid #FFF; }
+#redianlistpicright { padding: 5px 5px 0px 0px; width: 85px; font-size: 12px; color: #666; line-height: 20px; float: right; text-align:left; }
+
+
+
+/* 要问区2 */
+#main2 { margin:0 auto; padding: 0px; width: 760px; background:#f5f5f5; }
+/* 新闻眼 */
+#newseyes { width: 176px; background:#f5f5f5; border-right:#fff 2px solid; border-bottom:#fff 2px solid; float: left; }
+#newseyestitle { margin: 15px 8px 15px 8px; padding: 0px 0px 0px 50px; background: url(pic05.gif) no-repeat ; font-size: 12px; color: #666; float: left; clear: left; text-align:left; }
+#newseyespic { width: 174px; float: left; clear:left; }
+#newseyeslist { width: 176px; margin: 0px; padding: 0px; float: left; clear:left; }
+#newseyeslist ul{ width: 176px; margin: 0px; padding: 0px; list-style:none; float: left; clear:left; }
+#newseyeslist li{ width: 176px; margin: 0px; padding: 0px 0px 14px 0px; list-style:none; float: left; clear:left; }
+#newseyeslistpicleft { padding-left: 8px; float: left; }
+#newseyeslistpicleft img{ border:5px solid #FFF; }
+#newseyeslistpicright { padding: 5px 5px 0px 0px; width: 85px; font-size: 12px; color: #666; line-height: 20px; float: right; text-align:left; }
+#newseyesmore { width: 170px; padding: 6px 5px 5px 0px; float: left; clear: left; text-align:right ; }
+/* 新疆图库 */
+#library { width:404px; height:247px; background:#f5f5f5; border-bottom:#fff 2px solid; float: left; }
+#librarytitle { font-size: 12px; color: #666; width:404px; float: left; clear: left; }
+#librarytitleleft { margin: 15px 8px 0px 8px; padding: 0px 0px 0px 45px; background: url(pic06.gif) no-repeat ; line-height: 17px; font-size: 12px; color: #666; float: left; clear: left; text-align: left; }
+#librarytitleright { width:240px; font-size: 12px; color: #666; border-left:#fff 2px solid; border-bottom:#fff 2px solid; background:#e4e4e6; text-align:center; line-height:45px; float: right; }
+#librarylist { width:404px; font-size: 12px; color: #666; line-height: 10px; float: left; clear: left; }
+#librarylist ul{ margin: 0px; padding: 15px 0px 0px 10px; }
+#librarylist li{ padding: 0px; width: 130px; float: left; list-style: none; text-align: center; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden; }
+#librarylist img{ border:5px solid #FFF; }
+#librarymore { margin-top: 10px; width: 400px; float: left; clear: left; text-align:right ; }
+/* 专题 */
+#topic { width: 176px; background:#f5f5f5; border-left:#fff 2px solid; border-bottom:#fff 2px solid; float: left; }
+#topictitle { margin: 15px 0px 0px 8px; padding: 2px 0px 0px 30px; background: url(pic13.gif) no-repeat; font-size: 12px; color: #666; float: left; clear:left; text-align:left; }
+#topiclist { width: 170px; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden; float: left; clear:left; text-align: left; }
+#topiclist ul{ margin: 10px 0px 1px 8px; padding: 0px; list-style:none; }
+#topiclist li{ margin: 0px; padding: 0px; list-style:none; }
+#topiclist li a:link { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+#topiclist li a:visited { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+#topiclist li a:hover { background: url(pic03_1.gif) no-repeat; color: #f00; }
+#topiclist li a:active { padding-left:20px; background: url(pic03.gif) no-repeat; line-height: 24px; text-decoration:none; }
+#topicmore { width: 170px; padding-bottom: 5px; float: left; clear: left; text-align:right ; }
+
+
+
+
+/* 新疆新闻 */
+#xjnews { margin:0 auto; padding: 0px; width: 760px; height:198px; clear:left; background:#f5f5f5; border-bottom:#fff 2px solid; }
+#xjnewstitle { margin: 0px; padding: 0px; font-size: 12px; color: #666; width:760px; border-bottom:#fff 2px solid; background:#e4e4e6; float: left; }
+#xjnewstitleleft { margin: 10px 0px 5px 5px; padding: 0px 0px 0px 35px; height:20px; background: url(pic14.gif) no-repeat ; font-size: 12px; color: #666; float: left; }
+#xjnewstitleright { margin: 10px 0px 5px 0px; width: 70px; font-size: 12px; color: #666; text-align:center; float: right; clear: right; }
+#xjnewslist { margin: 0px; padding: 0px; width: 760px; font-size: 12px; color: #666; line-height:10px; float: left; clear: left; text-align: center; }
+#xjnewslist ul{ margin: 0px; padding: 0px; }
+#xjnewslist li{ margin: 0px 0px 0px 8px; padding: 15px 0px 10px 0px; width: 140px; text-align: center; white-space:nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; overflow: hidden; float: left; list-style: none; }
+#xjnewslist li a:hover { text-decoration: none; color: #f00; font-size: 12px; }
+#xjnewslist img{ border: 5px solid #FFF; }
+
+
+
+/* 友情链接 */
+#links { margin:0 auto; width: 760px; height: 85px; clear:left; background:#f5f5f5; border-bottom:#fff 2px solid; }
+#linkstitle { font-size: 12px; color: #666; width:760px; line-height: 30px; border-bottom:#fff 2px solid; background:#e4e4e6; float: left; clear: left; text-align: left; }
+#linkslist { width: 760px; font-size: 12px; color: #666; line-height:20px; float: left; clear: left; }
+#linkslist ul{ margin: 0px; padding: 0px; }
+#linkslist li{ padding: 10px 0px 10px 12px; float: left; list-style: none; }
+#linkslist img{ border:3px solid #FFF; }

@@ -1,0 +1,29 @@
+<% form_tag({:action=>'create'},:enctype=>'multipart/form-data') do  %>
+
+  <%= label_tag '','title' %>
+  <%= text_field_tag 'title','' %><br/>
+
+  <%= label_tag '','description' %>
+  <%= text_area_tag 'description','' %><br/>
+
+  <%for topic_type in @topic_types%>
+    <% if  topic_type.id ==5 or topic_type.id ==6 %>
+      <input type="radio" name="topic_type" value="<%= topic_type.id%>"  onclick ="<%= remote_function :url => { :action => :show_editor_only_teams } %>"><%= topic_type.name %>
+    <% elsif  topic_type.id ==7 or topic_type.id ==8 %>
+      <input type="radio" name="topic_type" value="<%= topic_type.id%>"  onclick ="<%= remote_function  :url => { :action => :show_editor_and_follower_teams} %>"><%= topic_type.name %>
+    <% elsif  topic_type.id ==9 %>
+      <input type="radio" name="topic_type" value="<%= topic_type.id%>"  onclick ="<%= remote_function :url => { :action => :show_follower_only_teams } %>"><%= topic_type.name %>
+    <%else%>
+      <input type="radio" name="topic_type" value="<%= topic_type.id%>"  onclick ="<%= remote_function :url => { :action => :show_none_teams } %>" ><%= topic_type.name %>
+    <%end%>
+  <%end%><br>
+
+  <p id="team_topic">  </p>
+
+  <%=check_box_tag :status,1%>现在就激活<br>
+  <input type="radio" name="if_permit_any_info_type" value="1"  onclick ="<%= remote_function :url => { :action => :show_none_info_types } %>">允许添加任何类型的信息
+  <input type="radio" name="if_permit_any_info_type" value="0"  onclick ="<%= remote_function :url => { :action => :show_info_types } %>">只允许添加如下类型的信息
+  <div id="permit_any_or_some">
+  </div>
+  <%= submit_tag 'commit' %>
+<% end %>

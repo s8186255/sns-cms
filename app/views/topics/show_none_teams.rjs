@@ -1,0 +1,2 @@
+# TODO Operate on the page object
+page[:team_topic].replace_html :partial=>'none_team_options'

@@ -1,0 +1,49 @@
+<div id="info_list">
+  <ul>
+    <% if !@followings.nil? %>
+      <h4><%= link_to  @topic.title%>中待审核的加入者：</h4>
+      <%@followings.each do |following|%>
+        <li>
+          <h4>
+            <%=  following.follower.login%>
+            [<%=link_to '查看',{:controller=>'/users',:action=>:show},{:target=>'_blank'}%>]
+            [<%=link_to '通过',{:controller=>:followings,:action=>:verify_following,:id=>following.id,:verify=>'1'}%>]
+            [<%=link_to '拒绝',{:controller=>:followings,:action=>:verify_following,:id=>following.id,:verify=>'0'}%>]
+          </h4>
+          <p>
+
+          </p>
+        </li>
+      <%end %>
+    <%elsif !@topic_infos.nil?%>
+      <h4><%= link_to  @topic.title%>中待审核的信息：</h4>
+      <%@topic_infos.each do |topic_info|%>
+        <li>
+          <h4>
+            <%unless topic_info.info%>
+              <%= link_to  topic_info.info.title.value%><%=link_to '查看',{:controller=>:info,:action=>:show},{:target=>'_blank'}%><%=link_to '通过'%><%=link_to '拒绝'%>
+            <%end%>
+          </h4>
+          <p>
+
+          </p>
+        </li>
+      <%end %>
+    <%elsif !@maintainings.nil?%>
+      <h4><%= link_to  @topic.title%>中待审核维护者</h4>
+      <%@maintainings.each do |maintaining|%>
+        <li>
+          <h4>
+            <%= maintaining.maintainer.login%>
+            [<%=link_to '查看',{:controller=>'/users',:action=>:show},{:target=>'_blank'}%>]
+            [<%=link_to '通过',{:controller=>:maintainings,:action=>:verify_maintaining,:id=>maintaining.id,:verify=>'1'}%>]
+            [<%=link_to '拒绝',{:controller=>:maintainings,:action=>:verify_maintaining,:id=>maintaining.id,:verify=>'0'}%>]
+          </h4>
+          <p>
+
+          </p>
+        </li>
+      <%end %>
+    <%end%>
+  </ul>
+</div>

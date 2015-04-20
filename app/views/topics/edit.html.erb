@@ -1,0 +1,36 @@
+<% form_for @topic do |f| %>
+
+  名称<br>
+  <%= f.text_field :title %><br>
+
+  描述<br>
+  <%= f.text_area :description,:size=>"30X50" %><br>
+
+
+  状态:
+  <%= f.radio_button :status,1%>正常
+  <%= f.radio_button :status,0%>关闭
+  <%= f.radio_button :status,2%>删除<br>
+
+  是否验证别人加入的信息:
+  <%= f.radio_button :if_verify_info,false%>不需要验证
+  <%= f.radio_button :if_verify_info,true%>需要验证<br>
+
+  允许谁follow:
+  <%= f.radio_button :following_mode,1%>任何人加入
+  <%= f.radio_button :following_mode,2%>允许成员
+  <%= f.radio_button :following_mode,0%>自己使用<br>
+
+  允许谁维护:
+  <%= f.radio_button :maintaining_mode,1%>任何人
+  <%= f.radio_button :maintaining_mode,2%>成员
+  <%= f.radio_button :maintaining_mode,0%>本人<br>
+
+    允许使用的应用:<br>
+  <%@all_info_types.each do |info_type|%>
+    <%= check_box_tag 'info_type_id[]',info_type.id,true if @info_type_ids_of_topic.member?(info_type.id)%>
+    <%= check_box_tag 'info_type_id[]',info_type.id,false unless @info_type_ids_of_topic.member?(info_type.id)%>
+    <%= info_type.cloud_tool_name %><br>
+  <%end%>
+  <%= submit_tag 'update' %>
+<% end %>

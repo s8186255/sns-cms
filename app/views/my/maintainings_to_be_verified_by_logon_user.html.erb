@@ -1,0 +1,9 @@
+<%unless @maintainings_to_be_verified.blank?%>
+  <%  @maintainings_to_be_verified.each do |maintaining|%>
+    <div id="list">
+      [<%=link_to Topic.find_by_id(maintaining.topic_id).title%>]
+      [<%=link_to User.find_by_id(maintaining.maintainer_id).login%>]
+    </div>
+  <%end%>
+    <%= will_paginate @maintainings_to_be_verified %>
+<%end%>

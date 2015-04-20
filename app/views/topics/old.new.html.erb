@@ -1,0 +1,38 @@
+
+<% form_tag({ :action => "create" },
+  :enctype =>"multipart/form-data") do %><br/>
+
+  <%= label_tag '','title' %>
+  <%= text_field_tag 'title','' %><br/>
+
+  <%= label_tag '','description' %>
+  <%= text_area_tag 'description','' %><br/>
+
+  <%= label_tag 'if_followable','不允许follow' %>
+  <%=  radio_button_tag  'if_followable',0,checked=false %>
+  <%= label_tag 'if_followable','允许follow' %>
+  <%=  radio_button_tag  'if_followable',1,checked=true %><br/>
+
+  <%= label_tag 'status','公开' %>
+  <%=  radio_button_tag  'status',1,checked=true %>
+  <%= label_tag 'status','不公开' %>
+  <%=  radio_button_tag  'status',0,checked=false %><br/>
+
+  <%= label_tag 'if_verify_follower','不需要验证追随者' %>
+  <%=  radio_button_tag  'if_verify_follower',0,checked=true %>
+  <%= label_tag 'if_verify_follower','需要验证追随者' %>
+  <%=  radio_button_tag  'if_verify_follower',1,checked=false %><br/>
+
+  <%= label_tag 'if_permit_other_infos','不允许加入信息' %>
+  <%=  radio_button_tag  'if_permit_other_infos',0,checked=true %>
+  <%= label_tag 'if_permit_other_infos','允许加入信息' %>
+  <%=  radio_button_tag  'if_permit_other_infos',1,checked=false %><br/>
+
+  <%= label_tag 'if_verify_info','不需要验证信息加入' %>
+  <%=  radio_button_tag  'if_verify_info',0,checked=true %>
+  <%= label_tag 'if_verify_info','需要验证信息加入' %>
+  <%=  radio_button_tag  'if_verify_info',1,checked=false %><br/>
+
+
+  <%= submit_tag(value = "create", options = {}) %>
+<% end %>

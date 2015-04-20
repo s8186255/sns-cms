@@ -1,0 +1,84 @@
+
+<!-- 将信息列表展示-->
+<div id="list-area">
+  <h3>我的信息列表：</h3>
+  <%unless @infos.nil?%>
+    <%  @infos.each do |info|%>
+      <%unless info.items.find(:first).nil?%>
+        <div id="list">
+          <div id="info">
+            <p><%=info.title.value[0,20]%></p>
+          </div>
+          <ul l class="about">
+            <li>发布到<%= link_to TopicInfo.find_all_by_info_id(info).size %>个地盘</li>
+            <li>点击x次</li>
+            <li><%= link_to info.comments_count %>次</li>
+          </ul>
+          <ul  class="operation">
+            <li><%= link_to '查看' ,:controller=>'/infos',:action=> 'show',:id=>info.id %></li>
+            <li>修改</li>
+            <li>删除</li>
+            <li></li>
+          </ul>
+        </div>
+
+      <%end%>
+    <%end%>
+  <%end%>
+</div>
+
+<div id="list">
+  <%= link_to '更多...',:controller=>'/my',:action=> 'more_infos'%>
+</div>
+<!-- 我创建的地盘列表展示-->
+<h3>我创建的地盘信息:</h3>
+<%unless @my_c_topics.blank?%>
+  <%  @my_c_topics.each do |topic|%>
+    <div id="list">
+      [<%=link_to topic.title%>]
+      [共<%= topic.followings_count %>追随者]
+      [申请加入者<%= link_to User.find_by_sql(['select * from users where id IN (select maintainer_id from maintainings where topic_id = ? AND verified = 0)',topic.id]).size %>人]
+    </div>
+  <%end%>
+  <div id="list">
+    <%= link_to '更多...',:controller=>'/my',:action=> 'more_topics_of_logon_user'%>
+  </div>
+
+<%else%>
+  <div id="list">
+    (无)
+  </div>
+<%end%>
+
+<!-- 我负责维护的地盘需要我做的事情将信息列表展示-->
+<h3>我参与维护的地盘信息:</h3>
+<%unless @my_m_topics.blank?%>
+  <%  @my_m_topics.each do |topic|%>
+    <div id="list">
+      <%=link_to topic.title%>
+      [共(<%= link_to topic.followings_count %>)追随者]
+      [待审核(<%= link_to Info.find_by_sql(['select * from infos where id IN (select info_id from topic_infos where topic_id =? AND verified = 0)',topic.id]).size %>)条信息,
+      (<%= link_to User.find_by_sql(['select * from users where id IN (select follower_id from followings where topic_id = ? AND verified = 0)',topic.id]).size %>)个加入申请]<br>
+    </div>
+  <%end%>
+<%else%>
+  <div id="list">
+    (无)
+  </div>
+<%end%>
+<!-- 我follow的地盘动态-->
+<h3>我加入的地盘信息:</h3>
+<%unless @my_f_topics.blank?%>
+  <%  @my_f_topics.each do |topic|%>
+    <div id="list">
+      <%= link_to topic.title%>
+      [共(<%= link_to topic.followings_count %>)追随者]<br>
+    </div>
+  <%end%>
+<%else%>
+  <div id="list">
+    (无)
+  </div>
+<%end%>
+<!-- 将信息列表展示-->
+

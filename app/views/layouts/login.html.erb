@@ -1,0 +1,169 @@
+<html>
+  <head>
+
+    <meta name="save" content="history">
+
+
+    <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+    <%= stylesheet_link_tag 'login/login2.css' %>
+  </head>
+  <body loadcompleted="true" >
+    <center id="container">
+      <div class="wd domainTop">
+        <!--<img src="/images/login/logo_domainmail1252051483ln[1].gif" class="qqmaillogo" alt="我秀">-->
+
+        <div class="top">
+          <a href="/" >返回首页</a>
+          <a href="" target="_blank" style="border: medium none ;">反馈意见</a>
+          <a href="" target="_blank" style="border: medium none ;">帮助中心</a>
+
+        </div>
+        <%for m in [:notice, :warning, :message]%>
+          <% unless flash[m].blank? %>
+            <div id="notification"><%= flash[:notice] %></div>
+          <% end %>
+        <%end%>
+      </div>
+      <!--      <div id="downError" class="wd" style="display: none;">
+              <div style="border: 1px solid rgb(250, 220, 128); margin: 0pt 3px 10px 12px; padding: 8px 8px 6px; background: rgb(255, 249, 227) none repeat scroll 0% 0%; text-align: left; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; color: rgb(116, 62, 4);"><b style="font-family: Verdana; font-style: normal; font-variant: normal; font-weight: bold; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">由于加载安全组件失败，为了您的帐号安全，无法正常登录邮箱，解决方法：</b>
+                <ul style="margin: 6px 0pt 0pt 18px; padding: 0pt; line-height: 18px;">
+                  <li>按下F5重新刷新页面。</li>
+                  <li>打开浏览器“选项”菜单，选择“Internet选项”，执行清空缓存功能，确定后按F5刷新本页面。</li>
+                  <li>如上述方式仍然无法解决问题，请登录<a href="" target="_blank">邮箱论坛通知我们</a>，我们将尽快为您解决。</li>
+                </ul>
+              </div>
+            </div>-->
+      <div id="returnMsg">
+      </div>
+
+      <div class="wd main" style="margin-top: 28px;">
+
+        <div class="loginplan_bg">
+          <div class="loginplan">
+            <div class="loginname">登录<span class="f_size graytext" style="font-weight: normal;"></span></div>
+            <div style="background: rgb(245, 245, 245) none repeat scroll 0% 0%; ">
+              <div style="padding: 0pt 6px 20px;">
+
+                <noscript>
+                  <div class="infobar1" style="margin:10px 0;padding:4px 0 4px 6px;">您的浏览器不支持或已经禁止网页脚本，您无法正常登录。<a href="" title="了解网页脚本限制的更多信息" target="_blank"><img src="" style="margin:2px 4px 2px 0;" align="absmiddle" />如何解除脚本限制</a></div>
+                </noscript>
+                <div class="infobar1" id="infobarNoCookie" style="margin: 10px 0pt; padding: 4px 0pt 4px 6px; display: none; width: 100%;">您的浏览器不支持或已经禁止使用Cookie，您无法正常登录。<a href="http://domain.mail.qq.com/zh_CN/help/error_nocookie.html" title="了解Cookie的更多信息" target="_blank"><img src="" style="margin: 2px 4px 2px 0pt;" align="absmiddle">如何启用Cookie</a></div>
+                <div style="height: 18px;">
+                  <div id="msgContainer" style="margin: 0pt 0pt 10px; padding: 1px 0pt 0pt 2px;"></div>
+                </div>
+                <!--
+                                  <div style="overflow: hidden;">
+                                    <label for="uin" class="column">帐　号：</label><input id="inputuin" name="inputuin" value="" tabindex="1" style="ime-mode: disabled;" class="txt text" type="text">
+                                  </div>
+                                  <div id="chen2" style="padding: 3px 0pt 5px 63px; color: rgb(134, 134, 134);"></div>
+                                  <div style="margin: 8px 0pt 0pt; height: 25px; clear: left;">
+                                    <label for="pp" class="column">密　码：</label><input id="pp" name="pp" value="" tabindex="2" class="txt text" onpropertychange="ChkPsw();" type="password">
+                                  </div>
+                <!--<div style="margin: 8px 0pt 0pt; display: none;" id="VerifyArea">
+                  <div style="height: 25px;">
+                    <label for="vc" class="column">验证码：</label>
+                    <input id="vc" name="verifycode" value="" tabindex="3" style="ime-mode: disabled;" autocomplete="off" maxlength="4" class="txt text" type="text">
+                  </div>
+                  <div style="margin: 6px 0pt 0pt 62px; clear: both; color: rgb(134, 134, 134);">按下图字符填写，不区分大小写</div>
+                  <div style="margin: 6px 0pt 6px 62px; color: rgb(134, 134, 134);">
+                    <img id="vfcode" src="qq登录域名邮箱首页_files/getverifyimage[1]__1_.jpg" style="border: 1px solid rgb(228, 238, 249); cursor: pointer;" >
+                    <br>
+                    <a href="">看不清楚？&nbsp;换一个</a>
+                  </div>
+                </div>
+
+                <div style="margin: 8px 0pt 0pt 56px; clear: both;" id="sss">
+                  <div style="height: 25px; padding-top: 8px; padding-left: 2px;">
+                    <input id="ss" name="ss" value="1" tabindex="4"  type="checkbox"><label for="ss" style="margin-top: -3px;">记住登录状态</label>
+                  </div>
+                </div>
+                <div style="display: none; color: rgb(255, 0, 0); clear: both; width: 100%;" id="divSavePassWarning">
+			选择此项后，下次将自动登录邮箱（本机两周内有效）。为了您的信息安全，请不要在网吧或公用电脑上使用。
+                </div>
+                <div style="padding: 12px 0pt 0pt 60px; clear: both; height: 27px ! important;">
+                  <input class="btn" style="font-weight: bold;" value="登 录" id="btlogin" name="btlogin" tabindex="4" type="submit">
+                </div>
+                <div style="margin: 10px 0pt 10px 60px; color: rgb(134, 134, 134); clear: left;">
+												已使用安全方式登录
+
+
+                </div>
+                -->
+                <% form_tag session_path do -%>
+
+                  <div style="overflow: hidden;">
+                    <label  for="uin" class="column">帐　号：</label>
+                    <%= text_field_tag 'login' %>
+                  </div>
+
+                  <div style="margin: 8px 0pt 0pt; height: 25px; clear: left;">
+                    <label for="pp" class="column">密　码：</label>
+                    <%= password_field_tag 'password' %>
+                  </div>
+
+                  <!-- Uncomment this if you want this functionality
+                  <div style="margin: 8px 0pt 0pt; height: 25px; clear: left;">
+                    <label for="remember_me">记住登录状态</label>
+  <%#= check_box_tag 'remember_me' %>
+                  </div>-->
+
+
+                  <p><%= submit_tag '登 录' %></p>
+                <% end -%>
+              </div><!-- 非记住登录状态 DIV 收尾 -->
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="adplan" style="padding: 10px 0pt 0pt 150px; background: transparent url(;) no-repeat scroll 0pt 0pt; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; height: 200px;">
+
+          <h2 style="margin: 0pt; padding: 0pt; font-size: 16px;">我秀：通过地盘，打造自己的信息空间</h2>
+          <ul class="featureList" style="padding-bottom: 4px;">
+            <li><span>可以将自己的地盘定义为公用、成员、私人</span></li>
+            <li><span>同时创建多个地盘</span></li>
+            <li><span>通过地盘，建立无限沟通的可能</span></li>
+            <li><span>来试试吧</span></li>
+          </ul>
+
+          <div style="margin: 0pt 20px 20px;">
+            <a href="" target="_blank">了解更多»</a>
+          </div>
+          <div style="margin: 20px 0pt 10px;">
+            <a href="" class="domainButton">马上申请账号</a>
+          </div>
+          <div class="">
+				已经有自己的账号？<a href="">管理我的地盘</a>
+          </div>
+
+
+        </div>
+
+        <div style="clear: both;"></div>
+      </div>
+
+      <div class="wd" style="border: 1px solid rgb(255, 255, 255); margin-top: 40px;">
+        <div class="navPageBottom">
+          <a href="" target="_blank">关于我秀</a>
+          <a href="" target="_blank">About wooxo</a>
+          <a href="" target="_blank">服务条款</a>
+          <a href="" target="_blank" class="end">客服中心</a>
+        </div>
+        <div class="copyright cLight">
+		© 2010 woooxo Inc. All Rights Reserved&nbsp;&nbsp;
+        </div>
+      </div>
+
+
+      <
+    </center>
+    <div id="divProber" style="display: none;">
+
+    </div>
+  </body>
+</html>

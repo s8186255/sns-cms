@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= @current_topic.title %></title>
+    <!--<link href="indexOfUser/index_my.css" rel="stylesheet" type="text/css" />-->
+    <%= stylesheet_link_tag "indexOfZone/#{@css}" %>
+    <%= stylesheet_link_tag "list_and_details" %>
+    <script type="text/javascript">
+      <!--
+      function setTab(name,cursel,n){
+        for(i=1;i<=n;i++){
+          var menu=document.getElementById(name+i);
+          var con=document.getElementById("con_"+name+"_"+i);
+          menu.className=i==cursel?"hover":"";
+          con.style.display=i==cursel?"block":"none";
+        }
+      }
+      //-->
+    </script>
+  </head>
+  <body>
+    <div id="title">
+      <span class="txt"><%= link_to '我秀网首页',:controller=>:main,:action=>:index %></span>
+      <span class="line">|</span>
+      <span class="txt"><%= link_to '我的首页',:controller=>:my,:action=>'index' %></span>
+
+    </div>
+    <!--container是一个页面容器div定义了可见区域的-->
+
+    <div id="container">
+      <!--pageHeader定义页面头部信息-->
+      <div id="pageHeader">
+
+        <!--
+        <div id="search">
+          <div class=" search-list">
+            <ul class="linklist9 cf">
+              <li class="first selected"><a href="http://www.bing.com/search?FORM=MSNH11&amp;q=">Web</a></li>
+              <li><a href="http://www.bing.com/search?q=&amp;FORM=MSNH11&amp;scope=msn">MSN</a></li>
+              <li><a href="http://www.bing.com/images/search?q=&amp;FORM=MSNH11">Images</a></li>
+              <li><a href="http://www.bing.com/videos?FORM=MSNH11&amp;q=">Videos</a></li>
+              <li><a href="http://www.bing.com/shopping/search?FORM=MSNH11&amp;q=">Shopping</a></li>
+              <li><a href="http://www.bing.com/news/?FORM=MSNH11&amp;q=">News</a></li>
+              <li class="last"><a href="http://www.bing.com/maps/?FORM=MSNH11&amp;q=">Maps</a></li>
+            </ul>
+          </div>
+
+          <div class="kvlc"></div>
+          <div class="kvwrap">
+            <form id="srchfrm" class="simple6" method="get" action="http://www.bing.com/search">
+              <div class="frmwrp">
+                <input type="text" accesskey="S" maxlength="250" size="75" name="q" id="f1" autocomplete="off"/>
+                <input type="image" name="imageField" src="/images/index_15.gif"/>
+              </div>
+            </form>
+          </div>
+          <div class="kvrc"></div>
+        </div>
+
+
+        <div id="login">登录</div>-->
+      </div>
+
+      <div id="banner">
+        <%= image_tag 'rails.png'%>
+      </div>
+
+      <div id ="menu">
+        <h3>菜单栏</h3>
+        <div id="login">
+          <% if logged_in? %>
+            <p>
+              登录者是:
+              <%= current_user.login %>
+              <%= link_to "注销", session_path,:method => :delete %>
+            </p>
+          <% else %>
+            <p><%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+          <% end %>
+        </div>
+        <div id="search">
+          <%form_tag '/zones/search'do -%>
+            <%=text_field_tag 'search_text'%>
+            <%=hidden_field_tag 'topic_title',@current_topic.id%>
+            <%=submit_tag '搜索'%>
+          <%end%>
+        </div>
+        <div id="following_indicator">
+          <%= link_to '关注',:controller=>:followings,:action=>:participate_following,:id=>@current_topic.id %>
+        </div>
+        <ul>
+
+          <%@current_topic.topic_info_types.each do |topic_info_type|%>
+            <li><%= link_to topic_info_type.display_name_in_topic,:action=>:list_info,:id=>topic_info_type.id %></li>
+          <%end unless @current_topic.topic_info_types.nil?%>
+
+        </ul>
+
+      </div>
+
+
+      <!--middle定义页面中部信息-->
+      <div id="content">
+        <%=yield%>
+      </div>
+      <!--right定义页面右侧信息-->
+      <div id="ad">
+        <p>广告</p>
+      </div>
+      <!--footer定义页面底部信息-->
+      <div id ="footer"> </div>
+    </div>
+  </body>
+</html>

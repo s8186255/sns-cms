@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>News</title>
+    <%= javascript_include_tag :defaults %>
+    <style type="text/css">
+       #news {
+         margin-left: 20px;
+         width: 800px;
+       }
+       #mainContent {
+         float: right;
+         width: 540px;
+       }
+       #leftNav {
+         float: left;
+         margin-top: 20px;
+         width: 120px;
+       }
+       #footer {
+         clear: both;
+         text-align: center;
+       }
+    </style>
+  </head>
+  <body>
+    <%= yield  %>
+  </body>
+</html>

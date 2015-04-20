@@ -1,0 +1,17 @@
+<h1>New role</h1>
+
+<% form_for([:admin,@role]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    角色名称<%= f.text_field :name %>
+  </p>
+  <p>
+    显示名称<%= f.text_field :display_name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', admin_roles_path %>

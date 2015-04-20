@@ -1,0 +1,16 @@
+<h1>Edit <%= @following.follower_id %></h1>
+<%= error_messages_for :following%>
+<% form_for(@following) do |f| -%>
+<p>
+<%= f.label :follower_id, "follower_id" %><br />
+<%= f.text_field :follower_id %>
+</p>
+<p>
+<%= f.label :topic_id, "topic_id" %><br />
+<%= f.text_field :topic_id%>
+</p>
+
+
+<p><%= f.submit "Update" %> </p>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>

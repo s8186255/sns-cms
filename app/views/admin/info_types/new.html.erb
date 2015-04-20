@@ -1,0 +1,23 @@
+<% form_tag({ :action => "create" },
+  :enctype =>"multipart/form-data") do %>
+
+  <%= label_tag 'name','name' %>
+  <%=  text_field_tag 'name'%><br/>
+  <%= label_tag 'description','description' %>
+  <%=  text_field_tag  'description'%><br>
+  对应的应用名称<%= text_field_tag 'cloud_tool_name' %><br>
+  状态<%= radio_button_tag 'status',1,true %>正常
+  <%= radio_button_tag 'status',0,false %>暂停使用<br>
+
+  <b>fields:</b>
+  <%= link_to_remote "Add field",
+    :update => "fields",
+    :url => { :action => "add_field" },
+    :position => "bottom" %>;
+
+  <div id="fields">
+    <%= render :partial => 'add_field' %>
+  </div>
+
+  <%= submit_tag(value = "create", options = {}) %>
+<% end %>

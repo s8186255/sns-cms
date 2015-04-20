@@ -1,0 +1,79 @@
+body {
+    background: #FFF;
+    font: 13px/1.5 Arial;
+    margin:0;
+    padding:0;
+}
+
+p{
+    text-indent:2em;
+}
+
+.rounded {
+    width:100%;
+    
+}
+.rounded h2 {
+    background:top right no-repeat;
+    padding:20px 20px 10px;
+    margin:0;
+}
+.rounded .main {
+    padding:10px 20px;
+    margin:-2em 0 0 0;
+}
+.rounded .footer {background:none
+}
+.rounded .footer p {
+    color:#888;
+    text-align:right;
+    display:block;
+    padding:10px 20px 20px;
+    margin:-2em 0 0 0;
+}
+#navi .rounded .main a{
+    display:block;
+    height:2.0em;
+    padding:0em;
+    border:0px  #151571 outset;
+    font-size:1em;
+}
+
+
+#header,#pagefooter,#container{
+    margin:0 auto;
+    width:1024px; border:solid #C0CEDC 1px
+}
+
+#navi{
+    float:left;
+    width:160px;
+    border:solid #C0CEDC 1px
+}
+
+
+#content{
+    float:left;
+    width:624px;
+    border:solid #C0CEDC 1px
+}
+
+
+
+#side{
+    float:left;
+    width:234px;
+    border:solid #C0CEDC 1px
+}
+
+#pagefooter{
+    clear:both;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 10px 0px 10px 0px;
+    background: #C0CEDC url(corner.gif) no-repeat;
+    line-height:27px;
+    padding-left:10px;
+}

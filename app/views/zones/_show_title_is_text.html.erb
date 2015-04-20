@@ -1,0 +1,7 @@
+<div id="infoArea">
+  <ul>
+    <%@infos_of_info_types["#{topic_info_type.info_type_id}"].each do |info|%>
+      <li><%= link_to info.title.value,:controller=>'zones',:action=>'display_info_details',:id=>info.id,:topic_id=>@topic.id%></li>
+    <%end%>
+  </ul>
+</div>

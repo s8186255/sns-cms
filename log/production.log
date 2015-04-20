@@ -1,0 +1,505 @@
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-17 21:14:16) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 1732ms (View: 1028, DB: 656) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-17 21:14:19) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-17 21:14:22) [GET]
+Rendering registers/new
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-17 21:39:51) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 749ms (View: 329, DB: 357) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-17 21:39:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-17 21:39:55) [GET]
+Rendering registers/new
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-17 21:41:38) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+
+Net::SMTPFatalError (553 From <ADMINEMAIL>, message blocked, sender not exist or has no privilege..
+):
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:680:in `check_response'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:653:in `getok'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:631:in `mailfrom'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:544:in `send0'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:472:in `sendmail'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:379:in `start'
+  app/models/user_observer.rb:3:in `after_create'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:185:in `notify_observers'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `each'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `notify_observers'
+  app/controllers/registers_controller.rb:16:in `create'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-17 21:51:47) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+
+Net::SMTPFatalError (553 From <ADMINEMAIL>, message blocked, sender not exist or has no privilege..
+):
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:680:in `check_response'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:653:in `getok'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:631:in `mailfrom'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:544:in `send0'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:472:in `sendmail'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:379:in `start'
+  app/models/user_observer.rb:3:in `after_create'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:185:in `notify_observers'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `each'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `notify_observers'
+  app/controllers/registers_controller.rb:16:in `create'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-17 21:52:15) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 327ms (View: 235, DB: 826) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-17 21:52:18) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-17 21:52:21) [GET]
+Rendering registers/new
+Completed in 22ms (View: 20, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-17 21:52:42) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+
+Net::SMTPFatalError (553 From <ADMINEMAIL>, message blocked, sender not exist or has no privilege..
+):
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:680:in `check_response'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:653:in `getok'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:631:in `mailfrom'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:544:in `send0'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:472:in `sendmail'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:379:in `start'
+  app/models/user_observer.rb:3:in `after_create'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:185:in `notify_observers'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `each'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `notify_observers'
+  app/controllers/registers_controller.rb:16:in `create'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-17 22:40:50) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+
+Net::SMTPFatalError (553 From <ADMINEMAIL>, message blocked, sender not exist or has no privilege..
+):
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:680:in `check_response'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:653:in `getok'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:631:in `mailfrom'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:544:in `send0'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:472:in `sendmail'
+  D:/IR/ruby/lib/ruby/1.8/net/smtp.rb:379:in `start'
+  app/models/user_observer.rb:3:in `after_create'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:185:in `notify_observers'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `each'
+  D:/IR/ruby/lib/ruby/1.8/observer.rb:184:in `notify_observers'
+  app/controllers/registers_controller.rb:16:in `create'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-17 23:46:04) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 1009ms (View: 104, DB: 1046) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-17 23:46:07) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-17 23:46:10) [GET]
+Rendering registers/new
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-17 23:46:31) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 2904ms (DB: 103) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-17 23:46:34) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 34ms (View: 23, DB: 9) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-17 23:46:34) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:08:13) [GET]
+Rendering registers/new
+Completed in 1509ms (View: 1394, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:09:22) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 8567ms (DB: 305) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:09:32) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 754ms (View: 464, DB: 251) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:09:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:13:27) [GET]
+Rendering registers/new
+Completed in 39ms (View: 33, DB: 144) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:14:03) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Rendering registers/new
+Completed in 515ms (View: 3, DB: 345) | 200 OK [http://localhost/registers]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:14:57) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 6616ms (DB: 300) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:15:04) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 228ms (View: 173, DB: 49) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:15:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:19:13) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 181ms (View: 113, DB: 64) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:19:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:19:22) [GET]
+Rendering registers/new
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:19:40) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 2240ms (DB: 128) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:19:42) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 39ms (View: 24, DB: 13) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:19:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:27:21) [GET]
+Rendering registers/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:27:42) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 1917ms (DB: 246) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:27:44) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 72ms (View: 21, DB: 30) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:27:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:29:13) [GET]
+Rendering registers/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:29:27) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 1271ms (DB: 178) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:29:28) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 4049ms (View: 4040, DB: 9) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:29:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegistersController#new (for 127.0.0.1 at 2010-03-18 00:33:42) [GET]
+Rendering registers/new
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/registers/new]
+
+
+Processing RegistersController#create (for 127.0.0.1 at 2010-03-18 00:34:06) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"111111", "password"=>"111111", "login"=>"suanqi003", "email"=>"saq@xj.cninfo.net"}, "commit"=>"commit", "authenticity_token"=>"MydeOmiDDVzHIwlV1cLAYl0QL+pYtSZx3m91s/ASHuY="}
+Sent mail to saq@xj.cninfo.net
+Redirected to http://localhost:3000/
+Completed in 2178ms (DB: 270) | 302 Found [http://localhost/registers]
+
+
+Processing IndexController#i (for 127.0.0.1 at 2010-03-18 00:34:08) [GET]
+Rendering template within layouts/index
+Rendering /common/topic_list
+Completed in 295ms (View: 162, DB: 126) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-18 00:34:08) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/search_list.css" with {:method=>:get}):
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/IR/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/IR/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)

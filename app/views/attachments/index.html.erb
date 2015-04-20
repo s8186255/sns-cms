@@ -1,0 +1,5 @@
+<% @assets.each do |a|%>
+  <li id="asset">
+    <%= link_to image_tag(a.public_filename(:tiny)) %><br />
+  </li>
+<% end %>

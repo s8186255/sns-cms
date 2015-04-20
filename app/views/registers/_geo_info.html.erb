@@ -1,0 +1,15 @@
+<%if @map%>
+  <div id="gmap">
+    <%= link_to_function 'hide map' ,
+      "Element.hide('gmap');Element.show('showmaplink')"%>
+
+    <%= @map.to_html %>
+    <%= @map.div(:width => 600, :height => 400) %>
+    经度：<%=text_field_tag  'latitude'%><br>
+    纬度：<%=text_field_tag  'longitude'%><br>
+  </div>
+  <%= link_to_function 'show map' ,
+    "Element.show('gmap');Element.hide('showmaplink')",
+    :id=>'showmaplink',
+    :style=>'display:none'%>
+<%end%>

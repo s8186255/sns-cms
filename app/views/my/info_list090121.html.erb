@@ -1,0 +1,37 @@
+<!-- 将信息列表展示-->
+<div id="list-area">
+  <h3>我发布的信息：</h3>
+  <%unless @infos.nil?%>
+    <%  @infos.each do |info|%>
+      <%unless info.title.nil?%>
+        <div id="list">
+          <div id="info">
+            <%if info.title.content_type_id == 5%>
+              <p><%=info.title.value[0,20]%></p>
+            <%elsif  info.title.content_type_id == 7%>
+              <%=image_tag 'rails.png'%>
+            <%end%>
+          </div>
+          <ul class="about">
+            <li>发布到<%= link_to TopicInfo.find_all_by_info_id(info).size %>个地盘</li>
+            <li>点击x次</li>
+            <li><%= link_to info.comments_count %>次</li>
+          </ul>
+          <!--<ul class="clear"></ul>-->
+          <ul class="operation">
+            <li><%= link_to '查看' ,:controller=>'/infos',:action=> 'show',:id=>info.id %></li>
+            <li><%= link_to '修改' ,:controller=>'/infos',:action=> 'edit',:id=>info.id %></li>
+            <li><%= link_to '删除' ,:controller=>'/infos',:action=> 'destroy',:id=>info.id %></li>
+          </ul>
+        </div>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>
+
+<div id="list">
+  <%= link_to '更多...',:controller=>'/my',:action=> 'more_infos'%>
+</div>
+
+<!-- 将信息列表展示-->
+

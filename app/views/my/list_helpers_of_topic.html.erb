@@ -1,0 +1,48 @@
+<ul id="topic_list">
+
+  <li id="topic_entry">
+    <div id="topic_avatar">
+      <%=link_to image_tag(@topic.topic_avatar.public_filename,:size=>"70X70") unless @topic.topic_avatar.nil?%>
+      <%=link_to image_tag("rails.png",:size=>"70X70") if @topic.topic_avatar.nil?%>
+    </div>
+
+    <div id="topic_about">
+      <span><%=link_to @topic.my_title,{:controller=>:zones,:action=>:show,:id=>@topic.id},{:target=>'_blank'}%></span>
+      <div id="topic_description">描述:<%=@topic.description%></div>
+
+
+      <p>
+        拥有者为<%=@topic.creator_login%>,浏览<span><%=@topic.view_count %></span>次,
+        共<span><%= @topic.info_count%></span>条信息,
+        <span><%= @topic.maintainers(1).size%></span>人参与维护,
+        <span><%= @topic.following_count%></span>人追随
+      </p>
+      <div>
+        <%form_tag('/my/config_helpers_of_topic') do%>
+          <div>目前的帮手为,你也可以在这里取消这些帮手：</div>
+          <%unless @topic.helpers.blank?%>
+            <%@topic.helpers.each do |maintainer|%>
+              <div><%= check_box_tag 'maintainer_ids[]',maintainer.id,true%><%= maintainer.login%></div>
+            <%end%>
+          <%else%>
+            <div>目前还没有帮手</div>
+          <%end%>
+          <%unless @topic.common_maintainers.blank?%>
+            <div>你可以从下面的信息提供者中选择新的帮手：</div>
+
+            <%@topic.common_maintainers.each do |maintainer|%>
+              <div><%= check_box_tag 'maintainer_ids[]',maintainer.id%><%= maintainer.login%></div>
+            <%end%>
+          <%else%>
+            暂无新的用户申请成为此地盘的信息提供者！
+          <%end%>
+          <%=hidden_field_tag 'topic_id',@topic.id%>
+          <div><%=submit_tag '确定'%></div>
+        <%end %>
+      </div>
+    </div>
+
+
+    <div style="clear: both;"></div>
+  </li>
+</ul>

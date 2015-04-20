@@ -1,0 +1,19 @@
+<h1>Edit <%= @user.login %></h1>
+<%= error_messages_for :user%>
+<% form_for(@user) do |f| -%>
+<p>
+<%= f.label :name, "name" %><br />
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :password, "password" %><br />
+<%= f.text_field :password%>
+</p>
+
+<p>
+<%= f.label :description, "description" %><br />
+<%= f.text_field :description %>
+</p>
+<p><%= f.submit "Update" %> </p>
+<% end -%>
+<p><%= link_to "back", :action => 'index' %></p>

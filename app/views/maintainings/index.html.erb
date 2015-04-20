@@ -1,0 +1,5 @@
+<% for following in @followings%>
+  <%= link_to Topic.find(following.topic_id).title, :action => 'show', :id => following %>
+  <%= link_to "remove",following, :confirm => 'Are you sure?', :method => :delete %><br>
+<% end%>
+

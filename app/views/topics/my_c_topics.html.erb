@@ -1,0 +1,15 @@
+<% for topic in @topics%>
+  <%= topic.title%>
+  <%= link_to "详细",:action=>'show',:id=> topic %>
+  <%= link_to "编辑", :action => 'edit', :id => topic %>
+  <%= link_to "我的信息数量#{}", :action => 'edit', :id => topic %>
+  <%= link_to "别人的信息数量#{}", :action => 'edit', :id => topic %>
+  <%= link_to "加入地盘的人数#{}", :action => 'edit', :id => topic %>
+  <%= link_to "维护地盘的人数#{}", :action => 'edit', :id => topic %>
+  <%= link_to "评论数量#{}", :action => 'edit', :id => topic %>
+  <%= link_to "光顾地盘的人次#{}", :action => 'edit', :id => topic %>
+  <%= link_to "点击信息次数#{}", :action => 'edit', :id => topic %>
+  <%= link_to "删除",topic, :confirm => 'Are you sure?', :method => :delete %>
+  <br>
+<% end%>
+

@@ -1,0 +1,24 @@
+<h1>图片列表</h1>
+<table>
+<tr>
+<th>所有人</th>
+<th>是否作为头像</th>
+<th>预览</th>
+</tr>
+
+<% @pictures.each do |picture| %>
+<tr>
+
+<td><%= image_tag thumb_picture_path(picture,:format=>:jpg) %></td>
+
+<td><%= embedded_image_tag(picture.operate { |img| img.resize 100 }) if picture.has_image? %></td>
+
+<td><%= link_to 'Show', picture %></td>
+<td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+<td><%= link_to 'Destroy', picture, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to '上传图片', new_picture_path %>

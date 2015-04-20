@@ -1,0 +1,26 @@
+<div id="topicList">
+  <div id="topicImgOperation">
+    <div id="topicImg">
+      <p><%=@topic.title%></p>
+    </div>
+    <ul id="topicOperation">
+      <li>topicOperation1</li>
+      <li>topicOperation2</li>
+    </ul>
+  </div>
+  <ul id="topicAbout">
+    <li>topicAbout1</li>
+    <li>topicAbout2</li>
+  </ul>
+  <ul id="infoList">
+    <%@topic.infos(1,5).each do |info| %>
+      <%unless info.title.nil?%>
+        <%if info.title.content_type_id == 5%>
+          <li><%= link_to info.title.value %></li>
+        <%elsif info.title.content_type_id ==7%>
+          <li><%= link_to "图片信息" %></li>
+        <%end%>
+      <%end%>
+    <%end%>
+  </ul>
+</div>

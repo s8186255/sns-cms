@@ -1,0 +1,19 @@
+<% for item in @items%>
+  <%if item.extra_condition_id ==0 %>
+    <%=render :partial=>'extra_condition_id_is_0',:locals=>{:item=>item}%>
+
+  <%elsif item.extra_condition_id ==1%>
+    <%=render :partial=>'extra_condition_id_is_1'%>
+  <%else %>
+    <%=render :partial=>'extra_condition_id_is_2'%>
+  <%end%>
+<div id="haha"></div>
+<% end%>
+<%= link_to "评论",:controller=>"comments",:action=>"new",:id=> item.info_id%>
+
+<br>
+<p>以下是评论内容</p>
+<%  for  comment in @comments   %>
+  内容:  <%=  comment.content  %><br  />
+  得分:  <%=  comment.score  %><br  />
+<%  end  %>

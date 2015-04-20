@@ -1,0 +1,87 @@
+body {
+  font-family:微软雅黑;
+  text-align:center;
+
+}
+/*container*/
+#container {
+  position:relative;
+  font-size: 24px;
+  width: 1024px;
+  border:thin dashed #00FF00;
+  text-align:left;
+  margin:auto;
+  background-image:url(DSC00854.JPG);
+  background-color:#9966FF;
+}
+/*pageHeader*/
+#pageHeader {
+  border:thin dashed #00FF00;
+  padding:0px;
+  background-color:#9966FF;
+  background-image:url(DSC00854.JPG);
+}
+
+#banner {height:30px;border:thin dashed #00FF00;}
+#topicClassification {height:30px;border:thin dashed #00FF00;}
+#search {height:30px;border:thin dashed #00FF00;}
+#login {height:30px;border:thin dashed #00FF00;}
+
+
+/*left*/
+#left {
+  /*      width: 400px;*/
+  float: left;
+  border:thin dashed #00FF00;
+}
+#menu {
+  /*
+  margin: 66px 0px 0px 0px;
+
+  height:30px;
+  */
+  width: 150px;
+
+  border:thin dashed #00FF00;
+
+}
+
+#menu ul {
+  list-style:none;
+  margin: 0px;
+  padding:0px;
+  margin:2px;
+
+}
+#menu li{
+  /*float:left;*/
+  border-left:10px solid #711515;
+}
+#menu li a{
+  display:block;
+}
+#menu li a:link,#menu li a:visited{
+  background-color:#CC3300	}
+#menu li a:hover{
+  background-color:#009900
+}
+
+/*middle*/
+#middle {
+  float: left;
+  border:thin dashed #00FF00;
+}
+/*right*/
+#right {
+  float: right;
+  width: 218px;
+  border:thin dashed #00FF00;
+}
+/*foot*/
+
+#footer {
+  width: 1024px;
+  height: 300px;
+  clear: both;
+  border:thin dashed #00FF00;
+}

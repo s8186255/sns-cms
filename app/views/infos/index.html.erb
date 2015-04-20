@@ -1,0 +1,14 @@
+<%@infos.each do |info|%>
+      <%if info.title.content_type_id == 5%>
+        <div id ="list_info_text">
+          <%= link_to info.title.value,:controller=>'infos',:action=>'show',:id=>info.id%><br>
+        </div>
+      <%elsif info.title.content_type_id == 7%>
+        <div id ="list_info_img">
+          <%= link_to image_tag(info.title.attachments.find(:first).public_filename),:controller=>'infos',:action=>'show',:id=>info.id%>
+        </div>
+      <%end%>
+    <%=  link_to "拒绝",:controller=>:infos,:action=>:verify_topic_info,:verify_id=>0,:info_id=>info.id,:topic_id=>@topic.id%>
+    <%=  link_to "接受",:controller=>:infos,:action=>:verify_topic_info,:verify_id=>1,:info_id=>info.id,:topic_id=>@topic.id%>
+
+<%end%>

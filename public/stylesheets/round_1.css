@@ -1,0 +1,77 @@
+body {
+    background: #FFF;
+    font: 13px/1.5 Arial;
+    margin:0;
+    padding:0;
+}
+
+p{
+    text-indent:2em;
+}
+
+.rounded {
+    background: url(../images/round/left-top.gif)   top left no-repeat;
+    width:100%;
+    
+}
+.rounded h2 {
+    background:
+    url(../images/round/right-top.gif)
+    top right no-repeat;
+    padding:20px 20px 10px;
+    margin:0;
+
+}
+.rounded .main {
+    background:url(../images/round/right.gif) top right repeat-y;
+    padding:10px 20px;
+    margin:-2em 0 0 0;
+}
+.rounded .footer {
+    background:
+    url(../images/round/left-bottom.gif)
+    bottom left no-repeat;
+}
+.rounded .footer p {
+    color:#888;
+    text-align:right;
+    background:url(../images/round/right-bottom.gif) bottom right no-repeat;
+    display:block;
+    padding:10px 20px 20px;
+    margin:-2em 0 0 0;
+}
+#navi .rounded .main a{
+    display:block;
+    height:2.0em;
+    padding:0em;
+    border:0px  #151571 outset;
+    font-size:1em;
+}
+
+
+#header,#pagefooter,#container{
+    margin:0 auto;
+    width:1024px;
+}
+
+#navi{
+    float:left;
+    width:200px;
+}
+
+
+#content{
+    float:left;
+    width:624px;
+}
+
+
+
+#side{
+    float:left;
+    width:200px;
+}
+
+#pagefooter{
+    clear:both;
+}

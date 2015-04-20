@@ -1,0 +1,74 @@
+/* 
+Document   : style
+Created on : 2009-6-19, 0:58:51
+Author     : wyy
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/* 
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+body {
+    background-color:olive;
+    margin: 20px;
+    padding: 0;
+    font-size: 1.1em;
+    font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#content {
+    position: relative;
+    width: auto;
+    min-width: 120px;
+    margin: 0 210px 20px 170px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+    z-index: 3;
+}
+#notification{
+    
+}
+#login_logout{
+
+    font-family: sans-serif;
+    background-color:gray;
+    background-repeat: repeat;
+    font-variant: normal;
+    color: silver;
+}
+#navleft {
+    position: absolute;
+    width: 140px;
+    top: 20px;
+    left: 20px;
+    font-size: 0.9em;
+    border: 1px  black;
+    background-color: white;
+    padding: 10px;
+    z-index: 2;
+}
+#navleft  a{
+    display:block;
+    height:2.5em;
+    padding:2px;
+    border:2px  #151571 outset;
+    font-size:0.8em;
+    
+}
+#advright {
+    position: absolute;
+    width: 168px;
+    top: 20px;
+    right: 20px;
+    border: 1px solid black;
+    background-color: #eee;
+    padding: 10px;
+    z-index: 1;
+}
+
+

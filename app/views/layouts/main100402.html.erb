@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>一切皆可简单(测试版)</title>
+
+    <%= stylesheet_link_tag 'indexOfSys/skin.css' %>
+    <%= stylesheet_link_tag 'indexOfSys/square.css' %>
+    <%= stylesheet_link_tag 'indexOfSys/common.css' %>
+
+    <%#= stylesheet_link_tag 'list_and_details.css' %>
+
+  </head>
+  <body>
+    <div class="MIB_bloga">
+      <div class="MIB_blogb">
+        <!--顶托盘-->
+        <!--顶托盘-->
+        <div class="MIB_trayMain">
+          <div class="MIB_trayMainbg"></div>
+          <div class="MIB_trayMain_txt">
+            <div class="lf">
+              <span class="txt"><%= link_to '首页',:controller=>:main,:action=>:index%></span>
+              <span class="line">|</span>
+              <span class="txt"><%= link_to '我的首页',{:controller=>:my,:action=>'index'},{:target=>'_blank'} %></span>
+              <span class="line">|</span>
+              <span class="txt"><a href="/help.html" target="_blank">帮助</a></span>
+
+            </div>
+            <div class="rt">
+              <!--              <span class="txt"><a href="http://help.sina.com.cn/p/i_12.html" target="_blank">帮助</a></span>
+                            <span class="line">|</span>
+                            <span class="txt"><a href="http://t.sina.com.cn/logout.php?backurl=/">退出</a></span>
+              -->            </div>
+          </div>
+          <div class="MIB_trayMain_search" id="m_search">
+            <!--            <span class="inpu">
+                          <input style="color: rgb(153, 153, 153);" id="m_keyword" value="搜索地盘或信息..." autocomplete="off"   type="text">
+                        </span>
+                        <a class="btn_normal btnxs" href="" id="m_submit"><em>搜索</em></a>
+            -->          </div>
+<!--
+          <div id="top_tray_msg_panel" class="small_Yellow" style="position: absolute; left: 510px; top: 35px; z-index: 299;">
+            <!--<table class="CP_w">
+              <thead>
+                <tr>
+                  <th class="tLeft"><span></span></th>
+                  <th class="tMid"><span></span></th>
+                  <th class="tRight"><span></span></th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <td class="tLeft"><span></span></td>
+                  <td class="tMid"><span></span></td>
+                  <td class="tRight"><span></span></td>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td class="tLeft"><span></span></td>
+                  <td class="tMid">
+            <tr>
+            <!-- 任何内容 开始 -->
+            <!--<div id="toptray_yellow_tip" class="yInfo"><div class="l_1">1条新评论，<a href="http://t.sina.com.cn/comments">查看评论</a></div></div>->
+            <!-- 任何内容 结束 -->
+            </td>
+            <td class="tRight"><span></span></td>
+            </tr>
+            </tbody>
+            </table>-->
+            <!--<div class="arrow"></div>-->
+            <!--<div class="close"><a href="" ><img src="sinaweiboguangchang_files/fbqimgclose[1].gif" height="7" width="8"></a></div>-->
+          </div>
+
+        </div>
+
+        <!--/顶托盘-->
+        <!--logo-->
+        <!--        <div class="TopName">
+                  <div class="logo"></div><a class="logoLink" href="http://t.sina.com.cn/1312219142"></a>
+                  <div class="copytxt"><a  href=""><img title="新浪认证" class="small_icon collecticon" src="sinaweiboguangchang_files/transparent[1].gif">加入收藏夹</a><a href="http://t.sina.com.cn/invite/invite.php"><img title="新浪认证" class="small_icon seemeicon" src="sinaweiboguangchang_files/transparent[1].gif">邀请好友关注我 </a></div>
+                </div>
+        -->        <!--/logo-->
+        <!--/顶托盘-->
+        <!--正文-->
+        <div class="MIB_blogbody">
+          <div class="MIB_square_head">
+            <ul>
+              <li class="cur"><a href="">首页</a></li>
+              <li><a href="">分类</a></li>
+              <li class="down_arrow" id="square_tag_dropdown"><a href="">热门标签</a><em></em></li>
+            </ul>
+          </div>
+          <div class="MIB_square_body">
+            <div class="mainCont">
+              <!-- mainLeft -->
+              <div class="lf mainLeft">
+                <!-- topicBox -->
+
+                <div class="searchSBox">
+                  <!-- searchS -->
+                  <div class="clear searchS">
+                    <!--<em class="msyh font_14">搜索一下：</em>
+                    <input style="color: rgb(153, 153, 153);" id="keyword" class="kwd" type="text">
+                    <a href="javascrip:void(0);" id="topic_search" class="greenBtn">搜地盘</a>
+                    <a href="javascrip:void(0);" id="user_search" class="greenBtn">搜信息</a>-->
+
+                    <%form_tag '/main/search'do -%>
+                      搜索一下：
+                      <%=text_field_tag 'search_text',nil,:class=>'kwd',:id=>'keyword'%>
+                      <%=submit_tag '搜地盘'%>
+                      <%=submit_tag '搜信息'%>
+                    <%end%>
+                  </div>
+                  <!-- /searchS -->
+                  <!-- hotWords -->
+                  <!--                  <div class="hotWords">
+                                      <em class="lf hotIcon" title="热词">热词</em>
+                                      <span class="lf link_c">
+                                        <a target="_blank" href="http://t.sina.com.cn/k/春运~票~黄牛~回家" class="rank买票回家">买票回家</a>
+                                        <a target="_blank" href="http://t.sina.com.cn/k/火~丰台" class="rank北京丰台起火">北京丰台起火</a>
+                                        <a target="_blank" href="http://t.sina.com.cn/k/奥斯卡" class="rank奥斯卡提名">奥斯卡提名</a>
+                                        <a target="_blank" href="http://t.sina.com.cn/k/新版微博~升级" class="rank新版微博">新版微博</a>
+                                        <a target="_blank" href="http://t.sina.com.cn/k/年会" class="rank年会">年会</a>
+                                        <a target="_blank" href="http://t.sina.com.cn/k/年终奖" class="rank年终奖">年终奖</a>
+                                      </span>
+                                      <div class="clear"></div>
+                                    </div>
+                  -->
+                  <!-- /hotWords -->
+                </div>
+                <!-- /topicBox -->
+
+                <!-- 名人推荐 -->
+
+                <!-- 可能感兴趣的人 -->
+
+                <div id ="main_content">
+                  <%=yield%>
+                </div>
+                <!-- /可能感兴趣的人 -->
+
+
+                <!-- 随便看看-->
+
+                <!-- /随便看看 -->
+              </div>
+              <!-- /mainLeft -->
+              <!-- mainRight -->
+              <div class="rt mainRight">
+                <!-- welcome -->
+                <dl class="welcome">
+
+
+                  <% if logged_in? %>
+                    
+                    <dd><%= current_user.login %></dd><dd>欢迎来到首页</dd>
+                    <dd><%= link_to "注销", session_path,:method => :delete %></dd>
+
+                  <% else %>
+                    <p><%= link_to '登录', new_session_path %>或者<%=link_to '注册',:controller=>'registers',:action=>'new'%></p>
+                  <% end %>
+
+               </dl>
+                <!-- /welcome -->
+                <!-- TOP10 -->
+ <!--                <dl class="top10 hotTipS">
+                  <dt class="topTit"><a href="http://t.sina.com.cn/pub/hottopic">推荐地盘榜</a></dt>
+                  <dd class="topCont">
+                    <div class="line">
+                      <div class="width13"><em class="topNum1">1</em></div>
+                      <div class="topName"><a href="http://t.sina.com.cn/k/ipad">ipad</a><em class="tipNums">(5493)</em></div>
+                      <div class="trend"><em class="upicon"></em></div>
+                    </div>
+                    <div class="line">
+                      <div class="width13"><em class="topNum2">2</em></div>
+                      <div class="topName"><a href="http://t.sina.com.cn/k/杜蕾斯">杜蕾斯</a><em class="tipNums">(1386)</em></div>
+                      <div class="trend"><em class="upicon"></em></div>
+                    </div>
+                    <div class="line">
+                      <div class="width13"><em class="topNum3">3</em></div>
+                      <div class="topName"><a href="http://t.sina.com.cn/k/很黄">很黄</a><em class="tipNums">(4208)</em></div>
+                      <div class="trend"><em class="upicon"></em></div>
+                    </div>
+                    <div class="line">
+                      <div class="width13">4</div>
+                      <div class="topName"><a href="http://t.sina.com.cn/k/a股">a股</a><em class="tipNums">(6143)</em></div>
+                      <div class="trend"><em class="upicon"></em></div>
+                    </div>
+                  </dd>
+                  <dd class="link_c"><a href="http://t.sina.com.cn/pub/hottopic">查看更多<em>&gt;&gt;</em></a></dd>
+                </dl>
+-->                <!-- /TOP10 -->
+                <!-- TOP10 -->
+                <!--                <dl class="top10">
+                                  <dt class="topTit"><a href="http://t.sina.com.cn/pub/top">人气关注榜 TOP10</a></dt>
+                                  <dd class="topCont">
+                                    <table cellpadding="0" cellspacing="0">
+                                      <tbody><tr>
+                                          <td class="width13"><em class="topNum1">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/yaochen"></a><a href="http://t.sina.com.cn/yaochen" uid="1266321801" title="姚晨">姚晨</a></div></td>
+                                          <td><div class="tipNums">938,262</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13"><em class="topNum2">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/zhaowei"></a><a href="http://t.sina.com.cn/zhaowei" uid="1656809190" title="赵薇">赵薇</a></div></td>
+                                          <td><div class="tipNums">798,556</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13"><em class="topNum3">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/kaifulee"></a><a href="http://t.sina.com.cn/kaifulee" uid="1197161814" title="李开复">李开复</a></div></td>
+                                          <td><div class="tipNums">600,210</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13">4</td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/huangjianxiang"></a><a href="http://t.sina.com.cn/huangjianxiang" uid="1362607654" title="黄健翔">黄健翔</a></div></td>
+                                          <td><div class="tipNums">538,745</div></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </dd>
+                                  <dd class="link_c"><a href="http://t.sina.com.cn/pub/top">查看更多<em>&gt;&gt;</em></a></dd>
+                                </dl>
+                -->                <!-- /TOP10 -->
+                <!-- TOP10 -->
+                <!--                <dl class="top10">
+                                  <dt class="topTit"><a href="http://t.sina.com.cn/pub/top">最新地盘榜 TOP10</a></dt>
+                                  <dd class="topCont">
+                                    <table cellpadding="0" cellspacing="0">
+                                      <tbody><tr>
+                                          <td class="width13"><em class="topNum1">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/duanzi" uid="1628951200" title="段子">段子</a></div></td>
+                                          <td><div class="tipNums">84,907</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13"><em class="topNum2">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/hougong" uid="1665289110" title="后宫优雅">后宫优雅</a></div></td>
+                                          <td><div class="tipNums">55,592</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13"><em class="topNum3">1</em></td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/lxhjx" uid="1644395354" title="冷笑话精选">冷笑话精选</a></div></td>
+                                          <td><div class="tipNums">27,504</div></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="width13">4</td>
+                                          <td><div class="topName"><a href="http://t.sina.com.cn/yknym" uid="1646275113" title="一棵男玉米">一棵男玉米</a></div></td>
+                                          <td><div class="tipNums">22,544</div></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </dd>
+                                  <dd class="link_c"><a href="http://t.sina.com.cn/pub/top">查看更多<em>&gt;&gt;</em></a></dd>
+                                </dl>
+                -->                <!-- /TOP10 -->
+                <!-- sofa -->
+                <!-- /sofa -->
+
+                <!--                 <dl class="top10 noticeS">
+                                  <dt class="topTit"><a href="http://t.sina.com.cn/k/鏂扮増寰崥鎰忚鍙嶉" target="_blank">我秀网意见反馈</a></dt>
+                                  <dd>欢迎使用我秀网并提出宝贵建议。请<a href="http://t.sina.com.cn/k/鏂扮増寰崥鎰忚鍙嶉" target="_blank">点击这里</a>提交意见反馈。 </dd>
+                                  <dd><a href="http://blog.sina.com.cn/sinat" target="_blank">点击查看我秀网动态</a> </dd>
+                                </dl>
+                -->
+              </div>
+              <!-- /mainRight -->
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <!--/正文-->
+        <!--尾-->
+        <!--尾-->
+        <div class="MIB_foot">
+          <div class="linkInfo">
+            <span class="span1">
+              <a href="" target="_blank">帮助</a><em><!-- |</em><a href="http://t.sina.com.cn/guide" target="_blank">新手引导</a><em>|</em><a href="http://open.t.sin.com.cn" target="_blank">开发者平台</a><em>-->|</em><a href="" target="_blank">意见反馈</a><em>|</em><a href="" target="_blank">不良信息举报</a></span>
+            <span class="span2">客服电话：</span>
+          </div>
+          <div class="copyInfo">
+            <span class="span1">Copyright © 1996-2010 wooxo Corporation,All Rights Reserverd</span>
+            <span class="span2"><a href="" target="_blank">沃西公司</a> <a href="" target="_blank">版权所有</a></span>
+          </div>
+        </div>
+        <!--/尾-->
+
+
+        <!--/尾-->
+      </div>
+    </div>
+
+  </body>
+</html>

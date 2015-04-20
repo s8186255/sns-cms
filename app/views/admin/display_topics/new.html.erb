@@ -1,0 +1,27 @@
+<h1>新建</h1>
+
+<% form_for([:admin,@display_topic]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    地盘id<%= f.text_field :topic_id %>
+  </p>
+  <p>
+    类型<%= f.select :display_type,[['推荐',1],['广告',2]] %>
+  </p>
+  <p>
+    区域<%= f.select :region_id,[['全国',0],['新疆',1],['北京',2],['上海',3]]%>
+  </p>
+  <p>
+    开始于<%= f.date_select :from %>
+  </p>
+  <p>
+    结束于<%= f.date_select :to %>
+  </p>
+ <p>
+    显示状态<%= f.select :status,[['正常',true],['关闭',false]] %>
+  </p>
+   <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

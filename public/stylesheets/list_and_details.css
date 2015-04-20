@@ -1,0 +1,58 @@
+/*topic 列表显示*/
+#topic_list{margin:0px;}
+
+#topic_list h3{margin-left:0px}
+#topic_entry{clear:left;height:auto;border-bottom:1px dashed #AAAAAA;padding:10px;list-style-type:none;margin-left:0px }
+#topic_avatar{float:left;}
+
+#topic_about{float:left;width:480px;margin-left:10px;}
+#topic_about span{margin-left:3px; }
+#topic_about #topic_description{margin-bottom:5px;min-height:20px;}
+
+#topic_about #topic_operation{position:relative;}
+#topic_about #topic_operation ul{list-style-type:none;min-height:15px;margin-left:0px;}
+#topic_about #topic_operation li{float:left;}
+#topic_about #topic_operation span{margin-left:3px;}
+
+/*菜单栏，实现多级菜单*/
+/*#topic_operation {font-family: arial, sans-serif;  position:relative; font-size:60%;margin:0px 8px;}*/
+/*#topic_operation ul li a, #topic_operation ul li a:visited {display:block;color: #8BADCF;text-decoration:none;  text-align:center;    overflow:hidden;}
+/*#topic_operation ul {padding:0; margin:0;list-style-type: none; }*/
+/*#topic_operation ul li { margin-right:1px; position:relative;}*/
+#topic_about #topic_operation ul li ul {display: none;margin-left:-145px;margin-top:20px;z-index:2;}
+#topic_about #topic_operation ul li ul li{border-right:none;display:block;width:100px;}
+
+/* specific to non IE browsers */
+#topic_about #topic_operation ul li:hover a {color:#fff; background:#36f;}
+#topic_about #topic_operation ul li:hover ul {display:block; position:absolute; top:0; left:184px; width:140px;}
+#topic_about #topic_operation ul li:hover ul li a.hide {background:#6a3; color:#fff;}
+#topic_about #topic_operation ul li:hover ul li:hover a.hide {background:#6fc; color:#000;}
+#topic_about #topic_operation ul li:hover ul li ul {display: none;}
+#topic_about #topic_operation ul li:hover ul li a {display:block; background:#eee; color:#000;}
+#topic_about #topic_operation ul li:hover ul li a:hover {background:#6fc; color:#000;}
+#topic_about #topic_operation ul li:hover ul li:hover ul {display:block; position:absolute; left:105px; top:0;}
+
+/*info 列表显示*/
+#info_list{background-color:white}
+#info_list ul{list-style-type:none;margin:5px 0px 5px 0px;border-bottom:1px dashed #AAAAAA;}
+#info_list li{padding:5px;margin-left:0px;}
+#info_list h4{margin:1px}
+#info_list #updated_at{margin-left:40px;font-size:80%;color:#cccccc;}
+/*补充内容*/
+/*zone的信息列表*/
+.info_statistics{font-size:80%}
+
+
+/*显示info细节的时候的tab选项*/
+#Tab{width:400px;}
+.Menubox{height:32px;border-bottom:1px solid #64B8E4;background:inherit;font-size:60%;}
+.Menubox ul{list-style:none;padding:0;position:absolute;}
+.Menubox ul li{float:left;background:#64B8E4;line-height:20px;display:block;cursor:pointer;width:65px;text-align:center;color:#fff;font-weight:bold;border-top:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;}
+.Menubox ul li.hover{background:#fff;border-bottom:1px solid #fff;color:#147AB8;}
+.Contentbox{;font-size:60%;clear:both;margin-top:0px;border-top:none;border-bottom:1px solid #64B8E4;border-left:1px solid #64B8E4;border-right:1px solid #64B8E4;height:181px;padding-top:8px;height:100%;}
+.Contentbox ul{list-style:none;margin:7px;padding:0;}
+.Contentbox ul li{line-height:24px;border-bottom:1px dotted #ccc;float:left;width:100px;}
+.Contentbox .textArea{text-decoration:none;border:solid;height:100px;width:380px;}
+
+/*info细节中的各种页面元素的定义*/
+.input{border:solid blue 1px;}

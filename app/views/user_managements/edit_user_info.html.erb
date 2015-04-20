@@ -1,0 +1,12 @@
+<h1>Edit <%= @user.login %></h1>
+<% form_for :user, :url => { :action => "update_user_info" }  do |f| %>
+
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">Confirm Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= f.submit "Update" %> </p>
+<% end %>
+

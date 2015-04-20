@@ -1,0 +1,60 @@
+<% form_tag({:action => 'update'},:enctype =>"multipart/form-data")do %>
+  <% for item in @items%>
+    <%=label_tag ItemType.find(item.item_type_id).name%><br>
+
+    <%if @item_is_attachment.member? ItemType.find(item.item_type_id).content_type_id  %>
+      <%=file_field_tag "item_values[]"%>
+    <%elsif @item_is_common.member? ItemType.find(item.item_type_id).content_type_id%>
+      <%=text_field_tag  "item_values[]",item.value%>
+    <%elsif @item_is_rich_text.member? ItemType.find(item.item_type_id).content_type_id%>
+      <!--模仿sina在线编辑器开始-->
+      <input type="hidden" id="content1" name="item_values[]" value=""></input>
+      <iframe id="myEditor" src="/editor/editor.htm?id=content1" frameborder="0" scrolling="no" width="550" height="220"></iframe>
+      <!--模仿sina在线编辑器结束-->
+    <%elsif @item_is_geo.member? ItemType.find(item.item_type_id).content_type_id%>
+      <%if @map%>
+        <%= GMap.header %>
+
+        <%= link_to_function 'show map' ,
+          "Element.show('gmap')"%>
+        <%= link_to_function 'hide map' ,
+          "Element.hide('gmap')"%>
+
+        <div id="gmap">
+          <%= @map.to_html %>
+          <%= @map.div(:width => 600, :height => 400) %>
+          位置信息<br>
+          经度：<%=text_field_tag  'latitude'%><br>
+          纬度：<%=text_field_tag  'longitude'%><br>
+        </div><br>
+        <%end%>
+      <%end%>
+    <% end%>
+
+  </br>
+  <%= label_tag 'if_commented','不允许评论' %>
+  <%=  radio_button_tag  'if_commented',@info.if_commented,true %>
+  <%= label_tag 'if_commented','允许评论' %>
+  <%=  radio_button_tag  'if_commented',@info.if_commented,true %>
+  <br>
+  <p>此信息已挂接在如下topic下</p>
+  我创建的topic:<br>
+  <%if @my_topics.blank? != true%>
+    <% for topic in @my_topics%>
+      <%= check_box_tag 'selected_topics[]',topic.id %><%=topic.title%><br>
+    <% end%>
+  <%end%>
+
+  别人创建的topic:<br>
+  <%if @other_topics.blank? != true%>
+    <% for topic in @other_topics%>
+      <%= check_box_tag 'selected_topics[]',topic.id %><%=topic.title%><br>
+    <% end%>
+  <%end%>
+
+  <%if @other_topics.blank? and @my_topics.blank? %>
+    没有任何可以挂接的topic
+  <%end%>
+  <%=hidden_field_tag "id",@info.id%>
+  <%= submit_tag "更新" %>
+<% end -%>

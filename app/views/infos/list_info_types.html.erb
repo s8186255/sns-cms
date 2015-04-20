@@ -1,0 +1,5 @@
+<% for f in @info_types %>
+<%= link_to f.name,:action=>'new',:info_type_id=> f.id %>
+
+<br>
+<% end%>

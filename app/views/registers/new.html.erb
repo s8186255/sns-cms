@@ -1,0 +1,21 @@
+<%#= GMap.header %>
+<%= error_messages_for :user %>
+<% form_tag({ :action => "create" },:enctype =>"multipart/form-data") do %>
+  <p><label for="login">登录名</label><br/>
+  <%= text_field_tag 'user[login]' %></p>
+
+
+  <p><label for="password">密码</label><br/>
+  <%= password_field_tag 'user[password]' %></p>
+
+  <p><label for="password_confirmation">确认密码</label><br/>
+  <%= password_field_tag 'user[password_confirmation]' %></p>
+
+  <p><label for="email">邮件（请输入真实的邮件地址，便于激活账号）</label><br/>
+  <%= text_field_tag 'user[email]' %></p>
+
+  上载照片<br>
+  <%=file_field_tag 'user_avatar'%><br>
+  <%#= render :partial=>'geo_info'%>
+  <%= submit_tag 'commit' %>
+<% end %>

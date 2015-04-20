@@ -1,0 +1,14 @@
+<div id="topic_list">
+  <ul>
+    <%@topics.each do |topic|%>
+      <li>
+        <h4>
+          <%=link_to topic.title,:controller=>'/zones',:action=>:show,:title=>topic.title%>
+        </h4>
+        <div >
+          <%= topic.description %>
+        </div>
+      </li>
+    <%end%>
+  </ul>
+</div>

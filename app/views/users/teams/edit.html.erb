@@ -1,0 +1,22 @@
+<h1>Editing team</h1>
+<% form_for([:user,@team]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description,:size=>'30x6' %>
+  </p>
+  <p>选择如下用户，添加到team中</p>
+  <%@team_users.each do |team_user|%>
+    <%= check_box_tag  "user_ids[]",team_user.user_id,true%>
+    <%=User.find(team_user.user_id).login%>
+    <br>
+  <%end%>
+  <p>
+    <%= f.submit 'update' %>
+  </p>
+<% end %>

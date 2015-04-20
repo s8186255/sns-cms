@@ -1,0 +1,12 @@
+<h1>编辑 <%= @content_type.name %></h1>
+<%= error_messages_for :content_type%>
+<% form_for([:admin,@content_type]) do |f| %>
+
+  <p>
+    名称：<%= f.text_field :name %><br>
+    显示名称：<%= f.text_field :display_name %><br>
+  </p>
+
+  <p><%= f.submit "更新" %> </p>
+<% end %>
+<p><%= link_to "返回", :action => 'index' %></p>

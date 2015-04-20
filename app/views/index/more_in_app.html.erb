@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'list' %>
+
+<!-- 新建信息-->
+<%=  link_to '新建',:controller=>'/infos',:action=>'new',:id=>@info_type_id%><br>
+<div id="list_block">
+  <h3>信息列表：</h3>
+
+  <!-- 将信息列表展示-->
+  <%unless @infos.nil?%>
+    <%  @infos.each do |info|%>
+      <%unless info.items.find_by_if_title(true).nil?%>
+        <div id="list">
+
+          <%if info.items.find_by_if_title(true).blank?%>
+            <div id ="list_title">
+              无标题
+            </div>
+          <%else%>
+            <%if info.items.find_by_if_title(true).content_type_id == 7%>
+              <div id ="list_title_img">
+                <%=  link_to image_tag info.items.find_by_if_title(true).attachments.find(:first).public_filename %>
+              </div>
+            <%elsif info.items.find_by_if_title(true).content_type_id == 5%>
+              <div id ="list_title_text">
+                <%=  link_to info.items.find_by_if_title(true).value %>
+              </div>
+            <%end%>
+          <%end%>
+          <div id ="list_others">[<%= link_to '显示全部',info_path(info) %>]</div>
+          <%if info.topic_infos.blank?%>
+            <div id ="list_others">  <%= link_to '发布',:controller=>'topic_infos',:action=>'new',:info_id=>info.id %></div>
+          <%else%>
+            <% info.topic_infos.each do |topic_info|%>
+              <div id ="list_others">    <%= link_to Topic.find(topic_info.topic_id).title %>,</div>
+            <%end%>
+          <%end%>
+          <div id ="list_others">[<%= link_to '编辑',edit_info_path(info)%>]</div>
+          <div id ="list_others">[<%= link_to '删除',info_path(info),:confirm=>'确定删除？',:method=>'delete' %>]</div>
+          <div id ="list_others">[评论数量<%= info.comments_count %>]</div>
+        </div>
+      <%end%>
+    <%end%>
+  <%end%>
+
+</div>

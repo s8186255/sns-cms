@@ -1,0 +1,71 @@
+<h1>Edit <%= @topic_type.name %></h1>
+<%= error_messages_for :topic_type%>
+<% form_for([:admin,@topic_type]) do |f| %>
+
+  <p>
+    <%= f.label :name, "name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description, "description" %><br />
+    <%= f.text_area :description,:size=>'20x6'%>
+  </p>
+  <%  if @topic_type.if_followable ==2 %>
+    <%= f.radio_button :if_followable,'1',:checked=>true %>允许任何人follow
+  <%else%>
+    <%= f.radio_button :if_followable,'1',:checked=>false %>允许任何人follow
+  <%end%>
+  <%  if @topic_type.if_followable ==1 %>
+    <%= f.radio_button :if_followable,'2',:checked=>true %>允许成员follow
+  <%else%>
+    <%= f.radio_button :if_followable,'2',:checked=>false %>允许成员follow
+  <%end%>
+  <%  if @topic_type.if_followable ==0 %>
+    <%= f.radio_button :if_followable,'0',:checked=>true %>不允许follow
+  <%else%>
+    <%= f.radio_button :if_followable,'0',:checked=>false %>不允许follow
+  <%end%><br>
+
+  <%  if @topic_type.if_verify_follower ==true %>
+    <%= f.radio_button :if_verify_follower,'1',:checked=>true %>验证follower
+  <%else%>
+    <%= f.radio_button :if_verify_follower,'1',:checked=>false %>验证follower
+  <%end%>
+  <%  if @topic_type.if_verify_follower ==false %>
+    <%= f.radio_button :if_verify_follower,'0',:checked=>true %>不验证follower
+  <%else%>
+    <%= f.radio_button :if_verify_follower,'0',:checked=>false %>不验证follower
+  <%end%><br>
+
+  <%  if @topic_type.if_permit_other_infos ==2%>
+    <%= f.radio_button :if_permit_other_infos,'1' ,:checked=>true   %>允许任何人的信息加入
+  <%else%>
+    <%= f.radio_button :if_permit_other_infos,'1' ,:checked=>false  %>允许任何人的信息加入
+  <%end%>
+  <%  if @topic_type.if_permit_other_infos ==1%>
+    <%= f.radio_button :if_permit_other_infos,'2' ,:checked=>true   %>允许我的成员添加信息
+  <%else%>
+    <%= f.radio_button :if_permit_other_infos,'2' ,:checked=>false  %>允许我的成员添加信息
+  <%end%>
+  <%  if @topic_type.if_permit_other_infos ==0 %>
+    <%= f.radio_button :if_permit_other_infos,'0',:checked=>true   %>不允许别人的信息加入
+  <%else%>
+    <%= f.radio_button :if_permit_other_infos,'0' ,:checked=>false  %>不允许别人的信息加入
+  <%end%><br>
+
+  <%  if @topic_type.if_verify_info ==true %>
+    <%= f.radio_button :if_verify_info,'1',:checked=>true %>对信息加入进行验证
+  <%else%>
+    <%= f.radio_button :if_verify_info,'1',:checked=>false %>对信息加入进行验证
+  <%end%>
+  <%  if @topic_type.if_verify_info ==false %>
+    <%= f.radio_button :if_verify_info,'0',:checked=>true %>不需要对信息加入进行验证
+  <%else%>
+    <%= f.radio_button :if_verify_info,'0',:checked=>false %>不需要对信息加入进行验证
+  <%end%><br>
+
+ 
+
+  <p><%= f.submit "Update" %> </p>
+<% end %>
+<p><%= link_to "back", :action => 'index' %></p>

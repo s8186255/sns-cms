@@ -1,0 +1,13 @@
+<%= link_to "我要参与维护地盘",:controller=>'maintainings',:action=>'edit_maintainings'%><br>
+<%unless @my_m_topics.blank?%>
+  <%  @my_m_topics.each do |topic|%>
+    <div id="list">
+      [<%=link_to topic.title,:controller=>:zones,:action=>:show,:title=>topic.title%>]
+      [<%=link_to topic.topic_counter.following_count,:controller=>:users,:action=>:list_followers,:topic_id=>topic.id unless topic.topic_counter.nil?%>人追随]
+      [浏览<%=topic.topic_counter.view_count unless topic.topic_counter.nil?%>次数]
+      [<%= topic.topic_counter.info_count unless topic.topic_counter.nil?%>条信息]
+      [<%=link_to topic.infos(0,-1).size,:controller=>:infos,:action=>:index,:id=>topic.id%>条信息加入需要审核]
+    </div>
+  <%end%>
+    <%#= will_paginate @my_m_topics %>
+<%end%>

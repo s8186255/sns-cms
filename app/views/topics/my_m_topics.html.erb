@@ -1,0 +1,8 @@
+<% for topic in @topics%>
+  <%= link_to topic.title,:controller=>:infos,:action=>'index',:id=> topic %>
+  <%= link_to "show",:action=>'show',:id=> topic %>
+  <%= link_to "edit", :action => 'edit', :id => topic %>
+  <%= link_to "remove",topic, :confirm => 'Are you sure?', :method => :delete %>
+  <br>
+<% end%>
+

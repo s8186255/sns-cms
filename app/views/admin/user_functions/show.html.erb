@@ -1,0 +1,23 @@
+<p>
+  <b>User:</b>
+  <%=h @user_function.user_id %>
+</p>
+
+<p>
+  <b>Function:</b>
+  <%=h @user_function.function_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @user_function.status %>
+</p>
+
+<p>
+  <b>Up to:</b>
+  <%=h @user_function.up_to %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_user_function_path(@user_function) %> |
+<%= link_to 'Back', admin_user_functions_path %>
